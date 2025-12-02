@@ -1,0 +1,91 @@
+%------------------------------INFORMATION-------------------------------%
+
+% Author: Gabriele Cembalo
+% Personal page: https://gcembalo.github.io
+
+% I created this template to write notes, handouts, summaries, and actually
+% even my thesis (after adjusting the cover page) in LaTeX. 
+% The template is organized as follows: inside the "Chapter" folder you 
+% should place all .tex files containing the body of the document; 
+% inside the "Figure" folder you should obviously place all the figures used 
+% in the document. If the document is particularly long,
+% I recommend organizing the figures into subfolders named after the 
+% corresponding .tex file. The file "Bibliography.bib" is clearly the 
+% bibliography of the document (I use biblatex), and the last important 
+% file is "NotesTemplate.sty", which can be seen as the complete list of 
+% packages (organized by theme) and commands that I usually use, or that are
+% generally useful for writing a scientific document.
+
+% Note that inside the "Chapter" folder there is also "Title page", which
+% of course contains the code for the title page. This folder also contains 
+% an image. The file "00-Legal Info.tex" is used to store (and print) the 
+% legal protection information regarding the distribution of the notes.
+% An Italian version is also available.
+
+% The template is organized so that you write the various chapters separately 
+% and then include them in the main file using the command \input{...}, 
+% after the already included introduction chapter
+% (\include{Chapter/1-Introduction}).
+
+% When you decide to use this template, you need to know which parts to
+% modify before starting to write your text:
+% 
+% main.tex : \title{} , \author{} , \date{} , \epigraph{quotation}
+% Bibliography.bib : your reference texts
+% Title page.tex : Figure
+% 00-Legal Info.tex : Course , Professor
+% 0-Preface.tex : Course , Professor , academic year , write the 
+% appropriate description , "last update"
+
+%-------------------------------------------------------------------------%
+
+\documentclass[11pt,a4paper,twoside,openright]{book}
+
+\usepackage{NotesTemplate} % Import my template
+
+%---------------------------------DOCUMENT--------------------------------%
+
+%\title{\Large Appunti del corso di: \\ \vspace{5pt} \huge \textbf{CORSO}}
+\title{\Large Notes from the course on: \\ \vspace{5pt} \huge \textbf{COURSE}}
+\author{\large{Gabriele Cembalo}}
+\date{A.A. 2025-2026}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\include{Chapter/Title page/Title page}
+\newpage
+\nostyle
+\input{Chapter/00-Legal Info.tex} %% LEGAL PART
+                                  %% DO NOT DELETE, IT CONTAINS COPYRIGHT
+\nostyle
+\epigraph{It is more important to have beauty in one's equations than to have them fit experiment.}{P. A. M. Dirac}
+\whitepage % White page (you don't need it if you write oneside document)
+
+\pagenumbering{roman}
+
+\include{Chapter/0-Preface}
+
+\tableofcontents
+%\listoffigures
+\newpage
+
+\whitepage % White page (you don't need it if you write oneside document)
+
+\pagenumbering{arabic}
+
+\include{Chapter/1-Introduction}
+
+%\addcontentsline{toc}{part}{\hspace*{\fill}Appendici\hspace*{\fill}}
+%\part*{Appendici}
+
+%\appendix % All the next chapter are indicated as Appendix
+%\include{Chapter/A-}
+
+\phantomsection 
+\addcontentsline{toc}{chapter}{\bibname} % To put the bibliography in the
+                                         % table of contents (not numbered)
+\nocite{*} % To include all the references, even those not cited.
+\printbibliography % Print the bibliography
+
+\end{document}

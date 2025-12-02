@@ -1,0 +1,228 @@
+%------------------------------INFORMATION-------------------------------%
+
+% Author: Gabriele Cembalo
+% Personal page: https://gcembalo.github.io
+
+% Here you can find all the packages I used to write my LaTeX document.
+% You may add packages, create new commands, and improve the template
+% as you wish. The material is distributed under the license written in
+% "Legal Info.tex".
+%
+% INDEX (this file)
+%     - Essentials
+%     - Bibliography
+%     - Various Package
+%     - Math
+%     - Formatting
+%     - Drawing
+%     - Hyperref Package
+%     - Fancyhdr
+%     - New Command
+%     - Some Problems Fixed
+%
+
+%---------------------------------ESSENTIALS---------------------------------%
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[italian]{babel}
+\usepackage[english]{babel}
+
+%--------------------------------BIBLIOGRAPHY--------------------------------%
+
+\usepackage{biblatex}
+\addbibresource{Bibliography.bib} % Import your bibliobraphy file
+
+%-------------------------------VARIOUS PACKAGE------------------------------%
+
+\usepackage{verbatim} % Allow comment like \begin{comment}...
+\usepackage{graphicx} % For the images
+\usepackage[shortlabels]{enumitem} % to modify itemize and enumerate style
+\usepackage{blindtext} % For random text
+\usepackage{xcolor} % To color the text
+\usepackage{subcaption} % To have two images next to each other
+\usepackage{wrapfig} % To have two images next to each other
+\usepackage[labelfont=bf]{caption} % Define the caption style
+
+\usepackage{epigraph} % Package for the citation
+\setlength{\epigraphrule}{0pt} % Remove the automatica "ephigraph" bar
+
+\usepackage{multirow} % To merge multiple columns and rows in tabular
+%\usepackage{multicol} % To write text in different column
+
+% To use colored box in the text (you can use it for code with verbatim)
+\usepackage[most]{tcolorbox}
+\tcbset{
+  mybox/.style={ colback=gray!10, colframe=gray!50, boxrule=0.5pt, arc=2pt,
+                 left=6pt, right=6pt, top=6pt, bottom=6pt, fontupper=\itshape,
+               }
+}
+%You have to write:
+%
+%\begin{tcolorbox}[mybox, breakable]
+%\end{tcolorbox}
+%
+%%%%%%%%%%%
+
+%------------------------------------MATH------------------------------------%
+
+\usepackage{physics}
+\usepackage[separate-uncertainty=true]{siunitx} % For the u.d.m
+\usepackage{amsmath} % Special caracthers for math
+\usepackage{amsfonts} % Special caracthers for math
+\usepackage{amssymb} % Special caracthers for math
+\usepackage{wasysym} % Package for > e sim
+\usepackage{bbold} % Special caracthers for math
+\usepackage{bm} % For bold math
+\usepackage{empheq} % To modify the equation
+\numberwithin{equation}{section} % Enumerate the equation for the section
+
+%---------------------------------FORMATTING---------------------------------%
+
+% You nedd "enumitem" package to use the following 3 command
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{2pt}
+%\setlist{itemsep=.001mm}
+
+%\usepackage{geometry} % To modify the geometry
+
+% 3 package for the tabular
+\usepackage{booktabs} % To use \toprule, \midrule, \bottomrule
+\usepackage{array} % For column with fixed width
+\usepackage{changepage} % To modify the margin of the page
+
+%-----------------------------------DRAWING----------------------------------%
+
+% Almost every option and library are realted to "tikz" package
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+% A box to Box the equation
+\tikzstyle{mybox}=[draw=black, very thick, rectangle, inner ysep=5pt,
+                   inner xsep=5pt]
+
+% Style definition for arrow in the middle of the path
+\tikzset{
+  arrow inside/.style={
+    postaction=decorate,
+    decoration={
+      markings,
+      mark=at position #1 with {\arrow{>}}
+    }
+  }
+}
+
+%\usepackage{amscd} % From easy diagrams
+
+% Feynman diagram
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{contour} % To fill the vertex (blob)
+\usetikzlibrary{positioning}
+% Package tikz-feynman: LuaTeX is required if you wish to have vertices 
+% automatically placed. You can disable this warning by setting
+% /tikzfeynman/warn luatex=false.
+\tikzfeynmanset{warn luatex=false}
+
+%-----------------------------HYPERREF PACKAGE------------------------------%
+
+% When you want to print the document you can remove the comment from the
+% following commant to hide all the link, but you have to remember to
+% comment the "hypersetup"
+%\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref} % You can use hyper-references and with "\href" 
+                      % you can add link to url
+% The command "\hypersetup" is necessary to modify the color of the different
+% element of the document
+\hypersetup{colorlinks = true,
+            linkcolor=blue,
+            filecolor=magenta,
+            urlcolor=cyan,
+            citecolor=verde}
+% Another option to set the link to the link with a red box around 
+% (the default option is 0 0 1) is to remove the following comment and
+% write "linktocpage = true" in "\hypersetup"
+%\hypersetup{pdfborder=0.5 0.5 0.5}
+
+%----------------------------------FANCYHDR---------------------------------%
+
+\usepackage{fancyhdr} % To modify the document style
+\pagestyle{fancy}
+
+% Setting a two page document
+\fancyhead[LE]{\textbf{\thepage}}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[RO]{\textbf{\thepage}}
+\fancyhead[LO]{\slshape \rightmark}
+\cfoot{}
+
+% Setting one-side document
+%\fancyhead[R]{\textbf{\thepage}}
+%\fancyhead[L]{\slshape \leftmark}
+%\fancyhead[L]{\slshape \rightmark}
+%\cfoot{}
+
+% Option to set the page numbering in the foot
+%\fancyhead[LE]{}
+%\fancyhead[RO]{}
+%\cfoot{\thepage}
+
+%--------------------------------NEW COMMAND--------------------------------%
+
+% Command to create a link to a mail address
+\newcommand{\mail}[1]{\href{mailto:#1}{\texttt{#1}}}
+% Command for a white page
+\newcommand{\whitepage}{\clearpage\null\thispagestyle{empty}\clearpage}
+% Command to have a white page witohout any style
+\newcommand{\nostyle}{\clearpage\null\thispagestyle{empty}}
+
+% Definition of color
+\definecolor{verde}{rgb}{.1, .75, .1}
+\definecolor{grey}{rgb}{.6, .6, .6}
+
+% Setting chapter and section in Caps
+\makeatletter\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+             \makeatother
+\makeatletter\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase
+                          {\@chapapp}\ \thechapter.\ #1}{}}\makeatother
+
+% Some new unit
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\lightyear}{ly}
+\DeclareSIUnit{\fm}{fm}
+\DeclareSIUnit{\barn}{b}
+
+% Some short command for physics
+\newcommand{\qft}{Teoria Quantistica dei Campi}
+\newcommand{\rs}{Relatività Speciale}
+\newcommand{\rg}{Relatività Generale}
+\newcommand{\mq}{Meccanica Quantistica}
+\newcommand{\ms}{Meccanica Statistica}
+\newcommand{\su}{\uparrow} % spin up
+\newcommand{\sd}{\downarrow} % spin down
+\newcommand{\Lag}{$\mathcal{L}$} % Lagrangian density
+\newcommand{\Ham}{$\mathcal{H}$} % Hamiltonian density
+
+\newcommand\mbf[1]{\mathbf{#1}} % mathbf shorts'
+
+% Declaration of theroem and definition
+\newtheorem{teorema}{Teorema}
+%\theoremstyle{definition}
+\newtheorem{definition}{Definizione}
+
+%----------------------------SOME PROBLEM FIXED----------------------------%
+
+% To fix the probem with physics and siunitx
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+    \ExplSyntaxOn
+        \msg_redirect_name:nnn{siunitx}{physics-pkg}{none}
+    \ExplSyntaxOff
+
+% To fix the problem with csquotes
+\usepackage{csquotes}
+
+% To fix the problem with the head of the page
+\setlength{\headheight}{25.22153pt}
+
+%--------------------------------------------------------------------------%
