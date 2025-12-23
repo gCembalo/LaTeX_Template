@@ -1,0 +1,204 @@
+\chapter{Integrali funzionali}
+
+
+\section{Legame tra path integral e prodotto T-ordinato nel vuoto}
+
+L'ampiezza di transizione generica è data da:
+\begin{align}
+    \braket{\psi}{\phi} &= \int\dd q_0\, \dd q_f\, \braket{\psi}{q_f}\braket{q_f}{q_0}\braket{q_0}{\phi} \\
+    &= \int\dd q_0\, \dd q_f\, \psi^*(q_f)\, \phi(q_0)\, \braket{q_f}{q_0}
+\end{align}
+ma a noi interessa studiare il ground state:
+\begin{equation}
+    \braket{0}{0}_{f,g} = \lim_{ {\begin{matrix}
+    t_0\to -\infty \\
+    t_f\to +\infty
+    \end{matrix}} } \int\dd q_0\, \dd q_f\, \psi^*(q_f)\, \phi(q_0)\, \braket{q_f\, t_f}{q_0\, t_0}.
+\end{equation}
+Sapendo che $\psi_n(q) = \braket{q}{n}$ e supponendo $E_0=0$, allora il ground state dello stato finale ed iniziale sono:
+\begin{align}
+    \ket{q_0\, t_0} &= e^{+\frac{i}{\hbar}\, H\, t_0}\ket{q_0} \\
+    &= e^{+\frac{i}{\hbar}\, H\, t_0} \sum_{n\geq 0}\ket{n}\braket{n}{q_0} \\
+    &= \sum_{n\geq 0} e^{+\frac{i}{\hbar}\, E_n\, t_0}\, \psi_n^*(q_0)\, \ket{n}\quad \underset{t\to -\infty(1-i\epsilon)}{\longrightarrow} \quad \psi_0^*(q_0)\, \ket{0}
+\end{align}
+\begin{align}
+    \bra{q_f\, t_f} &= \bra{q_f}\, e^{-\frac{i}{\hbar}\, H\, t_f} \\
+    &= e^{-\frac{i}{\hbar}\, H\, t_f} \sum_{n\geq 0}\braket{q_f}{n}\bra{n} \\
+    &= \sum_{n\geq 0} \bra{n}\, e^{-\frac{i}{\hbar}\, E_n\, t_f}\, \phi_n(q_f)\quad \underset{t\to +\infty(1-i\epsilon)}{\longrightarrow} \quad \bra{0}\, \phi_0(q_f)
+\end{align}
+possiamo moltiplicare per una funzione d'onda arbitraria $\chi(q_0)$, per cui richiediamo $\braket{\chi}{0} \neq 0$, ed integriamo:
+\begin{equation}
+    \int\dd q_0\, \chi(q_0)\, \ket{q_0\, t_0}\quad \underset{t\to -\infty(1-i\epsilon)}{\longrightarrow} \quad \int\dd q_0\, \chi(q_0)\, \psi_0^*(q_0)\, \ket{0} = \braket{\chi}{0}\bra{0}
+\end{equation}
+se facciamo la stessa cosa per gli stati finali con una funzione d'onda $\xi(q_f)$, allora possiamo scrivere il ground state come (riassorbendo $\chi(q_0)$ e $\xi(q_f)$ nella costante di normalizzazione):
+\begin{align}
+    \braket{0}{0} &= \lim_{\begin{matrix}
+    t_0\to -\infty \\
+    t_f\to +\infty
+    \end{matrix}} \frac{\text{cost}}{\braket{\xi}{0}\, \braket{0}{\chi}}\, \int\dd q_0\, \dots\, \dd q_{N+1}\int\dd p_0\, \dots\, \dd p_N\, \cross \notag \\
+    &\qquad \cross \chi(q_0)\, \xi^*(q_f)\, \exp{i\int_{t_0}^{t_f}\dd t\, \Big( p\dot{q} - H(q,p) \Big)} \\
+    &= \frac{1}{\mathcal{N}}\int\mathcal{D}_q\int\mathcal{D}_p\, \exp{i\int_{-\infty}^{+\infty}\dd t\, \Big( p\dot{q} - H(q,p) \Big)}
+\end{align}
+pertanto, aggiungendo i termini di sorgente, abbiamo:
+\begin{equation}
+    \braket{0}{0}_{f,g} = \frac{1}{\mathcal{N}}\int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H(q,p) + fq + gp \Big)}.
+\end{equation}
+Possiamo supporre:
+\begin{equation}
+    H = H_0 + H_{int}
+\end{equation}
+e per cui:
+\begin{equation}
+    \braket{0}{0}_{f,g} = \int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H_0 - H_{int} + fq + gp \Big)}
+\end{equation}
+sviluppando il termine di interazione in serie di potenze:
+\begin{equation}
+    \exp{\frac{i}{\hbar}\, \int\dd t\, H_{int}} = \sum c_{nm}\, q^n\, p^m
+\end{equation}
+dunque abbiamo:
+\begin{align}
+    \braket{0}{0}_{f,h} &= \sum c_{nm}\, (-i\hbar)^{n+m}\, \frac{\delta^n}{\delta f^n}\, \frac{\delta^m}{\delta g^m}\, \cdot \\
+    &\qquad \cdot \int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H_0 + fq + gp \Big)} \\
+    &= \exp{\frac{i}{\hbar}\, \int\dd t\, H_{int}\left( \frac{i\delta}{\hbar\, \delta f}\, ,\, \frac{i\delta}{\hbar\, \delta g} \right)}\, \cross \notag \\
+    &\qquad \cross \int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H_0 + fq + gp \Big)}
+\end{align}
+se ponessimo $H_{int}\to \lambda H_{int}$ con $\lambda$ piccolo, allora potremmo sviluppare perturbativamente il primo termine.
+
+
+\section{Spazio delle coordinate}
+
+Questo conto lo possiamo fare anche nello spazio delle coordinate, integriamo il primo termine della lagrangiana per parti:
+\begin{equation}
+    \Lag_J = \Lag_0 + J\phi = -\frac{1}{2}\phi\, \left( \Box + m^2 \right)\, \phi + J\phi
+\end{equation}
+e poi completiamo il quadrato:
+\begin{multline}
+    \Lag_J = -\frac{1}{2}\, \Big[ \phi - J\, \left( \Box + m^2 \right)^{-1} \Big]\, \left( \Box + m^2 \right)\, \Big[ \phi - J\, \left( \Box + m^2 \right)^{-1} \Big] + \\
+    + \frac{1}{2}\, J\, \left( \Box + m^2 \right)^{-1}\, J
+\end{multline}
+però possiamo ricordarci che l'inverso di un operatore è la sua funzione di Green:
+\begin{equation}
+    \left( \Box + m^2 \right)\, \Delta(x-y) = -i\, \delta^4(x-y)
+\end{equation}
+che abbiamo già calcolato ed è uguale al propagatore (\ref{eqn:1 propagatore spazio impulsi}) e quindi:
+\begin{align}
+    Z[J] &= \frac{1}{N}\, \int\mathcal{D}_\phi\, \exp{ i\langle \Lag_0 + J\phi\rangle } \\
+    &= \exp{-\frac{1}{2}\, \langle J_x\, \Delta(x-y)\, J_y\rangle_{x,y}}.
+\end{align}
+
+
+\section{Rotazione di Wick}
+
+Facendo la \textit{rotazione di Wick}:
+\begin{equation}
+    x_0 = - i\overline{x}_0
+\end{equation}
+ovviamente tutte le quantità si modificano, ma si può vedere l'Appendice \ref{cap:rotazione di Wick} per le relazioni. Notiamo che abbiamo una trasformazione analoga anche per l'impulso:
+\begin{equation}
+    k_0 = -i\, k_0^E
+\end{equation}
+che implica:
+\begin{equation}
+    k^2 = -k^2_E
+\end{equation}
+e che:
+\begin{align}
+    x^\mu\, p_\mu &= Et - \vec{k}\cdot\vec{x} \\
+    &= (-iE_E)\, (-i\tau) - \vec{k}\cdot\vec{x} \\
+    &= -x_\mu^E\, p_\mu^E
+\end{align}
+in cui possiamo mettere entrambi gli indici bassi poiché nello spazio euclideo non cambia nulla la posizione degli indici.
+
+Continuiamo i nostri conti:
+\begin{align}
+    I &= iS + i\langle \phi J\rangle \\
+    &= -S_E + \langle \phi J\rangle_E \\
+    &= \frac{1}{2}\int\dd^4 x_E\, \Big[ -\partial_\mu\phi\, \partial_\mu\phi - m^2\phi^2 + 2J\phi \Big] \\
+    &= \frac{1}{2}\int\dd^4 x_E\int\frac{\dd^4 p_E}{(2\pi)^4}\, \frac{\dd^4 p_E^\prime}{(2\pi)^4}\, \Big[ \left( p_\mu p_\mu^\prime - m^2 \right)\, \tilde{\phi}(p)\, \phi(p^\prime) +\notag \\
+    &\qquad + \tilde{\phi}(p)\, \tilde{J}(p^\prime) + \tilde{\phi}(p^\prime)\, \tilde{J}(p) \Big]\, e^{-ix\, (p+p^\prime)} \\
+    &= \frac{1}{2}\int\frac{\dd^4 p_E}{(2\pi)^4}\, \Big[ -\left( p_\mu p_\mu + m^2 \right)\, \tilde{\phi}(p)\, \phi(-p) + \tilde{\phi}(p)\, \tilde{J}(-p) + \tilde{\phi}(-p)\, \tilde{J}(p) \Big]
+\end{align}
+possiamo porre per brevità $\phi(\pm p) = \phi_\pm$, ma anche:
+\begin{equation}
+    K = -\left( p^2 + m^2\right)
+\end{equation}
+e cambiamo variabile:
+\begin{equation}
+    \tilde{\phi}(p)\quad \longrightarrow \quad \tilde{\phi}(p) - K^{-1}\, \tilde{J}(p)
+\end{equation}
+continuando i conti:
+\begin{align}
+    &= \frac{1}{2}\int\frac{\dd^4 p_E}{(2\pi)^4}\, \Bigg\{ K\, \Big[ \tilde{\phi}_+ - K^{-1}\, \tilde{J}_+ \Big]\, \Big[ \tilde{\phi}_- - K^{-1}\, \tilde{J}_- \Big] +\notag \\
+    &\qquad + \Big[ \tilde{\phi}_+ - K^{-1}\, \tilde{J}_+ \Big]\, \tilde{J}_- + \Big[ \tilde{\phi}_- - K^{-1}\, \tilde{J}_- \Big]\, \tilde{J}_+ \Bigg\} \\
+    &= \frac{1}{2}\int\frac{\dd^4 p_E}{(2\pi)^4}\, \Big[ K\, \tilde{\phi}(p)\, \tilde{\phi}(-p) - K^{-1}\, \tilde{J}(p)\, \tilde{J}(-p) \Big] \\
+    &= -S_E - \frac{1}{2}\int\dd^4 x_E\, \dd^4 y_E\int\frac{\dd^4 p_E}{(2\pi)^4}\, \left[J(x)\, J(y)\, \frac{e^{ip(x-y)}}{-(p^2 + m^2)} \right] \\
+    &= -S_E + \frac{1}{2}\int\dd^4 x_E\, \dd^4 y_E\, J(x)\, J(y)\, \int\frac{\dd^4 p_E}{(2\pi)^4}\, \frac{e^{ip(x-y)}}{p^2 + m^2}
+\end{align}
+da cui concludiamo:
+\begin{equation}
+    Z_0^E[J] = e^{-W_0[J]} = \exp{\frac{1}{2}\, \langle J(x)\, J(y)\, \Delta(x-y)\rangle_{x,y} }.
+\end{equation}
+Se torniamo nello spazio di Minkowski, richiedendo $m^2\to m^2-i\epsilon$ per la convergenza, otteniamo:
+\begin{equation}
+    I = iS + \frac{1}{2}\int\dd^4 x\, \dd^4 y\int\frac{\dd^4 p}{(2\pi)^4}\, \left[ J(x)\, J(y)\, \frac{i\, e^{-ip(x-y)}}{p^2 - m^2 + i\epsilon} \right].
+\end{equation}
+\textcolor{red}{Nota di E. Chiarotto (tra l'altro il 9 febbraio 2023): Non mi torna il segno, dovrebbe essere $-1/2$, ma il passaggio prima è uguale a quello che ha scritto il professore.}
+
+
+\section{Esempio \texorpdfstring{$\lambda\phi^4$}{lambda phi4}}
+
+Dopo la rinormalizzazione, l'energia libera $W$ ha solo diagrammi in cui tutte le particelle interagiscono tra di loro e collegate alle $n$ gambe esterne:
+\begin{equation}
+    W[J] = \sum_{n=1}^\infty \frac{(-1)^n}{n!}\, \langle J_1\, \dots\, J_n\, G^{(n)}_c\rangle_{x_1\, \dots\, x_n}
+\end{equation}
+invertendo troviamo:
+\begin{equation}
+    G_c^{(n)} = (-1)^n\, \frac{\delta^n}{\delta J_1\, \dots\, \delta J_n} W[J]\Bigg|_{J=0}.
+\end{equation}
+Puoi vedere i vari termini delle funzioni di Green nella figura \ref{fig:4 funz green int}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figure/4-Path integral/funz green.jpeg}
+    \caption{}
+    \label{fig:4 funz green int}
+\end{figure}
+
+\textcolor{red}{Ciascuno è un esempio di tanti processi equivalenti. Ad esempio quelli in figura \ref{fig:4 funz green equiv}.}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figure/4-Path integral/diag equivalenti.jpeg}
+    \caption{}
+    \label{fig:4 funz green equiv}
+\end{figure}
+
+Quindi ogni vertice è associato a $-\lambda$ (siamo nell'euclideo), inoltre per ogni vertice (che non abbia solo gambe esterne) dobbiamo fare degli integrali perché le derivate:
+\begin{equation}
+    \frac{\delta\, J_1}{\delta\, J_2} = \delta(x_1-x_2)
+\end{equation}
+ci permettono di semplificare soltanto gli integrali delle gambe esterne. \\
+
+Consideriamo il termine di ordine $\lambda$ in $G^{(2)}$ e lo chiamiamo (A), mentre quello in ordine $\lambda^2$ lo chiamiamo (B):
+\begin{align}
+    &(A) = -\frac{\lambda}{2}\int\dd^4 x\, \Delta(x_1-x)\, \Delta(x-x_2)\, \Delta(x-x) \\
+    &(B) = -\frac{\lambda^2}{3}\int\dd^4 x\, \dd^4 y\, \Delta(x_1-x)\, \Delta^3(x-y)\, \Delta(y-x_2).
+\end{align}
+In $\delta_2$ avevamo un termine:
+\begin{equation}
+    \frac{1}{12}\, \langle J_x\, \Delta_{ax}\, \Delta_{xy}^3\, \Delta_{yb}\, J_y\rangle_{xy}
+\end{equation}
+che se derivato diventa:
+\begin{equation}
+    \lambda^2\, \frac{2}{12}\, \langle \Delta_{ax}\, \Delta^3_{xy}\, \Delta_{yb}\rangle_{xy}.
+\end{equation}
+
+Ovviamente possiamo rifare il conto nello spazio degli impulsi:
+\begin{align}
+    (A) &= -\frac{\lambda}{2}\int\dd^4 x\int\frac{\dd^4 p_1}{(2\pi)^4}\, \int\frac{\dd^4 p_2}{(2\pi)^4}\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i\, e^{ip_1\, (x_1 - x)}}{p_1^2 + m^2}\, \frac{i\, e^{ip_2\, (x - x_2)}}{p_2^2 + m^2}\, \frac{i}{k^2 + m^2} \\
+    &\text{\textcolor{grey}{integriamo in $x$ e usiamo le $\delta$}} \notag \\
+    &= \frac{\lambda}{2}\int\frac{\dd^4 p_1}{(2\pi)^4}\, e^{ip_1\, x_1}\, \int\frac{\dd^4 p_2}{(2\pi)^4}\, e^{-ip_2\, x_2}\, (2\pi)^4\, \delta^4(p_1 - p_2)\, \cross \notag \\
+    &\qquad \cross \frac{i}{p_1^2 + m^2}\, \frac{i}{p_2^2 + m^2}\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i}{k^2 + m^2}
+\end{align}
+vedendo così:
+\begin{equation}
+    \tilde{G}(p_1,p_2) = -\frac{\lambda}{2}\, \delta^4(p_1 - p_2)\, \frac{i}{p_1^2 + m^2}\, \frac{i}{p_2^2 + m^2}\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i}{k^2 + m^2}.
+\end{equation}

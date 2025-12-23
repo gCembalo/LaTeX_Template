@@ -1,0 +1,313 @@
+\chapter{Modello standard}
+
+\section{Rottura spontanea di simmetria (Wigner e Nambu-Goto)}
+
+In \mq\ una simmetria è una mappa:
+\begin{equation}
+    \ket{\alpha} \quad \longrightarrow \quad \ket{\alpha^\prime} = U\, \ket{\alpha}
+\end{equation}
+tale per cui:
+\begin{equation}
+    \braket{\alpha}{\beta} = \braket{\alpha^\prime}{\beta^\prime}
+\end{equation}
+quindi $U$ dev'essere un operatore unitario. Inoltre ricordiamo che per il teorema di Noether ogni simmetria corrisponde una corrente conservata:
+\begin{equation}
+    \delta S \sim \int\dd^4 x\, \left(\partial_\mu j^\mu \right) = 0
+\end{equation}
+da cui ricaviamo la carica conservata:
+\begin{equation}
+    Q^a = \int\dd^4 x\, j^{0a}
+\end{equation}
+inoltre abbiamo che:
+\begin{equation}
+    \comm{H,Q^a} = 0
+\end{equation}
+e per questo possiamo esprimere:
+\begin{equation}
+    U = e^{i\, a^a\, Q^a}.
+\end{equation}
+Una simmetria può agire su una teoria in due modi diversi in base a come agisce sul vuoto: \textit{realizzazione alla Wigner} o \textit{realizzazione di Nambu-Goto}. Per Wigner abbiamo:
+\begin{equation}
+    U\, \ket{0} = \ket{0} \quad , \quad Q_0\, \ket{0} = 0
+\end{equation}
+pertanto tutto lo spettro è caratterizzato da multipletti del gruppo di simmetria ovvero di $Q_a$, quindi per esempio se abbiamo due stati degeneri allora:
+\begin{equation}
+    \ket{\alpha} = Q_a\, \ket{\alpha}.
+\end{equation}
+Per Nambu-Goto invece abbiamo:
+\begin{equation}
+    U\, \ket{0}\neq \ket{0}
+\end{equation}
+cioè il vuoto non è invariante, e con un abuso di notazione si dice che la \textit{simmetria è spontaneamente rotta} ($U$ continua a commutare con $H$).
+
+
+\section{Rottura della simmetria e spettro di massa}
+
+Consideriamo un campo reale scalare $\phi^a$ con $a=\{1,2\}$ e:
+\begin{equation}
+    \Lag = \frac{1}{2}\, \partial_\mu\phi^a\, \partial^\mu\phi^a - V(\phi^a)
+\end{equation}
+dunque per cui abbiamo:
+\begin{equation}
+    \Ham = \frac{1}{2}\left(\dot{\phi}^a\right)^2 + \frac{1}{2}\left(\nabla_i\phi^a\right)^2 + V(\phi^a)
+\end{equation}
+tuttavia la teoria dev'essere invariante di Poincarè (Lorentz e traslazioni nello spazio-tempo), quindi il vuoto della teoria è dato dalla condizione che estremizza del potenziale, cioè dobbiamo avere:
+\begin{equation}
+    \pdv{V}{\phi^a} = 0.
+\end{equation}
+Studiamo le conseguenze di queste due realizzazioni per lo spettro di massa della teoria. Nella lagrangiana non abbiamo scritto un termine di massa esplicito ma lo ritroviamo quando espandiamo in un intorno del vuoto:
+\begin{equation}
+    V(\phi^a) = V(\langle\phi^a\rangle) + \pdv{V}{\phi^a}\, (\phi^a - \langle\phi^a\rangle) + \frac{1}{2}\pdv[2]{V}{\phi^a}{\phi^b}\Bigg|_{\langle\phi\rangle}\, \left( \phi^a - \langle\phi^a\rangle \right)\, \left( \phi^b - \langle\phi^b\rangle \right)
+\end{equation}
+la derivata prima è nulla nel vuoto, il termine costante è l'energia di punto zero che può essere ignorata e dunque rimane solamente:
+\begin{equation}
+    M_{ab}^2 = \pdv[2]{V}{\phi^a}{\phi^b}\Bigg|_{\phi^a=\langle\phi^a\rangle}.
+\end{equation}
+
+Consideriamo una trasformazione:
+\begin{equation}
+    \delta\phi^a = R^a_b\, \phi^b
+\end{equation}
+di $SO(2)$, per la quale il potenziale trasforma con:
+\begin{equation}
+    \delta V = \pdv{V}{\phi^a}\, \delta\phi^a = \pdv{V}{\phi^a}\, R^a_b\, \phi^b.
+\end{equation}
+Tuttavia se ipotizziamo che $\Lag$ sia invariante di $SO(2)$, abbiamo che:
+\begin{equation}
+    \delta V = \left(\pdv{V}{\phi^a}\, R^a_b\, \phi_b\right)_{\langle\phi^b\rangle} = 0
+\end{equation}
+quindi:
+\begin{align}
+    \pdv{\phi^c}\left( \pdv{V}{\phi^a}\, R_b^a\, \phi^b \right)_{\langle\phi^b\rangle} &= \left( \pdv[2]{V}{\phi^a}{\phi^c}\, R_b^a\, \langle\phi^b\rangle + \pdv{V}{\phi^a}\, R_b^a\, \delta_c^b \right)_{\langle\phi^b\rangle} \\
+    &= M_{ac}^2\, R^a_b\, \langle\phi_b\rangle \\
+    &= 0.
+\end{align}
+Dunque, ricordando che la variazione del vuoto è:
+\begin{equation}
+    \delta\langle\phi^a\rangle = \alpha\, R_b^a\, \langle\phi^b\rangle
+\end{equation}
+possiamo avere:
+\begin{itemize}
+    \item La realizzazione alla Wigner se:
+    \begin{equation}
+        \delta\langle\phi^a\rangle R_a^b\, \langle\phi_b\rangle = 0
+    \end{equation}
+    che implica la \textit{preservazione del vuoto}:
+    \begin{equation}
+        U\, \ket{0} = \ket{0}
+    \end{equation}
+    che non dà informazioni aggiuntive sulle particelle.
+    \item La realizzazione alla Nambu-Goto se:
+    \begin{equation}
+        \delta\langle\phi^a\rangle R_a^b\, \langle\phi_b\rangle \neq 0
+    \end{equation}
+    che implica la \textit{"rottura" del vuoto}:
+    \begin{equation}
+        U\, \ket{0} = \ket{0}
+    \end{equation}
+    in questo caso la matrice di massa $M^2_{ab}$ ha un autovalore nullo, dunque esiste sempre una particella a massa nulla, che prende il nome di \textbf{bosone di Goldstone}.
+\end{itemize}
+
+
+\section{Esempio di rottura della simmetria}
+
+I riferimenti sono p. 348 del Peskin \cite{Peskin}. \\
+
+Studiamo la lagrangiana:
+\begin{equation}
+    \Lag = \frac{1}{2}\sum_{b=1,2}\left(\partial_\mu\phi^b\right)\, \left(\partial^\mu\phi^b\right) - V(\phi^b) 
+\end{equation}
+in cui scegliamo:
+\begin{equation}
+    V(\phi^a) = \frac{\lambda}{4!}\left( \sum_{b=1,2}\frac{1}{2}\, \phi^b\, \phi^b - a^2 \right)^2.
+\end{equation}
+Passiamo ad un campo complesso:
+\begin{equation}
+    \phi = \frac{\phi^1 + i\, \phi^2}{\sqrt{2}}
+\end{equation}
+ed otteniamo:
+\begin{equation}
+    \Lag = \partial_\mu\phi\partial^\mu\phi^\dagger - \frac{\lambda}{4!}\, \left( \phi\phi^\dagger - a^2 \right)^2
+    \label{eqn:5 lag con esempio rottura simm}
+\end{equation}
+e possiamo osservare che abbiamo un'invarianza di fase globale. Se vogliamo calcolare il vuoto della teoria dobbiamo studiare:
+\begin{equation}
+    \pdv{V}{\phi} = 0 \quad , \quad \pdv{V}{\phi^\dagger} = 0
+\end{equation}
+da cui otteniamo:
+\begin{equation}
+    \langle \phi \rangle = \langle \phi^\dagger \rangle = a
+\end{equation}
+oppure:
+\begin{equation}
+    \langle \phi \rangle = \langle \phi^\dagger \rangle = 0.
+\end{equation}
+Se abbiamo $a^2\leq 0$ abbiamo un'uncia soluzione:
+\begin{equation}
+    \langle \phi \rangle = 0
+\end{equation}
+dunque:
+\begin{equation}
+    M^2 = \begin{pmatrix}
+        0 & -a^2 \\
+        -a^2 & 0
+    \end{pmatrix} \quad , \quad \text{det}M^2 \neq 0.
+\end{equation}
+Se $a^2>0$ abbiamo un massimo in $\langle \phi \rangle = 0$ ed un minimo in $\langle \phi \rangle = a$, infatti se andiamo a studiare la matrice di massa abbiamo:
+\begin{align}
+    &\partial_\phi^2 V = \overline{\phi}^2 \quad \longrightarrow \quad a^2 \\
+    &\partial_{\overline{\phi}}^2 V = \phi^2 \quad \longrightarrow \quad a^2 \\
+    &\partial_{\phi,\overline{\phi}}^2 V = 2\, \phi\, \overline{\phi} = 2\, \phi\, \overline{\phi} - a^2 \quad \longrightarrow\quad a^2
+\end{align}
+dunque abbiamo:
+\begin{equation}
+    M^2 = \begin{pmatrix}
+        a^2 & a^2 \\
+        a^2 & a^2
+    \end{pmatrix} \quad , \quad \text{det}M^2 = 0
+\end{equation}
+quindi uno degli autovalori è nullo, dunque il vuoto rompe spontaneamente la simmetria, infatti in questo caso il vuoto realizza la simmetria alla Nambu-Goto.
+
+
+\subsection{Sostituzione 1}
+
+Prendendo (\ref{eqn:5 lag con esempio rottura simm}) studiamo:
+\begin{equation}
+    \phi = \rho\, e^{i\theta}
+\end{equation}
+per cui abbiamo:
+\begin{align}
+    &\partial_\mu\phi = \left( \partial_\mu\rho + i\rho\, \partial_\mu\theta \right)\, e^{i\theta} \\
+    &\partial_\mu\phi^\dagger = \left( \partial_\mu\rho - i\rho\, \partial_\mu\theta \right)\, e^{-i\theta}
+\end{align}
+da cui:
+\begin{equation}
+    \Lag = \partial_\mu\rho\partial^\mu\rho + \rho^2\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{4!}\, (\rho^2 - a^2)^2
+\end{equation}
+il potenziale non dipende più da $\theta$ (che può essere il bosone di Goldstone) e per cui:
+\begin{equation}
+    \pdv{V}{\rho} = \frac{\lambda}{6}\, (\rho^2 - a^2)\, \rho = 0
+\end{equation}
+che implica:
+\begin{align}
+    &\langle\rho\rangle = 0 \qquad &&\text{(massimo)} \\
+    &\langle\rho\rangle = \rho_0 = \pm a \qquad &&\text{(minimo)}.
+\end{align}
+Espandendo il potenziale intorno al vuoto, ignorando l'energia di punto zero, abbiamo:
+\begin{align}
+    V(\rho) &\approx \frac{1}{2}\, \pdv[2]{V}{\rho}\, (\rho - \rho_0)^2 \\
+    &= \frac{\lambda}{6}\, a^2\, (\rho - \rho_0)^2.
+\end{align}
+Se poniamo $\xi = \rho - \rho_0$ otteniamo:
+\begin{equation}
+    \Lag = \partial_\mu\xi\partial^\mu\xi + (\xi + \rho_0)^2\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{6}\, a^2\, \xi^2 + \dots
+\end{equation}
+se trascuriamo anche i termini di accoppiamento (infatti per determinare lo spettro di massa ci bastano i termini quadratici) abbiamo che:
+\begin{equation}
+    \Lag = \partial_\mu\xi\partial^\mu\xi + \rho_0^2\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{6}\, a^2\, \xi^2 + \dots
+\end{equation}
+quindi $\theta$ è il bosone di Goldstone, mentre $\xi$ è un campo massivo. Infine, dobbiamo rinormalizzare i due campi:
+\begin{equation}
+    \xi \ \longrightarrow \ \frac{1}{\sqrt{2}}\, \xi \quad , \quad \rho_0\, \theta \ \longrightarrow\ \frac{1}{\sqrt{2}}\, \theta
+\end{equation}
+in questo modo otteniamo:
+\begin{equation}
+    \Lag = \frac{1}{2}\, \partial_\mu\xi\partial^\mu\xi + \frac{1}{2}\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{12}\, a^2\, \xi^2 + \dots
+\end{equation}
+
+
+\subsection{Sostituzione 2}
+
+Ripartendo da (\ref{eqn:5 lag con esempio rottura simm}), ma trasliamo rispetto al vuoto:
+\begin{equation}
+    \phi = \frac{\xi + i\theta}{\sqrt{2}} + \langle\phi\rangle \quad , \quad \langle\phi\rangle = a
+\end{equation}
+in questo modo otteniamo:
+\begin{align}
+    \Lag &= \frac{1}{2}\, \partial_\mu\xi\, \partial^\mu\xi + \frac{1}{2}\, \partial_\mu\theta\, \partial^\mu\theta - \frac{\lambda}{4\cdot 4!}\, \left( \xi^2 + \theta^2 + 2\sqrt{2}\, a\xi \right)^2 \\
+    &= \frac{1}{2}\, \partial_\mu\xi\, \partial^\mu\xi + \frac{1}{2}\, \partial_\mu\theta\, \partial^\mu\theta - \frac{\lambda}{4\cdot 4!}\, \left( \xi^4 + \theta^4 + 8\, a^2\, \xi^2 + 2\, \xi^2\, \theta^2 + 4\sqrt{2}\, a\, \xi^3 + 4\sqrt{2}\, a\, \xi\, \theta^2 \right)^2
+\end{align}
+dunque $\xi$ ha massa:
+\begin{equation}
+    m_\xi^2 = \frac{\lambda}{6}\, a^2
+\end{equation}
+mentre $\theta$ resta massless e rappresenta il bosone di Goldstone.
+
+\paragraph{Osservazione}Dopo aver fatto una traslazione rispetto al vuoto, se volessimo fare una traslazione di fase infinitesima per mantenere la lagrangiana invariante dovremmo studiare una trasformazione non lineare. \textcolor{red}{forse a lezione (21) si fa un esempio.}
+
+
+\section{Fotone massivo tramite Goldstone}
+
+Consideriamo la simmetria $U(1)$ (di fase) locale:
+\begin{equation}
+    \Lag = -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \left(D_\mu\phi\right)^\dagger\, \left(D^\mu\phi\right) - V(\phi\, \phi^\dagger)
+\end{equation}
+in cui abbiamo:
+\begin{equation}
+    D_\mu\phi = \left( \partial_\mu + ie\, A_\mu \right)\, \phi
+\end{equation}
+e studiamo:
+\begin{equation}
+    V(\phi\, \phi^\dagger) = \frac{\lambda}{4!}\, \left( \phi\, \phi^\dagger - a^2 \right)^2
+\end{equation}
+con $\langle\phi\rangle = \langle\phi^\dagger\rangle = a$ e $a^2>0$. Osserviamo che i gradi di libertà totali sono 4 (due dallo scalare complesso $\phi$ e due dal fotone $A$).
+
+
+\subsection{Sostituzione}
+
+Consideriamo $\phi = \rho\, e^{i\theta}$, per cui:
+\begin{align}
+    D_\mu\phi &= \Big( \partial_\mu\rho + i\rho\, \partial_\mu\theta + ie\, A_\mu\, \rho \Big)\, e^{i\theta} \\
+    &= \Big( \partial_\mu\rho + i\rho(\partial_\mu\theta + e\, A_\mu) \Big)\, e^{i\theta}
+\end{align}
+e conseguentemente:
+\begin{align}
+    \Lag &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\rho\partial^\mu\rho + \rho^2\, \left(\partial_\mu\theta + e\, A_\mu\right)^2 - \frac{\lambda}{4!}\, (\rho^2 - a^2)^2 \\
+    &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\rho\partial^\mu\rho + \rho^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, (\rho^2 - a^2)^2
+\end{align}
+in cui nell'ultimo passaggio abbiamo fatto la trasformazione di gauge:
+\begin{equation}
+    A_\mu^\prime = A_\mu + \frac{1}{e}\, \partial_\mu\theta
+\end{equation}
+in questo modo il bosone di Goldestone è stato riassorbito nel fotone che ha acquistato massa:
+\begin{equation}
+    m_A^2 = 2\, a^2\, e^2.
+\end{equation}
+Espandendo intorno al vuoto ponendo:
+\begin{equation}
+    \xi = \rho - \rho_0
+\end{equation}
+in cui:
+\begin{equation}
+    \langle\rho\rangle = \rho_0 = \pm a
+\end{equation}
+otteniamo:
+\begin{align}
+    \Lag &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\xi\partial^\mu\xi + (\xi + \rho_0)^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, \Big( (\xi + \rho_0)^2 - \rho_0^2 \Big)^2 \\
+    &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\xi\partial^\mu\xi + (\xi^2 + 2\, \rho_0\, \xi + \rho_o^2)\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, \Big[ \xi^2 + 2\, \rho_0\, \xi \Big]^2 \\
+    &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\xi\partial^\mu\xi + \rho_0^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{6}\, \rho_0^2\, \xi^2 + \Lag_{int}
+\end{align}
+in cui poniamo:
+\begin{equation}
+    \Lag_{int} = \Big( \xi^2 + 2\rho_0\, \xi \Big)\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, \Big[ \xi^4 + 4\rho_0\, \xi^3 \Big].
+\end{equation}
+Infine, dobbiamo rinormalizzare:
+\begin{equation}
+    \xi \quad \longrightarrow \quad \frac{1}{\sqrt{2}}\, \xi
+\end{equation}
+e sostituiamo $\rho_0^2 = a^2$, così otteniamo:
+\begin{equation}
+    \Lag = -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \frac{1}{2}\, \partial_\mu\xi\partial^\mu\xi + a^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{12}\, a^2\, \xi^2 + \Lag_{int}
+\end{equation}
+dunque, che sta descrivendo un campo $\xi$ reale con la stessa massa vista in precedenza:
+\begin{equation}
+    m_\xi^2 = \frac{\lambda}{6}\, a^2
+\end{equation}
+ed un campo vettoriale massivo con:
+\begin{equation}
+    M_A^2 = 2\, a^2\, e^2.
+\end{equation}
+
+\paragraph{Osservazione.}Il risultato assomiglia alla lagrangiana di Proca (i termini quadratici sono uguali, ma i termini di interazione sono diversi) ma sta volta è rinormalizzabile; la rottura spontanea della simmetria preserva i gradi di libertà e li riorganizza: un grado di libertà appartiene a $\xi$ (particella di Higgs) e 3 appartengono al bosone massivo $A$, in più la trasformazione di gauge equivale a inglobare il bosone di Goldstone dentro $A$ e in particolare la polarizzazione longitudinale di $A$ coincide con il bosone di Goldstone.
+
+\textbf{Nota.} Non si può fare un discorso analogo con il campo spinoriale perché dovremmo fissare l'invarianza per rotazione e quindi l'invarianza di Lorentz/Poincaré!

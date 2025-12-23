@@ -1,0 +1,256 @@
+\chapter{Campo vettoriale}
+
+
+\section{Esempio annichilazione di fermioni}
+
+I riferimenti sono p. 131-136 del Peskin e Schroeder \cite{Peskin}. \\
+
+Consideriamo la QED, dunque una lagrangiana:
+\begin{equation}
+    \Lag = -e\, \overline{\psi}\, \gamma_\mu\, \psi\, A^\mu
+\end{equation}
+e studiamo il processo:
+\begin{equation*}
+    e^- + e^+ \ \longrightarrow \ \mu^- + \mu^+
+\end{equation*}
+in cui abbiamo solo il canale $s$ e siccome $m_\mu\approx 200\, m_e$ trascuriamo solo la massa dell'elettrone. Il processo lo possiamo vedere in figura \ref{fig:3 annic fermioni}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figure/3-Vettoriale/annich fermioni.png}
+    \caption{Raffigurazione canale $s$ processo $e^- + e^+ \to \mu^- + \mu^+$.}
+    \label{fig:3 annic fermioni}
+\end{figure}
+
+Utilizziamo le regole di Feynman per la QED per scrivere l'elemento di matrice $S$ ridotta:
+\begin{align}
+    M\, (2\pi)^4\, &\delta(p_1 + p_2 - p_3 - p_4) =\\
+    &= \Big[ \overline{v}(p_2)\, (-ie\, \gamma_\mu)\, u(p_1) \Big]\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i\eta^{\mu\nu}}{k^4}\, \Big[ \overline{u}(p_3)\, (-ie\, \gamma_\nu)\, v(p_4) \Big]\, \cross \notag \\
+    &\qquad \cross (2\pi)^4\, \delta(k-p_3-p_4)\, (2\pi)^4\, \delta(p_1+p_2-k) \\
+    &= \frac{-i\, e^2}{(p_1+p_2)^2}\, (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (2\pi)^4\, \delta(p_1+p_2-p_3-p_4).
+\end{align}
+Dunque abbiamo:
+\begin{equation}
+    M = M_s = \frac{-i\, e^2}{s}\, (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)
+\end{equation}
+e possiamo procedere con il calcolo della sezione d'urto non polarizzata mediando sulle polarizzazioni iniziali e sommando su quelle finali:
+\begin{align}
+    |\mathcal{M}_s|^2 &= \frac{1}{4}\sum_{spin}|M_s|^2 \\
+    &= \frac{e^4}{4\, s^2}\sum_{spin} (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (\overline{v}_4\cdot\gamma^\nu\cdot u_3)\, (\overline{u}_1\cdot\gamma_\nu\cdot v_2) \\
+    &= \frac{e^4}{4\, s^2}\, \Tr{ \gamma_\mu\, (\slashed{p}_1 + m_e)\, \gamma_\nu\, (\slashed{p}_2 - m_e) }\, \cross \notag \\
+    &\qquad \cross \Tr{ \gamma^\mu\, (\slashed{p}_3 + m_\mu)\, \gamma^\nu\, (\slashed{p}_4 - m_\mu) } \\
+    &\text{\textcolor{grey}{ad alte energie $m_e\approx 0$}} \notag \\
+    &\approx \frac{e^4}{4\, s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \cross \notag \\
+    &\qquad \cross \Tr{\gamma_\mu\gamma_\alpha\gamma_\nu\gamma_\beta}\, \Tr{\gamma^\mu\gamma^\rho\gamma^\nu\gamma^\sigma - m_\mu^2\, \gamma^\mu\gamma^\nu} \\
+    &= \frac{4\, e^4}{s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \left[\eta_{\mu\alpha}\, \eta_{\nu\beta} + \eta_{\mu\beta}\, \eta_{\nu\alpha} - \eta_{\mu\nu}\, \eta_{\alpha\beta} \right]\, \cross \notag \\
+    &\qquad \cross \left[ \eta^{\mu\rho}\, \eta^{\nu\sigma} + \eta^{\mu\sigma}\, \eta^{\nu\rho} - \eta^{\mu\nu}\, \eta^{\rho\sigma} - m_\mu^2\, \eta^{\mu\nu} \right] \\
+    &= \frac{8\, e^4}{s^2}\, \left[ (p_1\cdot p_3)\, (p_2\cdot p_4) 
+    + (p_1\cdot p_4)\, (p_2\cdot p_3) + m_\mu^2\, (p_1\cdot p_2) \right]
+\end{align}
+ora, notando che nel sistema di riferimento del centro di massa, con $m_e\approx 0$, abbiamo:
+\begin{equation}
+    \begin{cases}
+        p_1 = (E,E\hat{z}) \quad ; \quad p_2 = (E,-E\hat{z}) \\
+        p_3 = (E,\vec{k}) \quad ; \quad p_4 = (E,-\vec{k})
+    \end{cases}
+\end{equation}
+in cui:
+\begin{equation}
+    \vec{k}\cdot\hat{z} = |\vec{k}|\, \cos\theta = \sqrt{E^2 - m_\mu^2}\, \cos\theta
+\end{equation}
+allora continuando i conti:
+\begin{align}
+    |\mathcal{M}_s|^2 &= \frac{8\, e^4}{(2E)^4}\, \Bigg[ \left( E^2 - E\, \sqrt{E^2 - m_\mu^2}\, \cos\theta \right)^2 + \notag \\
+    &\qquad + \left( E^2 + E\, \sqrt{E^2 - m_\mu^2}\, \cos\theta \right)^2 + 2\, E^2\, m_\mu^2 \Bigg] \\
+    &= \frac{e^4}{2}\, \left[ \left( 1 - \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \cos\theta \right)^2 + \left( 1 + \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \cos\theta \right)^2 + 2\frac{m_\mu^2}{E^2} \right] \\
+    &= e^4\, \left[ 1 + \frac{m_\mu^2}{E^2} + \left(1 - \frac{m_\mu^2}{E^2}\right)\, \cos^2\theta \right].
+\end{align}
+Calcoliamo anche la sezione d'urto:
+\begin{equation}
+    \dv{\sigma}{\Omega}\Bigg|_{cm} = \frac{|\vec{p}_3|\, E_{cm}}{E_1\, E_2\, |\vec{v}_1 - \vec{v}_2|}\, \frac{|\mathcal{M}|^2}{64\, \pi^2\, E_{cm}^2}
+\end{equation}
+osserviamo che:
+\begin{equation}
+    |\vec{v}_1 - \vec{v}_2| = \left|\frac{\vec{p}_1}{E_1} - \frac{\vec{p}_2}{E_2}\right| = 2
+\end{equation}
+dunque:
+\begin{align}
+    \frac{|\vec{p}_3|\, E_{cm}}{E_1\, E_2\, |\vec{v}_1 - \vec{v}_2|} = \frac{\sqrt{E^2 - m_\mu^2}\cdot 2\, E}{2\cdot E^2} = \sqrt{1 - \frac{m_\mu^2}{E^2}}
+\end{align}
+per semplicità possiamo porre $a=m_\mu^2/E^2$, $x=\cos\theta$ e calcolare la sezione d'urto totale:
+\begin{align}
+    \sigma_{cm} &= \frac{e^4}{64\, \pi^2\, E_{cm}^2}\int\dd\Omega\, \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \left[ 1 + \frac{m_\mu^2}{E^2} + \left( 1 - \frac{m_\mu^2}{E^2}\right)\, \cos^2\theta \right] \\
+    &= \frac{e^4}{32\, \pi\, E_{cm}^2}\int_{-1}^{+1}\dd x\, \sqrt{1 - a}\, \Big[ 1 + a + (1-a)\, x^2 \Big] \\
+    &= \frac{e^4}{32\, \pi\, E_{cm}^2}\, \sqrt{1-a}\, \left[ 2(1+a) + \frac{2}{3}\, (1-a) \right] \\
+    &= \frac{e^4}{12\, \pi\, E_{cm}^2}\, \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \left(1 + \frac{1}{2}\, \frac{m_\mu^2}{E^2}\right) \\
+    &= \frac{4\pi\, \alpha^2}{3\, E_{cm}^2}\, \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \left( 1 + \frac{1}{2}\, \frac{m_\mu^2}{E^2} \right).
+\end{align}
+Se avessimo trascurato tutte le masse avremmo ottenuto:
+\begin{equation}
+    |\mathcal{M}_s|^2 = \frac{2\, e^4}{s^2}\, (t^2 + u^2)
+\end{equation}
+tramite la simmetria di crossing possiamo studiare:
+\begin{equation*}
+    e^- + \mu^- \ \longrightarrow \ e^- + \mu^-
+\end{equation*}
+da cui otteniamo:
+\begin{equation}
+    |\mathcal{M}_t|^2 = \frac{2\, e^4}{t^2}\, (s^2 + u^2).
+\end{equation}
+
+Se avessimo studiato:
+\begin{equation*}
+    e^- + e^- \ \longrightarrow \ e^- + e^-
+\end{equation*}
+allora avremmo avuro anche il canale $u$, oltre il canale $t$, questo perché le particelle finali sono identiche, per cui possiamo scambiarne gli impulsi e dobbiamo studiare:
+\begin{align}
+    |\mathcal{M}|^2 &= \frac{1}{4}\, \sum_{spin}|M_t + M_u|^2 \\
+    &= |\mathcal{M}_t|^2 + |\mathcal{M}_u|^2 + \frac{1}{4}\sum_{spin}2\, \Re{M_t\, M_u^\dagger}.
+\end{align}
+
+
+\section{Esempio del Bhabha scattering}
+
+I riferimenti sono p. 355 es. 59.2 dello Srednicki \cite{Srednicki} e p. 192 es. 5.2 del Peskin e Schroeder \cite{Peskin}. \\
+
+\noindent Consideriamo la QED con la lagrangiana:
+\begin{equation}
+    \Lag = -e\, \overline{\psi}\, \gamma_\mu\, \psi\, A^\mu
+\end{equation}
+e studiamo il processo:
+\begin{equation*}
+    e^- + e^+ \ \longrightarrow \ e^- + e^+
+\end{equation*}
+in cui abbiamo sia il canale $s$ (di annichilazione) che il canale $t$ (di scambio), raffigurati in figura \ref{fig:3 Bhabha}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.\textwidth]{Figure/3-Vettoriale/Bhabha.png}
+    \caption{Raffigurazione canale $s$ e $t$ processo $e^- + e^+ \to e^- + e^+$.}
+    \label{fig:3 Bhabha}
+\end{figure}
+
+A noi interessa riordinare gli elementi che troviamo nella matrice $S$ come $\psi\overline{\psi}$, formando il propagatore $S_F(x-y) = \wick{\c{\psi(x)} \c{\overline{\psi}}}$, ma per fare questo dobbiamo ricordarci:
+\begin{align}
+    &\acomm{\psi}{\psi} = \acomm{\overline{\psi}}{\overline{\psi}} = 0 \\
+    &\acomm{\psi(t,\vec{x})}{\overline{\psi}(t,\vec{y})} = \delta(\vec{x} - \vec{y}).
+\end{align}
+Contraendo troviamo un segno relativo e l'elemento di matrice $S$ ridotta complessivo è dato da $M=M_s - M_t$:
+\begin{align}
+    M_s &= \Big[ \overline{v}(p_2)\, (-ie\, \gamma_\mu)\, u(p_1) \Big]\, \frac{i\, \eta^{\mu\nu}}{k^2}\, \Big[ \overline{u}(p_3)\, (-ie\, \gamma_\nu)\, v(p_4) \Big] \\
+    &= \frac{-ie^2}{s}\, (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4) \\
+    M_t &= \Big[ \overline{u}(p_3)\, (-ie\, \gamma_\mu)\, u(p_1) \Big]\, \frac{i\, \eta^{\mu\nu}}{k^2}\, \Big[ \overline{v}(p_2)\, (-ie\, \gamma_\nu)\, v(p_4) \Big] \\
+    &= \frac{-ie^2}{t}\, (\overline{u}_3\cdot\gamma_\mu\cdot u_1)\, (\overline{v}_2\cdot\gamma^\mu\cdot v_4).
+\end{align}
+Mediamo sulle polarizzazioni iniziali e sommiamo su quelle finali:
+\begin{align}
+    |\mathcal{M}_s|^2 &= \frac{1}{4}\sum_{spin}|M_s|^2 \\
+    &= \frac{e^4}{4s^2}\sum_{spin} (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (\overline{v}_4\cdot\gamma^\nu\cdot u_3)\, (\overline{u}_1\cdot\gamma_\nu\cdot v_2) \\
+    &= \frac{e^4}{4s^2}\sum_{spin} \Big[ (\overline{v}_2)_\alpha\, (\gamma_\mu)_{\alpha\beta}\, (u_1)_{\beta}\cdot (\overline{u}_1)_\gamma\, (\gamma_\nu)_{\gamma\delta}\, (v_2)_{\delta} \Big]\cross \notag \\
+    &\qquad \cross \Big[ (\overline{u}_3)_\rho\, (\gamma^\mu)_{\rho\sigma}\, (v_4)_{\sigma}\cdot (\overline{v}_4)_\tau\, (\gamma^\nu)_{\tau\epsilon}\, (u_3)_{\epsilon} \Big] \\
+    &= \frac{e^4}{4s^2}\sum_{spin} \Big[ (\gamma_\mu)_{\alpha\beta}\, (\slashed{p}_1 + m_e)_{\beta\gamma}\, (\gamma_\nu)_{\gamma\delta}\, (\slashed{p}_2 - m_e)_{\delta\alpha} \Big] \cross \notag \\
+    &\qquad \cross \Big[ (\gamma^\mu)_{\rho\sigma}\, (\slashed{p}_4 - m_e)_{\sigma\tau}\, (\gamma^\nu)_{\tau\epsilon}\, (\slashed{p}_3 + m_e)_{\epsilon\rho} \Big] \\
+    &= \frac{e^4}{4s^2}\, \Tr{ \gamma_\mu(\slashed{p}_1 + m_e)\, \gamma_\nu\, (\slashed{p}_2 - m_e) }\, \Tr{ \gamma^\mu(\slashed{p}_3 + m_e)\, \gamma^\nu\, (\slashed{p}_4 - m_e) } \\
+    &\text{\textcolor{grey}{alle alte energie $m_e\approx 0$}} \notag \\
+    &\approx \frac{e^4}{4s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \Tr{\gamma_\mu\gamma_\alpha\gamma_\nu\gamma_\beta}\, \Tr{\gamma^\mu\gamma^\rho\gamma^\nu\gamma^\sigma} \\
+    &= \frac{4e^2}{s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \Big[ \eta_{\mu\alpha}\, \eta_{\nu\beta} + \eta_{\mu\beta}\, \eta_{\nu\alpha} - \eta_{\mu\nu}\, \eta_{\alpha\beta} \Big]\cross \notag \\
+    &\qquad \cross \Big[ \eta^{\mu\rho}\, \eta^{\nu\sigma} + \eta^{\mu\sigma}\, \eta^{\nu\rho} - \eta^{\mu\nu}\, \eta^{\rho\sigma} \Big] \\
+    &= \frac{8e^4}{s^2}\, \Big[ (p_1\cdot p_3)\, (p_2\cdot p_4) + (p_1\cdot p_4)\, (p_2\cdot p_3) \Big] \\
+    &= \frac{2e^4}{s^2}\, (t^2 + u^2).
+\end{align}
+Possiamo ricavare il canale $t$ usando la simmetria di crossing:
+\begin{equation}
+    |\mathcal{M}_t|^2 = \frac{2e^4}{t^2}\, (s^2 + u^2).
+\end{equation}
+Studiamo ora il termine misto:
+\begin{align}
+    |\mathcal{M}_{st}| &= \frac{1}{4}\sum_{spin}\Re{M_s\, M_t^\dagger} \\
+    &= \frac{e^4}{4\, s\, t}\sum_{spin} (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (\overline{v}_4\cdot\gamma^\nu\cdot v_2)\, (\overline{u}_1\cdot\gamma_\nu\cdot u_3) \\
+    &= \frac{e^4}{4\, s\, t}\, \Tr{ \gamma_\mu(\slashed{p}_1 + m_e)\, \gamma_\nu\, (\slashed{p}_3 + m_e)\, \gamma^\mu(\slashed{p}_4 - m_\mu)\, \gamma^\nu\, (\slashed{p}_2 - m_\mu) } \\
+    &\text{\textcolor{grey}{alle alte energie $m_e\approx 0$}} \notag \\
+    &= \frac{e^4}{4\, s\, t}\, p_{1,\alpha}\, p_{3,\beta}\, p_{4,\rho}\, p_{2,\sigma}\, \Tr{\gamma_\mu\gamma^\alpha\gamma_\nu\gamma^\beta\gamma^\mu\gamma^\rho\gamma^\nu\gamma^\sigma}
+\end{align}
+dobbiamo a questo punto ricordarci delle relazioni per le matrici $\gamma$, che puoi non solo vedere nell'Appendice \ref{cap:matrici gamma}, ma soprattutto nelle note del corso di \textit{Introduzione alla Teoria Quantistica dei Campi}. Vediamo infatti:
+\begin{equation}
+    \gamma^\mu\gamma^\alpha\gamma^\beta\gamma_\mu = 4\, \eta^{\alpha\beta} \quad , \quad \gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma_\mu = -2\gamma^\sigma\gamma^\rho\gamma^\nu
+\end{equation}
+per cui abbiamo:
+\begin{align}
+    \Tr{ \gamma_\mu\gamma^\alpha(\gamma_\nu\gamma^\beta\gamma^\mu\gamma^\rho\gamma^\nu)\gamma^\sigma } &= -2\Tr{ \gamma_\mu\gamma^\alpha(\gamma^\rho\gamma^\mu\gamma^\beta)\gamma^\sigma } \\
+    &= -8\, \eta^{\alpha\rho}\, \Tr{\gamma^\beta\gamma^\sigma} \\
+    &= -32\, \eta^{\alpha\rho}\, \eta^{\beta\sigma}.
+\end{align}
+Tornando ai nostri conti:
+\begin{align}
+    |\mathcal{M}_{st}| &= -\frac{8e^4}{s\, t}\, (p_1\cdot p_4)\, (p_2\cdot p_3) \\
+    &= -\frac{2e^4}{s\, t}\, u^2.
+\end{align}
+Complessivamente abbiamo:
+\begin{align}
+    |\mathcal{M}_{tot}|^2 &= |\mathcal{M}_{s}|^2 + |\mathcal{M}_{t}|^2 - 2|\mathcal{M}_{st}|^2 \\
+    &= 2\, e^4\, \left[\frac{t^2}{s^2} + \frac{s^2}{t^2} + u^2\, \left(\frac{1}{s} + \frac{1}{t}\right)^2 \right].
+\end{align}
+Se avessimo studiato il processo:
+\begin{equation*}
+    e^- + e^- \ \longrightarrow \ e^- + e^-
+\end{equation*}
+avremmo avuto due diagrammi di scambio (canale $t$ e canale $u$) in quanto le particelle degli stati finali sono identiche e quindi possiamo scambiarne gli impulsi.
+
+
+\section{Esempio sul segno di un loop di fermioni}
+
+Guardando la fugura \ref{fig:3 loop di ferm} scriviamo:
+\begin{align}
+    \bra{0}T[A_\mu(x_1)\, A_\nu(x_2)]\ket{0} &= (-ie)^2\int\dd^4 x\, \dd^4 y\, \bra{0}\, A_\mu(x_1)\, A_\nu(x_2)\, \overline{\psi}(x)\, \cross \notag\\
+    &\qquad \cross\, \slashed{A}(x)\, \psi(x)\, \overline{\psi}(y)\, \slashed{A}(y)\, \psi(y)\ket{0} \\
+    &= -\Delta_{\mu\rho}\, \Delta_{\nu\sigma}\, \Delta_1\, \Delta_2.
+\end{align}
+In generale troviamo che un loop con $n$ fotoni esterni che abbia solo fermioni interni ha segno negativo:
+\begin{multline}
+    \bra{0}T[A_{\mu_2}(x_1)\, \dots\, A_{\mu_1}(x_n)]\ket{0} = (-ie)^2\, \int \dd^4 y_1\, \dots\, \dd^4 y_n \, \cross \\
+    \cross\, \bra{0} A_{\mu_1}(x_1)\, \dots\, A_{\mu_n}(x_n)\, \overline{\psi}(y_1)\, \slashed{A}(y_1)\, \psi(y_1)\, \overline{\psi}(y_2)\, \cross \\
+    \cross \slashed{A}(y_2)\, \psi(y_2)\, \dots\, \overline{\psi}(y_n)\, \slashed{A}(y_n)\, \psi(y_n)\ket{0}
+\end{multline}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figure/3-Vettoriale/loop fermioni.jpeg}
+    \caption{Raffigurazione loop di fermioni.}
+    \label{fig:3 loop di ferm}
+\end{figure}
+
+
+\section{Osservazione sulla teoria di Yang-Mills}
+
+Riprendiamo l'esempio del campo spinoriale ad $N$ componenti, in aggiunta al campo vettoriale, la lagrangiana completa è:
+\begin{equation}
+    \Lag = -\frac{1}{4}\, F_a^{\mu\nu}\, F_{\mu\nu}^a + \overline{\Psi}\, (i\slashed{D} - m)\, \Psi
+\end{equation}
+in cui ricordiamo (\ref{eqn:3 der cov in rapp aggiunta}), inoltre per avere invarianza locale il campo $A$ deve trasformare come:
+\begin{equation}
+    gA_\mu \quad \longrightarrow\quad gA_\mu^\prime = -iU\, (\partial_\mu U^\dagger) + gUA_\mu U^\dagger.
+\end{equation}
+Se riscriviamo esplicitando i generatori abbiamo in una trasformazione infinitesima e:
+\begin{align}
+    gA_\mu^\prime &= gA_\mu - \partial_\mu\omega^a\, T^a + ig\omega^a\, \comm{T^a}{A_\mu} \\
+    &= gA_\mu - D_\mu\, (\omega^a\, T^a) \\
+    &= gA_\mu + iD_\mu\, U
+\end{align}
+dove abbiamo utilizzato la derivata covariante in rappresentazione aggiunta (\ref{eqn:3 der cov in rapp aggiunta}). Esplicitando la lagrangiana notiamo che il termine di interazione dato da:
+\begin{equation}
+    \Lag_{int} = -g\, \overline{\Psi}\, (\gamma_\mu A^\mu)\, \Psi
+\end{equation}
+come in Maxwell.
+
+Se invece consideriamo un campo scalare complesso:
+\begin{equation}
+    \Lag = \big( \partial_\mu\phi \big)\, \big( \partial^\mu\phi \big)^\dagger + m^2\, \phi\, \phi^\dagger
+\end{equation}
+quando richiediamo l'invarianza di fase locale tramite la derivata covariante:
+\begin{equation}
+    D_\mu = \partial_\mu + iA_\mu
+\end{equation}
+otteniamo:
+\begin{equation}
+    \Lag = -\frac{1}{4}F_{\mu\nu}\, F^{\mu\nu} - \big( \partial_\mu\phi + iA_\mu\phi \big)\, \big( \partial_\mu\phi + iA^\mu\phi^\dagger \big) + m^2\, \phi\, \phi^\dagger.
+\end{equation}
+Dunque, abbiamo dei termini di interazioni di tipo derivativo, in cui un campo ($A$) interagisce con la derivata di un altro campo ($\phi$).
+
+Le interazioni derivative non sono rare, ma si trattano meglio usando i path integrals (vedi il capitolo \S\ref{cap:path integral}).

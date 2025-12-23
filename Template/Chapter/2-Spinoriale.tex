@@ -1,0 +1,190 @@
+\chapter{Campo spinoriale}
+
+\section{LSZ}
+
+L'equazione del moto per la teoria interagente è:
+\begin{equation}
+    (i\slashed{\partial} - m_0)\psi = j_0
+    \label{eqn:2 eq moto spinoriale 1}
+\end{equation}
+che è leggermente diversa al caso della teoria libera in cui avevamo:
+\begin{equation}
+    \Lag_0 = \overline{\psi}_0(i\slashed{\partial} - m)\psi_0 \quad ;\quad (i\slashed{\partial} - m)\psi_0 = 0.
+\end{equation}
+
+Possiamo porre:
+\begin{equation}
+    j = j_0 + (m-m_0)\psi
+\end{equation}
+in modo da poter riscrivere l'equazione del moto (\ref{eqn:2 eq moto spinoriale 1}) come:
+\begin{equation}
+    (\slashed{\partial} - m)\psi = j
+\end{equation}
+la cui soluzione si trova usando la soluzione dell'omogenea, ossia il campo libero (\ref{eqn:2 sol Dirac}), e la funzione di Green, che è il propagatore:
+\begin{equation}
+    \psi(x) = \sqrt{Z}\, \psi_0 + \int\dd^4 x\, S_{rel}(x-y)\, j(y)
+\end{equation}
+in cui il fattore $\sqrt{Z}$ tiene conto dell'autointerazione.
+
+Quindi, scelti due stati normalizzati, si ha:
+\begin{equation}
+    \lim_{t\to -\infty}\bra{\alpha}\psi\ket{\beta} = \sqrt{Z}\, \bra{\alpha}\psi_{in}\ket{\beta}
+\end{equation}
+e analogamente:
+\begin{equation}
+    \lim_{t\to +\infty}\bra{\alpha}\psi\ket{\beta} = \sqrt{Z}\, \bra{\alpha}\psi_{out}\ket{\beta}
+\end{equation}
+dove abbiamo indicato con $\psi_{in}$ e $\psi_{out}$ i campi liberi iniziali e finali in cui abbiamo solo l'autointerazione; inoltre, le $\psi$ rappresentano pacchetti d'onda. \\
+
+Vogliamo studiare:
+\begin{equation}
+    S_{\alpha\beta} = \braket{\beta}{\alpha}
+    \label{eqn:2 inizio studio formula LSZ}
+\end{equation}
+esplicitiamo la presenza di una particella con momento $p$ ed elicità $s$:
+\begin{equation}
+    \ket{\alpha} \longrightarrow \ket{\alpha,(p,s)}
+\end{equation}
+per far ciò abbiamo bisogno di esprimere gli operatori di creazione e distruzione in funzione dei campi (relazioni di inversione). Ricordo che abbiamo:
+\begin{equation}
+    \psi(x) = \sum_s\int\frac{\dd^3 p}{(2\pi)^3\, 2E_p}\, \Big[ b_s(p)\, u_s(p)\, e^{-ipx} + d_s^\dagger(p)\, v_s(p)\, e^{ipx} \Big]
+\end{equation}
+e che valgono le seguenti relazioni:
+\begin{align}
+    &\overline{u}_s(p)\, \gamma^\mu\, u_r(p) = \overline{v}_s(p)\, \gamma^\mu\, v_r(p) = 2\, p^\mu\, \delta_{sr} \\
+    &\overline{u}_s(p)\, \gamma^0\, v_r(-p) = \overline{v}_s(p)\, \gamma^0\, u_r(-p) = 0.
+\end{align}
+Possiamo svolgere i conti:
+\begin{align}
+    \int\dd^3 &x\, \overline{u}_r(p)\, \gamma^0\, \psi(x)\, e^{ipx} = \\
+    &= \int\dd^3 x\, \overline{u}_r(p)\, \gamma^0\, \Bigg(\sum_s \int\frac{\dd^3 q}{(2\pi)^3\, 2E_q} \Big[ b_s(q)\, u_s(q)\, e^{-iqx} + \notag \\
+    &\qquad \qquad \qquad + d_s^\dagger(q)\, v_s(q)\, e^{iqc} \Big] \Bigg)e^{ipx} \\
+    &= \sum_s\int \frac{\dd^3 q}{(2\pi)^3\, 2E_q}\int\dd^3 x\Big\{ \overline{u}_r(p)\, \gamma^0\, \Big[ b_s(q)\, u_s(q)\, e^{-iqx} + \notag \\
+    &\qquad \qquad \qquad + d_s^\dagger(q)\, v_s(q)\, e^{iqc} \Big] \Big\} \\
+    &= \sum_s\int \frac{\dd^3 q}{2E_q}\, \overline{u}_r(p)\, \gamma^0\, \Big[ u_s(q)\, b_s(q)\, e^{-i(E_q-E_p)t}\, \delta^3(q-p) + \notag \\
+    &\qquad \qquad \qquad + v_s(q)\, d_s^\dagger(q)\, e^{i(E_q + E_p)x}\, \delta^3(q+p) \Big] \\
+    &= \sum_s\frac{1}{2E_p}\, \Big[ \overline{u}_r(p)\, \gamma^0\, u_s(p)\, b_s(p) + \overline{u}_s(p)\, \gamma^0\, v_s(-p)\, d_s^\dagger(-p)\, e^{i(2E_p)x} \Big] \\
+    &= \hat{b}_r(p)
+\end{align}
+analogamente possiamo vedere:
+\begin{align}
+    \int\dd^3 &x\, \overline{\psi}(x)\, \gamma^0\, v_r(p)\, e^{ipx} = \\
+    &= \int\dd^3 x\, \Bigg( \sum_s\int\frac{\dd^3 q}{(2\pi)^3\, 2E_q}\Big[b_s^\dagger(q)\, \overline{u}_s(q)\, e^{iqx} + \notag \\
+    &\qquad \qquad \qquad + d_s(q)\, \overline{v}_s(q)\, e^{-iqx} \Big] \Bigg)\, \gamma^0\, v_r(p)\, e^{ipx} \\
+    &= \sum_s\int\frac{\dd^3 q}{(2\pi)^3\, 2E_q} \int\dd^3 x\, \Big[b_s^\dagger(q)\, \overline{u}_s(q)\, e^{iqx} + d_s(q)\, \overline{v}_s(q)\, e^{-iqx} \Big]\, \gamma^0\, v_r(p) \\
+    &= \sum_s\frac{1}{2E_q}\, \Big[b_s^\dagger(-p)\, \overline{u}_s(-p)\, e^{-i(2E_p)x} + d_s(p)\, \overline{v}_s(p) \Big] \, \gamma^0\, v_r(p) \\
+    &= \hat{d}_r(p).
+\end{align}
+Dunque abbiamo trovato per le particelle:
+\begin{align}
+    &\hat{b}(p,s) = \int\dd^3 x\, \overline{u}_s(p)\, \gamma^0\, \psi_0(x)\, e^{ipx} \\
+    &\hat{b}^\dagger(p,s) = \int\dd^3 x\, \overline{\psi}_0(x)\, \gamma^0\, u_s(p)\, e^{-ipx}
+\end{align}
+e per le anti-particelle:
+\begin{align}
+    &\hat{d}(p,s) = \int\dd^3 x\, \overline{\psi}_0(x)\, \gamma^0\, v_r(p)\, e^{ipx} \\
+    &\hat{d}^\dagger(p,s) = \int\dd^3 x\, \overline{v}_r(p)\, \gamma^0\, \psi_0(x)\, e^{-ipx}.
+\end{align}
+
+Tornando al nostro problema iniziale (\ref{eqn:2 inizio studio formula LSZ}) possiamo considerare una particella nello stato iniziale $\ket{\alpha}$ ed ignorare il forward-scattering, e calcolare:
+\begin{align}
+    \braket{\beta}{\alpha} &= \bra{\beta}b_{in}^\dagger(p,s)\ket{\tilde{\alpha}} \\
+    &= \bra{\beta}b_{in}^\dagger(p,s) - b_{out}^\dagger(p,s)\ket{\tilde{\alpha}} \\
+    &= \bra{\beta}\int\dd^3 x\, \Big[\overline{\psi}_{in}(x) - \overline{\psi}_{out}(x)\Big]\, \gamma^0\, u_s(p)\, e^{-ipx}\ket{\tilde{\alpha}} \\
+    &= \frac{1}{\sqrt{Z}}\left(\lim_{t\to -\infty} - \lim_{t\to +\infty}\right)\int\dd^3 x\, \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, u_s(p)\, e^{-ipx} \\
+    &= -\frac{1}{\sqrt{Z}}\int\dd^4 x\, \partial_t\Big[\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, u_s(p)\, e^{-ipx} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ i\left(\partial_t\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\right)\, \gamma^0\, u_s(p)\, e^{-ipx} +\notag \\
+    &\qquad \qquad \qquad + i\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, u_s(p)\, \partial_t\, e^{-ipx} \Big]
+\end{align}
+possiamo ricordare che valgono (\ref{eqn:2 eq Dirac per u e v}), in particolare la prima, che ci permette di scrivere:
+\begin{align}
+    i\gamma^0\, \partial_0\, e^{-ipx}\, u_s(p) &= \gamma^0\, p_0\, e^{-ipx}\, u_s(p) \\
+    &= -(\gamma^i\, p_i - m)\, e^{-ipx}\, u_s(p) \\
+    &= -(i\gamma^i\, \partial_i - m)\, e^{-ipx}\, u_s(p)
+\end{align}
+e dunqe possiamo riprendere i nostri conti:
+\begin{align}
+    \braket{\beta}{\alpha} &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[i\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, \overset{\leftarrow}{\partial}_0\, u_s(p)\, e^{-ipx} -\notag \\
+    &\qquad \qquad \qquad - \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}(i\gamma^i\, \partial_i - m)\, e^{-ipx}\, u_s(p) \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}} \big(i\gamma^0\, \overset{\leftarrow}{\partial}_0 + i\gamma^i\, \overset{\leftarrow}{\partial}_i + m\big)u_s(p)\, e^{-ipx} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}(i\overset{\leftarrow}{\slashed{\partial}} + m)\, u_s(p)\, e^{-ipx} \Big] \label{eqn:2 ris particella LSZ}.
+\end{align}
+
+Possiamo fare il conto analogo per l'antiparticella iniziale:
+\begin{align}
+    \braket{\beta}{\alpha} &= \bra{\tilde{\beta}}d_{in}^\dagger(p,s)\ket{\alpha} \\
+    &= \bra{\tilde{\beta}}d_{in}^\dagger(p,s) - d_{out}^\dagger(p,s)\ket{\alpha} \\
+    &= \frac{1}{\sqrt{Z}}\left(\lim_{t\to -\infty} - \lim_{t\to +\infty}\right)\int\dd^3 x\, \overline{v}_r(p)\, \gamma^0\, \bra{\tilde{\beta}}\psi(x)\, \ket{\alpha}\, e^{-ipx} \\
+    &= -\frac{1}{\sqrt{Z}}\int\dd^4 x\Big[ \overline{v}_r(p)\, \gamma^0\, \partial_t\left(\bra{\tilde{\beta}}\psi(x)\ket{\alpha}\right)\, e^{-ipx} +\notag \\
+    &\qquad \qquad \qquad + \overline{v}_r(p)\, \gamma^0\, \bra{\tilde{\beta}}\psi(x)\ket{\alpha}\, \partial_t\, e^{-ipx} \Big]
+\end{align}
+a questo punto possiamo riusare la relazione (\ref{eqn:2 eq Dirac per u e v}) per scrivere:
+\begin{align}
+    \overline{v}_r(p)\, \gamma^0\, \partial_0\, e^{-ipx} &= -i\overline{v}_r(p)\, \gamma^0\, p_0\, e^{-ipx} \\
+    &= i\overline{v}_r(p)\, (\gamma^i\, p_i + m)\, e^{-ipx} \\
+    &= i\overline{v}_r(p)\, (i\gamma^i\, \partial_i + m)\, e^{-ipx}
+\end{align}
+che ci fa arrivare a:
+\begin{align}
+    \braket{\beta}{\alpha} &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \overline{v}_r(p)\, (i\gamma^0\, \partial_0) \left(\bra{\tilde{\beta}}\psi(x)\ket{\alpha}\right)\, e^{-ipx} -\notag \\
+    &\qquad \qquad \qquad - \left( \overline{v}_r(p)\, (i\gamma^i\, \partial_i + m)\, e^{-ipx} \right)\bra{\tilde{\beta}}\psi(x)\ket{\alpha} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x \Big[ e^{-ipx}\, \overline{v}_r(p)\, (i\overset{\rightarrow}{\slashed{\partial}} - m)\, \bra{\tilde{\beta}}\psi(x)\ket{\alpha} \Big]
+\end{align}
+e possiamo vedere che il risultato finale è analogo al caso di particella (\ref{eqn:2 ris particella LSZ}), ma con un segno opposto sul termine di derivata.
+
+Ovviamente dovremmo calcolare anche tutte le altre componenti, ma i conti sono analogi e i risultati complessivi sono:
+\begin{equation}
+    \begin{cases}
+        \bra{\beta}b_{in}^\dagger(p,s)\ket{\alpha} = +\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}\ket{\alpha}\, (i\overset{\leftarrow}{\slashed{\partial}} + m)u_s(p)\, e^{-ipx} \Big] \\
+        \bra{\beta}b_{out}(p,s)\ket{\alpha} = -\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{+ipx}\, \overline{u}_s(p)\, (i\overset{\rightarrow}{\slashed{\partial}} - m)\, \bra{\beta}\psi\ket{\alpha}\Big] \\
+        \bra{\beta}d_{in}^\dagger(p,s)\ket{\alpha} = +\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{-ipx}\, \overline{v}_s(p)\, (i\overset{\leftarrow}{\slashed{\partial}} - m)\, \bra{\beta}\psi\ket{\alpha}\Big] \\
+        \bra{\beta}d_{out}(p,s)\ket{\alpha} = -\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}\ket{\alpha}\, (i\overset{\leftarrow}{\slashed{\partial}} + m)v_s(p)\, e^{+ipx} \Big].
+    \end{cases}
+    \label{eqn:2 risultati part e antipart}
+\end{equation}
+
+Se estraiamo una particella dopo aver già estratto $n + m$ campi, ignorando come sempre il forward scattering, possiamo inserire un fattore $(-1)^{m+n}$ che si semplifica per gli scambi:
+\begin{align}
+    \bra{\beta}T[\psi_{\alpha_1}&(y_1)\dots\psi_{\alpha_n}\, \overline{\psi}_{\beta_1}(z_1)\dots\overline{\psi}_{\beta_m}(z_m)]b^\dagger_{in}\ket{\alpha} =\\
+    &= \bra{\beta}T[\psi\dots\overline{\psi}]b_{in}^\dagger\ket{\alpha} - (-1)^{m+n}\, \bra{\beta}b_{out}^\dagger\, T[\psi\dots\overline{\psi}]\ket{\alpha} \\
+    &= \bra{\beta}T[\psi\dots\overline{\psi}](b_{in}^\dagger - b_{out}^\dagger)\ket{\alpha}.
+\end{align}
+Infatti, facendo passare $b_{out}^\dagger$ attraverso tutti i campi esso prende un segno $(-1)^{m+n}$, che si compensa con il segno scelto, dopodiché facciamo gli stessi passaggi di prima.
+
+Supponendo di avere $n$ particelle ed $m$ antiparticelle nello stato iniziale $\ket{\alpha}$ e di avere $s$ particelle e $t$ antiparticelle nello stato finale $\bra{\beta}$, si ha che:
+\begin{equation}
+    \braket{\beta_{(s,t)}}{\alpha_{(n,m)}} = \bra{\Omega}\big[(b_1\dots b_s)(d_1\dots d_t)\big]_{out}\, \big[(b_1^\dagger\dots b_n^\dagger)(d_1^\dagger\dots d_m^\dagger)\big]_{in}\ket{\Omega}
+\end{equation}
+che per come abbiamo scritto le (\ref{eqn:2 risultati part e antipart}) possiamo riordinarle come segue:
+\begin{equation}
+    \braket{\beta_{(s,t)}}{\alpha_{(n,m)}} = \bra{\Omega}(d_1^\dagger\dots d_m^\dagger)_{in}\, (b_1^\dagger\dots b_s^\dagger)_{out}\, (b_1^\dagger\dots b_n^\dagger)_{in}\, (d_1^\dagger\dots d_t^\dagger)_{out}\ket{\Omega}.
+\end{equation}
+Osserviamo che se $t$ è pari allora possiamo spostare $(d_1^\dagger\dots d_t^\dagger)_{out}$ a destra senza probelmi, mentre se è dispari verrà fuori un fattore $(-1)^{m+n}$, analogamente per spostare $(d_1^\dagger\dots d_m^\dagger)_{in}$ ottengo un fattore $(-1)^{n+s}$. Ora esplicitiamo i vari pezzetti:
+\begin{multline}
+    \braket{\beta_{(s,t)}}{\alpha_{(n,m)}} = (-1)^{m+s}\, \bra{\Omega}(d_1^\dagger\dots d_m^\dagger)_{in}\, (b_1^\dagger\dots b_s^\dagger)_{out}\, (b_1^\dagger\dots b_n^\dagger)_{in}\, (d_1^\dagger\dots d_t^\dagger)_{out}\ket{\Omega} = \\
+    = (-1)^{m+t}\, \left(\frac{i}{\sqrt{Z}}\right)^{n+m+s+t}\, \left\{ \prod_{j=1}^m \int\dd^4 x_j\, e^{-i\, p_j\, x_j}\, \overline{v}_s(p_j)\, (i\overset{\rightarrow}{\slashed{\partial}}_j - m) \right\}\cross \\
+    \cross \left\{ \prod_{k=1}^s \int\dd^4 x_k\, e^{+i\, p_k\, x_k}\, \overline{u}_s(p_k)\, (i\overset{\rightarrow}{\slashed{\partial}}_k - m) \right\} \cross \bra{\Omega}\psi_j\, \psi_k\, \overline{\psi}_i\, \overline{\psi}_l\ket{\Omega}\cross \\
+    \cross \left\{ \prod_{j=1}^n \int\dd^4 x_i\, (i\overset{\leftarrow}{\slashed{\partial}}_i + m)\, {u}_s(p_i)\, e^{-i\, p_i\, x_i} \right\}\, \left\{ \prod_{l=1}^t \int\dd^4 x_l\, (i\overset{\leftarrow}{\slashed{\partial}}_l + m)\, {v}_s(p_l)\, e^{+i\, p_l\, x_l} \right\}.
+\end{multline}
+
+Notiamo, e teniamo a mente, che non è segnato esplicitamente, ma gli elementi con la stessa sommatoria hanno indici spinoriali legati, nell'ordine in cui i vari elementi sono scritti:
+\begin{multline*}
+    (\cdots)\overline{u}_{\gamma_1}(z_1)(\cdots)(i\overset{\rightarrow}{\slashed{\partial}} - m)_{\gamma_1 c_1}\, (\cdots)\bra{0}T[\psi_{c_1}(z_1)(\cdots)\overline{\psi}_{\alpha_1}(x_1)(\cdots)]\ket{0}\cross \\
+    \cross (i\overset{\leftarrow}{\slashed{\partial}} + m)_{\alpha_1 \alpha_1}\, (\cdots)u_{\alpha_1}(x_1)(\cdots)
+\end{multline*}
+in cui gli indici $(\alpha_1, \gamma_1,\dots)$ rappresentano gli indici del prodotto tra gli spinori. \\
+
+Usando lo stesso abuso di notazione che abbiamo osservato per il caso scalare (ovvero utilizziamo $G$ sia per indicare la funzione di Green, sia la funzione di Green amputata), possiamo scrivere la definizione delle funzioni di Grenn:
+\begin{equation}
+    G = \overline{v}_j\, \overline{u}_k\, \bra{\Omega}T[\psi_j\, \psi_k\, \overline{\psi}_i\, \overline{\psi}_l]\ket{\Omega}\, u_i\, v_l
+\end{equation}
+\begin{align}
+    \tilde{G} &= \left\{ \prod_{j=1}^m \int\dd^4 x_j\, e^{-i\, p_j\, x_j} \right\}\, \left\{ \prod_{k=1}^s \int\dd^4 x_k\, e^{+i\, p_k\, x_k} \right\}\, \left\{ \prod_{i=1}^n \int\dd^4 x_i\, e^{-i\, p_i\, x_i} \right\}\, \cross \notag \\
+    &\qquad \cross \left\{ \prod_{l=1}^t \int\dd^4 x_l\, e^{+i\, p_l\, x_l} \right\}\, G \\
+    &=(-1)^{n+t}\, \left(\sqrt{Z}\right)^{n+m+s+t}\, \left\{\prod_{j=1}^m \frac{i}{\slashed{p}_j - m}\right\}\, \left\{\prod_{k=1}^s \frac{i}{\slashed{p}_k + m}\right\}\, \cross \notag \\
+    &\qquad \cross \left\{\prod_{i=1}^n \frac{i}{\slashed{p}_i + m}\right\}\, \left\{\prod_{l=1}^t \frac{i}{\slashed{p}_l - m}\right\}\, \braket{\beta_{(s,t)}}{\alpha_{(n,m)}}
+\end{align}
+che troviamo grazie alla formula LSZ. La funzione di correlazione/Green amputata si ottiene eliminando i propagatori delle gambe esterne dalla funzione di Green nello spazio dei momenti:
+\begin{equation}
+    \tilde{G}^{(n)} = \tilde{G}_A^{(n)}\, \prod_{i=1}^n \Delta_F(p_i).
+\end{equation}

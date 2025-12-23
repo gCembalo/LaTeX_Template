@@ -1,0 +1,32 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Campo scalare}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Propagatore di Lehmann-Kallen e autostati di una teoria interagente}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Disaccoppiamento degli stati a multiparticelle}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Operatori di creazione e distruzione}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Formula di LSZ}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Esempio sulla funzione di Green}{10}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Potenziale di Yukawa scalare (scattering tra nucleoni e pioni)}{12}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Caso non relativistico}{15}{subsection.1.6.1}%
+\contentsline {chapter}{\numberline {2}Campo spinoriale}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}LSZ}{17}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Campo vettoriale}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Esempio annichilazione di fermioni}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Esempio del Bhabha scattering}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Esempio sul segno di un loop di fermioni}{32}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Osservazione sulla teoria di Yang-Mills}{32}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Integrali funzionali}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Legame tra path integral e prodotto T-ordinato nel vuoto}{35}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Spazio delle coordinate}{37}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Rotazione di Wick}{37}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Esempio $\lambda \phi ^4$}{39}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Modello standard}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Rottura spontanea di simmetria (Wigner e Nambu-Goto)}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Rottura della simmetria e spettro di massa}{42}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Esempio di rottura della simmetria}{44}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Sostituzione 1}{45}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Sostituzione 2}{46}{subsection.5.3.2}%
+\contentsline {paragraph}{Osservazione}{46}{section*.10}%
+\contentsline {section}{\numberline {5.4}Fotone massivo tramite Goldstone}{46}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Sostituzione}{47}{subsection.5.4.1}%
+\contentsline {paragraph}{Osservazione.}{48}{section*.11}%
+\contentsline {chapter}{Bibliography}{49}{section*.12}%

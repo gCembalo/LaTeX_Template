@@ -1,0 +1,227 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Iliopoulos}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=11693f7964a40dd83643737235add6f6}{%
+           family={Iliopoulos},
+           familyi={I\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6347ac4a3d0c302ebdb05791d6913721}{%
+           family={Tomaras},
+           familyi={T\bibinitperiod},
+           given={Theodore\bibnamedelima N.},
+           giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{fullhash}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{fullhashraw}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{bibnamehash}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{authorbibnamehash}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{authornamehash}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{authorfullhash}{90c2c077f39c36204ead6ae225c1b41b}
+      \strng{authorfullhashraw}{90c2c077f39c36204ead6ae225c1b41b}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Elementary Particle Physics}}
+      \field{year}{2021}
+      \true{nocite}
+    \endentry
+    \entry{Lancaster}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c6cc445cf5d78ae339f2a3560a8be5b9}{%
+           family={Lancaster},
+           familyi={L\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9cb4aa188ac98c095c36bc003373c966}{%
+           family={Blundell},
+           familyi={B\bibinitperiod},
+           given={Stephen\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{fullhash}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{fullhashraw}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{bibnamehash}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{authorbibnamehash}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{authornamehash}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{authorfullhash}{ed4ab99da0057cd7b229d2eefd40de70}
+      \strng{authorfullhashraw}{ed4ab99da0057cd7b229d2eefd40de70}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantum Field Theory for the Gifted Amateur}
+      \field{year}{2014}
+      \true{nocite}
+    \endentry
+    \entry{Nastase}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=97d722b2e4fa3eca94bfded548a7f0e7}{%
+           family={Nastase},
+           familyi={N\bibinitperiod},
+           given={Horatiu},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{fullhash}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{fullhashraw}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{bibnamehash}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{authorbibnamehash}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{authornamehash}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{authorfullhash}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \strng{authorfullhashraw}{97d722b2e4fa3eca94bfded548a7f0e7}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Introduction to Quantum Field Theory}}
+      \field{year}{1970}
+      \true{nocite}
+    \endentry
+    \entry{Peskin}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=7bad35ca708cc14703fbf71be1b2dda8}{%
+           family={Peskin},
+           familyi={P\bibinitperiod},
+           given={Michael\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=cc0fe4ad0bcb2f8883e7f5e5b5287dd9}{%
+           family={Schroeder},
+           familyi={S\bibinitperiod},
+           given={Daniel\bibnamedelima V.},
+           giveni={D\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, USA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{fullhash}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{fullhashraw}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{bibnamehash}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{authorbibnamehash}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{authornamehash}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{authorfullhash}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \strng{authorfullhashraw}{cbcdd646a15ae9af77377e5f1358ecb4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Introduction to quantum field theory}
+      \field{year}{1995}
+    \endentry
+    \entry{Ramond}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=f1d3b27ac2aa2021d8a5ac9136d4b1a4}{%
+           family={Ramond},
+           familyi={R\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{fullhash}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{fullhashraw}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{bibnamehash}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{authorbibnamehash}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{authornamehash}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{authorfullhash}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \strng{authorfullhashraw}{f1d3b27ac2aa2021d8a5ac9136d4b1a4}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Field theory: a modern primer}
+      \field{year}{1981}
+      \true{nocite}
+    \endentry
+    \entry{Schwartz}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=1e7b6dde56467cb787f369fadc91b2df}{%
+           family={Schwartz},
+           familyi={S\bibinitperiod},
+           given={Matthew\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{fullhash}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{fullhashraw}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{bibnamehash}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{authorbibnamehash}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{authornamehash}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{authorfullhash}{1e7b6dde56467cb787f369fadc91b2df}
+      \strng{authorfullhashraw}{1e7b6dde56467cb787f369fadc91b2df}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Quantum Field Theory and the Standard Model}}
+      \field{year}{2014}
+      \true{nocite}
+    \endentry
+    \entry{Srednicki}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=014a9157f76d955fe1036f53453000c3}{%
+           family={Srednicki},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{014a9157f76d955fe1036f53453000c3}
+      \strng{fullhash}{014a9157f76d955fe1036f53453000c3}
+      \strng{fullhashraw}{014a9157f76d955fe1036f53453000c3}
+      \strng{bibnamehash}{014a9157f76d955fe1036f53453000c3}
+      \strng{authorbibnamehash}{014a9157f76d955fe1036f53453000c3}
+      \strng{authornamehash}{014a9157f76d955fe1036f53453000c3}
+      \strng{authorfullhash}{014a9157f76d955fe1036f53453000c3}
+      \strng{authorfullhashraw}{014a9157f76d955fe1036f53453000c3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantum field theory}
+      \field{year}{2007}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

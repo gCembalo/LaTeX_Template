@@ -41,12 +41,14 @@
 
 \documentclass[11pt,a4paper,twoside,openright]{book}
 
+\newcommand{\Lag}{\mathcal{L}} % Lagrangian density
+\newcommand{\Ham}{\mathcal{H}} % Hamiltonian density
 \usepackage{NotesTemplate} % Import my template
 
 %---------------------------------DOCUMENT--------------------------------%
 
 %\title{\Large Appunti del corso di: \\ \vspace{5pt} \huge \textbf{CORSO}}
-\title{\Large Notes from the course on: \\ \vspace{5pt} \huge \textbf{COURSE}}
+\title{\Large Compendio del corso: \\ \vspace{5pt} \huge \textbf{Fondamenti di \qft}}
 \author{\large{Gabriele Cembalo}}
 \date{A.A. 2025-2026}
 
@@ -59,7 +61,7 @@
 \input{Chapter/00-Legal Info.tex} %% LEGAL PART
                                   %% DO NOT DELETE, IT CONTAINS COPYRIGHT
 \nostyle
-\epigraph{It is more important to have beauty in one's equations than to have them fit experiment.}{P. A. M. Dirac}
+\epigraph{Science is not a collection of truths. It is a continuing exploration of mysteries.}{Freeman Dyson}
 \whitepage % White page (you don't need it if you write oneside document)
 
 \pagenumbering{roman}
@@ -74,7 +76,11 @@
 
 \pagenumbering{arabic}
 
-\include{Chapter/1-Introduction}
+\include{Chapter/1-Scalare}
+\include{Chapter/2-Spinoriale}
+\include{Chapter/3-Vettoriale}
+\include{Chapter/4-Path}
+\include{Chapter/5-SM}
 
 %\addcontentsline{toc}{part}{\hspace*{\fill}Appendici\hspace*{\fill}}
 %\part*{Appendici}

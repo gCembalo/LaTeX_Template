@@ -1,0 +1,1491 @@
+\chapter{Compendio}
+
+In questa Appendice voglio raccogliere tutti quegli argomenti che sono stati svolti in modo differente (seguendo diversi libri da quelli del professore). La fonte di queste note sono gli appunti di E. Chiarotto.
+
+
+\section{Campo scalare}
+
+
+\subsection{Propagatore di Lehmann-Kallen e autostati di una teoria interagente}
+
+\textcolor{red}{L'inizio è uguale a quello della mia sezione.} \\
+
+Visto il caso $x^0>y^0$, possiamo definire il propagatore interagente, in analogia al caso libero, come:
+\begin{align}
+    \Delta_F &= \bra{\Omega}T[\phi(x)\phi(y)]\ket{\Omega} \\
+    &= \theta(x^0-y^0)\, \bra{\Omega}\phi(x)\phi(y)\ket{\Omega} + \theta(y^0-x^0)\, \bra{\Omega}\phi(y)\phi(x)\ket{\Omega} \\
+    &= \sum_\alpha \left| \bra{\Omega}\phi(0)\ket{\alpha} \right|^2\, \left[ e^{-ip_\alpha(x-y)}\, \theta(x^0-y^0) + e^{-ip_\alpha(y-x)}\, \theta(y^0-x^0) \right]. \label{eqn:1 prop interagente primo passo}
+\end{align}
+
+Possiamo definire la densità spettrale come:
+\begin{equation}
+    \rho(q) = \sum_\alpha (2\pi)^4\, \delta^4(q-p_\alpha)\, \left| \bra{\Omega}\phi(0)\ket{\alpha} \right|^2
+\end{equation}
+che è una densità di massa/energia, e in cui $q=p_\alpha$ (per via della $\delta$) e in cui $q_0^2>0$, ovvero tale per cui \textcolor{red}{$q_\mu$ è un oggetto time-like}.
+
+Notiamo che $\Delta_F$ è un'invariante di Lorentz, per cui, anche $\rho(q)$ dovrà esserlo. Scriviamo dunque:
+\begin{equation}
+    \rho(q) = \theta(q^0)\, \sigma(q^2)
+\end{equation}
+in cui:
+\begin{equation}
+    \sigma(q^2) = \int_0^{\infty}\dd(m^2)\, \sigma(m^2)\, \delta(q^2-m^2)
+\end{equation}
+che chiamiamo \textit{spettro di massa}. Possiamo scrivere il propagatore interagente (\ref{eqn:1 prop interagente primo passo}) come:
+\begin{align}
+    \Delta_F &= \int\frac{\dd^4 q}{(2\pi)^4}\, \rho(q)\, \left[ e^{-iq(x-y)}\, \theta(x^0-y^0) + e^{-iq(y-x)}\, \theta(y^0-x^0) \right] \\
+    &= \int\frac{\dd^4 q}{(2\pi)^4}\, \theta(q^0)\, \int_0^\infty\dd(m^2)\, \sigma(m^2)\, \delta(q^2-m^2)\, \Big[e^{-iq(x-y)}\, \theta(x^0-y^0) +\notag \\
+    &\qquad \qquad + e^{-iq(y-x)}\, \theta(y^0-x^0)\Big] \\
+    &= \int_0^\infty\dd(m^2)\, \sigma(m^2)\, \int\frac{\dd^4 q}{(2\pi)^4}\, \frac{\delta(q^0-E_{q,m})}{2\, E_{q,m}}\, \Big[e^{-iq(x-y)}\, \theta(x^0-y^0) +\notag \\
+    &\qquad \qquad + e^{-iq(y-x)}\, \theta(y^0-x^0)\Big] \\
+    &= \int_0^\infty\dd(m^2)\, \sigma(m^2)\, \Delta_F^0(x-y,m^2) \label{eqn:1 rappresentazione Lehmann-Kallen}
+\end{align}
+dove $\Delta_F^0(x-y,m^2)$ è il propagatore di Feynman per la particella libera di massa $m$, mentre $\sigma$ rappresenta la densità degli stati (compresi gli stati legati). La rappresentazione è detta \textbf{rappresentazione di Lehmann-Kallen}. Nel caso di campo libero avevamo $\sigma(m^2) = \delta(m^2-m_0^2)$. \\
+
+Possiamo anche dimostrare che la $\sigma$ è correttamente normalizzata per essere una densità. Da (\ref{eqn:1 rappresentazione Lehmann-Kallen}) otteniamo che:
+\begin{equation}
+    \bra{\Omega}[\phi(x),\phi(y)]\ket{\Omega} = \int_0^\infty\dd(m^2)\, \sigma(m^2)\, \bra{0}[\phi_0(x),\phi_0(y)]\ket{0}
+\end{equation}
+se deriviamo rispetto $y^0$:
+\begin{equation}
+    \bra{\Omega}[\phi(x),\pi(y)]\ket{\Omega} = \int_0^\infty\dd(m^2)\, \sigma(m^2)\, \bra{0}[\phi_0(x),\pi_0(y)]\ket{0}
+\end{equation}
+in cui abbiamo ipotizzato che il potenziale di interazione non dipende dalle derivate del campo. Ovviamente, noi ricordiamo il commutatore (\ref{eqn:1 commutatore campi scalari e momenti}), che vale a prescindere dal fatto che sia una teoria libera o interagente, per cui dobbiamo avere:
+\begin{equation}
+    1 = \int_0^\infty \dd(m^2)\, \sigma(m^2)
+\end{equation}
+dunque, la $\sigma(m^2)$ ha le dimensioni che deve avere. \\
+
+Fin'ora non ci siamo preoccupati di distinguere stai a singola particella da stati multi-particelle. Ricordiamo che esistono 3 set di autostati possibili:
+\begin{itemize}
+    \item $\ket{0}$: lo stato di vuoto libero (assenza di particelle).
+    \item $\ket{\alpha}$: lo stato di singola particella libera di massa $m_0$.
+    \item $\ket{\alpha,n}$: lo stato legato di molte particelle, dipende dall'impulso e da altre $n$ variabili, ha energia:
+    \begin{equation}
+        E_k = \sqrt{k^2 - M^2}
+    \end{equation}
+    con $M>m_0$ e in cui $M$ è la massa minima per stati legati, di almeno 2 particelle. Notiamo che per $m>M$ la $\sigma$ assume valori continui.
+\end{itemize}
+Per la precisione, dopo lo stato a singola particella, possiamo avere uno stato legato a molte particelle che può avere $M < 2m_0$ (ma sempre $M > m_0$), ma dobbiamo anche notare che se escludiamo gli stati legati ci rimangono solo gli stati con $M \geq 2m_0$ (che possono avere momento relativo grande a piacere!)\footnote{A riguardo vedi pag. 51 dello Srednicki \cite{Srednicki}.}.
+
+Per uno stato legato possiamo scrivere:
+\begin{equation}
+    \sigma(m^2) = Z\, \delta(m^2-m_0^2) + \theta(m^2-M^2)\, \tilde{\sigma}(m^2)
+\end{equation}
+e dunque:
+\begin{align}
+    \Delta_F &= \int_0^\infty \dd(m^2)\, \Delta_F^0(x-y,m^2)\, \left[ Z\, \delta(m^2-m_0^2) + \theta(m^2-M^2)\, \overline{\sigma}(m^2) \right] \\
+    &= Z\, \Delta_F^0(x-y,m_0^2) + \int_{M^2}^\infty\dd(m^2)\, \Delta_F^0(x-y,m^2)\, \tilde{\sigma}(m^2)
+\end{align}
+in cui il primo termine è il propagatore di un campo libero moltiplicato per una costante di normalizzazione $Z$ (descrive una sola particella), che è utile perché se vogliamo correlare il campo libero $\phi_0$ al campo interagente $\phi$, allora abbiamo $\phi = \sqrt{Z}\, \phi_0$, cioè permette di riscalare il campo libero.
+
+Notiamo che imponendo la normalizzazione di $\sigma(m^2)$ abbiamo:
+\begin{equation}
+    1 = \int_0^\infty\dd(m^2)\sigma(m^2) = Z + \int_{M^2}^\infty \dd(m^2)\, \tilde{\sigma}(m^2)
+\end{equation}
+e siccome:
+\begin{equation}
+    \int_{M^2}^\infty \dd(m^2)\, \tilde{\sigma}(m^2) > 0
+\end{equation}
+dobbiamo avere $Z\in(0,1)$, dove $Z$ dà una misura di quanto il campo interagisca con se stesso e si calcola tramite teorie perturbative.
+
+
+\subsection{Disaccoppiamento degli stati a multiparticelle}
+
+I riferimenti sono p. 53-54 dello Srednicki \cite{Srednicki}. \\
+
+Quando abbiamo una teoria libera sappiamo che vale:
+\begin{equation}
+    \bra{k,n}\phi_0(x)\ket{0} = 0
+\end{equation}
+in cui a sinistra abbiamo uno stato legato e a destra il vuoto. Vogliamo dimostrare in questa sezione che vale:
+\begin{equation}
+    \lim_{t\to\infty} \bra{k,n}\phi_0(x)\ket{\Omega} = 0
+\end{equation}
+ovvero che gli stati a molte particelle si disaccoppiano.
+
+Prendiamo come stato iniziale uno stato a multiparticella, che può essere scritto come una sovrapposizione di pacchetti d'onda:
+\begin{equation}
+    \ket{\psi} = \sum_n\int\dd^3 p\, \psi_n(p)\, \ket{p,n}
+\end{equation}
+e che dev'essere normalizzabile.
+
+Notiamo che vale:
+\begin{align}
+    \bra{p,n}\phi(x)\ket{\Omega} &= \bra{p,n}e^{ipx}\, \phi(0)\, e^{-ipx}\ket{\Omega} \\
+    &= e^{ipx}\bra{p,n}\phi(0)\ket{\Omega} \\
+    &= e^{ipx}\, A_n(p).
+\end{align}
+
+Ora, calcoliamo:
+\begin{align}
+    \bra{\psi}a^\dagger\ket{\Omega} &= \sum_n\int\dd^3 p\, \psi_n^*(p)\, \bra{p,n}a^\dagger\ket{\Omega} \\
+    &= -i(2\pi)^3\sum_n\int\dd^3 p\, \psi_n^*(p)\, \bra{p,n}\int\dd^3 k\, g(k)\int\dd^3 x\, \Big[ e^{-ikx}\, \overset{\leftrightarrow}{\partial}_t\, \phi(x) \Big]\ket{\Omega} \\
+    &= -i(2\pi)^3\sum_n\int\dd^3 p\, \dd^3 k\, \dd^3 x \Big[ \psi_n^*(p)\, g(k)\, \big(e^{-ikx}\, \overset{\leftrightarrow}{\partial}_t\, \bra{p,n}\phi(x)\ket{\Omega} \big) \Big] \\
+    &= -i(2\pi)^3\sum_n\int\dd^3 p\, \dd^3 k\, \dd^3 x \Big[ \psi_n^*(p)\, g(k)\, \big(e^{-ikx}\, \overset{\leftrightarrow}{\partial}_t\, e^{ipx}\, A_n(p) \big) \Big] \\
+    &= (2\pi)^3\sum_n\int\dd^3 p\, \dd^3 k\, \dd^3 x \Big[ \psi_n^*(p)\, g(k)\, (E_p+E_k)\, e^{i(p-k)}\, A_n(p) \Big] \\
+    &= (2\pi)^3 \sum_n\int\dd^3 p\, \dd^3 k\, \Big[ \psi_n^*(p)\, g(k)\, (E_p+E_k)\, e^{i(E_p-E_k)}\, A_n(p)\, \delta^3(p-k) \Big]
+\end{align}
+ricordando che:
+\begin{equation}
+    E_p = \sqrt{\vec{p}^2 + M^2}
+\end{equation}
+per uno stato a multi-particella, e:
+\begin{equation}
+    E_k = \sqrt{\vec{k}^2 + m^2}
+\end{equation}
+per lo stato di singola particella. Se applichiamo la $\delta^3$ e usiamo il fatto che $M>m$, allora nell'integrale rimane solo una fase oscillate positiva, \textcolor{red}{che quindi tende a zero} quando $t\to-\infty$, per via del lemma di Riemann-Lebesgue, per cui vediamo che gli stati a multi-particella si disaccoppiano.
+
+
+\subsection{Operatori di creazione e distruzione}
+
+In questa sezione cerchiamo le espressioni degli operatori di creazione e distruzione in termini dei campi scalari $\phi$ e $\phi^\dagger$. Per semplicità indicheremo:
+\begin{equation}
+    \widetilde{\dd^3 p} = \frac{\dd^3 p}{(2\pi)^3\, 2E_p} 
+\end{equation}
+e di conseguenza le espressioni dei campi saranno:
+\begin{equation}
+    \phi(x) = \int\dd^3 \tilde{p}\, \Big[ a(p)e^{-ipx} + a^\dagger(p)e^{ipx} \Big].
+\end{equation}
+Calcoliamo la derivata temporale del campo:
+\begin{equation}
+    \dot{\phi}(x) = \int\dd^3\tilde{p}\, (-iE_p)\, \Big[ a(p)e^{-ipx} - a^\dagger(p)e^{ipx} \Big]
+\end{equation}
+e calcoliamo la quantità:
+\begin{align}
+    &\int\dd^3 x\, e^{iqx}\, \Big[ \dot{\phi}(x) - iE_q\phi(x) \Big] = \\
+    &= \int\dd^3 x\, \dd^3\tilde{p}\, e^{iqx}\, \Big[ -iE_p\big( a(p)e^{-ipx} - a^\dagger(p)e^{ipx} \big) - iE_q\big( a(p)e^{-ipx} + \notag \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad + a^\dagger(p)e^{ipx} \big)  \Big] \\
+    &= \int\dd^3 x\, \dd^3\tilde{p} \Big[ -i(E_p+E_q)\, a(p)\, e^{-i(p-q)x} +\notag \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad + i(E_p-E_q)\, a^\dagger(p)\, e^{i(p+q)x} \Big] \label{eqn:1 passaggio per integrare su x}\\
+    &= \int\frac{\dd^3 p}{(2\pi)^3\, 2E_p}\, \Big[ -i(E_p+E_q)\, a(p)\, e^{-i(p-q)x}\, (2\pi)^3\, \delta^3(p-q) + \notag \\
+    &\qquad \qquad \qquad + i(E_p-E_q)\, a^\dagger(p)\, e^{i(p+q)x}\, (2\pi)^3\, \delta^3(p+q) \Big] \\
+    &= -ia(p)
+\end{align}
+in cui nel passaggio (\ref{eqn:1 passaggio per integrare su x}) abbiamo integrato su $x$ per far comparire la $\delta$. Dunque abbiamo trovato:
+\begin{align}
+    a(p) &= i\int\dd^3 x\, e^{iqx}\, \Big[ \dot{\phi}(x) - iE_q\phi(x) \Big] \\
+    &= i\int\dd^3 x\, \Big[ e^{iqx}\, \overset{\leftrightarrow}{\partial}_t\, \phi(x) \Big] \label{eqn:1 espressione a con phi}
+\end{align}
+in cui abbiamo definito $\overset{\leftrightarrow}{\partial}_t = \overset{\rightarrow}{\partial}_t - \overset{\leftarrow}{\partial}_t$. Analogamente:
+\begin{align}
+    a^\dagger(p) &= -i\int\dd^3 x\, e^{-iqx}\, \Big[ \dot{\phi}(x) + iE_q\phi(x) \Big] \\
+    &= -i\int\dd^3 x\, \Big[ e^{-iqx}\, \overset{\leftrightarrow}{\partial}_t\, \phi(x) \Big]. \label{eqn:1 espressione acroce con phi}
+\end{align}
+
+Possiamo definire, nella teoria libera, l'operatore di creazione in modo che sia indipendente dal tempo come:
+\begin{equation}
+    a^\dagger_p = \int\dd^3 k\, g_p(k)\, a^\dagger(k)
+    \label{eqn:1 scrittura acroce indip da t}
+\end{equation}
+in cui abbiamo:
+\begin{equation}
+    g_p(k)\propto \exp{-\frac{(\vec{k}-\vec{p})^2}{4\sigma^2}}
+\end{equation}
+che è un pacchetto d'onda con larghezza $\sigma$ e centrato in $\vec{p}$. Definito con (\ref{eqn:1 scrittura acroce indip da t}) abbiamo $a^\dagger_p$ che crea una particella in un intorno di $\vec{p}$.
+
+Notiamo che se supponiamo che $a^\dagger_p$ sia della stessa forma anche in una teoria interagente, allora esso non sarà indipendente dal tempo, per cui conviene considerare:
+\begin{equation}
+    \ket{p} = \lim_{t\to-\infty}a^\dagger_p(t)\, \ket{\Omega}.
+\end{equation}
+
+
+\subsection{Formula di LSZ}
+
+Per il campo interagente abbiamo una lagrangiana della forma:
+\begin{equation}
+    \Lag = \frac{1}{2}(\partial_\mu\phi)^2 - \frac{1}{2}m_0^2\, \phi^2 + \Lag_{int}
+\end{equation}
+le cui equazioni del moto sono:
+\begin{equation}
+    \left(\Box + m_0^2\right)\phi = \pdv{\Lag_{int}}{\phi} = j_0(\phi).
+\end{equation}
+Nel caso di campo libero $\Lag_{int}=0$ e abbiamo:
+\begin{equation}
+    \Lag = \frac{1}{2}(\partial_\mu\phi_0)^2 - \frac{1}{2}m^2\, \phi_0^2
+\end{equation}
+le cui equazioni del moto sono:
+\begin{equation}
+    (\Box + m^2)\phi_0 = 0
+\end{equation}
+in cui $m$ è la massa fisica misurabile del campo $\phi$.
+
+Studiamo:
+\begin{equation}
+    (\Box + m^2)\phi = j_0(\phi) + (m^2-m_0^2)\phi^2 = j(\phi)
+\end{equation}
+la cui soluzione dipende dalla soluzione omogenea, che è la teoria libera:
+\begin{equation}
+    \phi(x) = \sqrt{Z}\, \phi_0 + \int\dd^4 y\, G_{R}(x-y)\, j(y)
+\end{equation}
+
+Se abbiamo uno stato iniziale $\ket{\alpha}$ e vogliamo ricavare lo stato finale $\ket{\beta}$. La densità di probabilità di scattering è $S_{\alpha\beta} = \braket{\beta}{\alpha}$, che poi possiamo legare alla sezione d'urto, che è un'osservabile.
+
+Possiamo osservare che quando abbiamo un'interazione a corto raggio, nei due stati, iniziale e finale, quindi gli stati a $t\to\pm\infty$, rimane solo il campo \textit{libero}, che per definizione interagisce solo con se stesso.\footnote{Ovviamente si intende limite in senso debole, fuori dall'integrale.} Infatti, si ha:
+\begin{equation}
+    \begin{cases}
+        \bra{\alpha}\phi\ket{\beta} \quad \longrightarrow\quad \sqrt{Z}\, \bra{\alpha}\phi_{in}\ket{\beta} \qquad \text{se}\ t=-\infty \\
+        \bra{\alpha}\phi\ket{\beta} \quad \longrightarrow\quad \sqrt{Z}\, \bra{\alpha}\phi_{out}\ket{\beta} \qquad \text{se}\ t=+\infty
+    \end{cases}
+    \label{eqn:1 condizioni LSZ}
+\end{equation}
+queste sono dette \textbf{condizioni LSZ} (Lippman-Symanzik-Zimmerman), in cui si indica con $\phi$ il campo interagente e con $\phi_{in}$ e $\phi_{out}$ i campi liberi di stato iniziale e finale.
+
+Prendiamo un solo tipo di particelle e studiamo $\braket{\beta_{out}}{\alpha_{in}}$ in cui possiamo esplicitare una particella di impulso $p$, ovvero consideriamo:
+\begin{equation}
+    \ket{\alpha} = \ket{\tilde{\alpha},p} = a^\dagger(p)\, \ket{\tilde{\alpha}}
+\end{equation}
+in cui possiamo ricordare le espressioni trovate (\ref{eqn:1 espressione a con phi}) e (\ref{eqn:1 espressione acroce con phi}).
+
+\textit{Nota} In generale, alcune delle particelle potrebbero non interagire, questo fenomeno è detto \textit{forward scattering}: in questo caso lo stato iniziale e finale contengono una particella identica (stesso tipo e stesso momento).
+
+Se ignoriamo il forward scattering, ovvero se ipotizziamo che tutte le particelle dello stato iniziale interagiscano, allora $\forall p\int\alpha_{in}$ abbiamo $p\notin\beta{out}$, che si può anche scrivere come:
+\begin{equation}
+    \bra{\beta_{out}}\, a_{out}^\dagger(p) = 0
+\end{equation}
+e viceversa. Calcoliamo l'ampiezza di scattering:
+\begin{align}
+    \braket{\beta}{\alpha} &= \bra{\beta}a_{in}^\dagger(q) - a_{out}^\dagger (q)\ket{\tilde{\alpha}} \\
+    &= -i\int\dd^3 x\, \Big[ e^{-iqx}\, \overset{\leftrightarrow}{\partial}_t\, \bra{\beta}\phi_{in}(x) - \phi_{out}(x)\ket{\tilde{\alpha}} \Big] \\
+    &= -\frac{i}{\sqrt{Z}}\left(\lim_{t\to-\infty} - \lim_{t\to+\infty}\right)\int\dd^3 x\, \Big[ e^{-iqx}\, \overset{\leftrightarrow}{\partial}_t\, \bra{\beta}\phi(x)\ket{\tilde{\alpha}}\Big] \label{eqn:1 passaggio LSZ con condizioni}\\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \partial_t\, \Big[ e^{-iqx}\, \overset{\leftrightarrow}{\partial}_t\, \bra{\beta}\phi(x)\ket{\tilde{\alpha}}\Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{-iqx}\big( \partial_t^2\, \bra{\beta}\phi(x)\ket{\tilde{\alpha}} \big) - \bra{\beta}\phi(x)\ket{\tilde{\alpha}} \big[\partial_t^2\, e^{-iqx}\big]\Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{-iqx}\big( \partial_t^2\, \bra{\beta}\phi(x)\ket{\tilde{\alpha}} \big) + \bra{\beta}\phi(x)\ket{\tilde{\alpha}} \big[(-\nabla^2 + m^2)\, e^{-iqx}\big]\Big] \label{eqn:1 passaggio LSZ con KG}\\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{-iqx}\big[(\partial_t^2 - \nabla^2 + m^2) \bra{\beta}\phi(x)\ket{\tilde{\alpha}} \big]\Big] \label{eqn:1 passaggio LSZ con int per parti} \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{-iqx}\big(\Box_x + m^2\big) \bra{\beta}\phi(x)\ket{\tilde{\alpha}} \Big] \label{eqn:1 risultato per 1 part LSZ}
+\end{align}
+in cui: nel passaggio (\ref{eqn:1 passaggio LSZ con condizioni}) abbiamo utilizzato le condizioni LSZ (\ref{eqn:1 condizioni LSZ}); in (\ref{eqn:1 passaggio LSZ con KG}) abbiamo ricordato l'equazione di Klein-Gordon, per cui:
+\begin{equation}
+    (\Box + m^2)e^{-iqx} = (\partial_t^2 - \nabla^2 + m^2)e^{-iqx} = 0;
+\end{equation}
+all'espressione (\ref{eqn:1 passaggio LSZ con int per parti}) ci siamo arrivati integrando per parti due volte.
+
+Tutto il calcolo che abbiamo fatto per arrivare a (\ref{eqn:1 risultato per 1 part LSZ}) serve ad estrarre una sola particella; se estraiamo tutte le particelle arriviamo alla formula di riduzione di LSZ.
+
+Studiamo $\bra{\beta}\phi(x)\ket{\tilde{\alpha}}$ in cui estraiamo nello stato finale:
+\begin{equation}
+    \bra{\beta} = \bra{\tilde{\beta}p} = \bra{\tilde{\beta}}\, a(p)
+\end{equation}
+e rifacciamo lo stesso ragionamento fatto per arrivare a (\ref{eqn:1 risultato per 1 part LSZ}):
+\begin{align}
+    \bra{\beta}\phi(x)\ket{\tilde{\alpha}} &= \bra{\tilde{\beta}}a_{out}(p)\, \phi(x) - \phi(x)\, a_{in}(p)\ket{\tilde{\alpha}} \\
+    &= i\int\dd^3 y\, \Big[ e^{ipy}\, \overset{\leftrightarrow}{\partial}_{t_y} \bra{\tilde{\beta}}\phi_{out}(y)\, \phi(x) - \phi(x)\, \phi_{in}(y)\ket{\tilde{\alpha}} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\left(\lim_{t\to-\infty} - \lim_{t\to+\infty}\right)\int\dd^3 y\, \Big[ e^{ipy}\, \overset{\leftrightarrow}{\partial}_t\, \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}}\Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 y\, \partial_{t_y}\Big[ e^{ipy}\, \overset{\leftrightarrow}{\partial}_t\, \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}}\Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 y\, \Big[ e^{ipy}\, \big(\partial_{t_y}^2 \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}} \big) - \notag \\
+    & \qquad \qquad \quad - \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}} \big(\partial_{t_y}^2\, e^{ipy}\big) \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 y\, \Big[ e^{ipy}\, \big(\partial_{t_y}^2 \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}} \big) + \notag \\
+    & \qquad \qquad \quad + \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}} \big[(-\nabla_y^2 + m^2) e^{ipy}\big] \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 y\, \Big[ e^{ipy}\, (\Box_y + m^2) \bra{\tilde{\beta}}T[\phi(y)\phi(x)]\ket{\tilde{\alpha}} \Big].
+\end{align}
+
+Determiniamo finalmente la formula di riduzione LSZ per gli scalari:
+\begin{multline}
+    _{out}\bra{p_1,\dots,p_n}\ket{q_1,\dots,q_m}_{in} = \left( \frac{i}{\sqrt{Z}}\right)^{n+m}\, \left[\prod_{i=1}^m \int\dd^4 x_i\, e^{-iq_i x_i}\, (\Box_{x_i} + m^2) \right]\cross \\
+    \cross \left[\prod_{j=1}^n \int\dd^4 y_i\, e^{ip_j y_j}\, (\Box_{y_j} + m^2) \right]\, \bra{\Omega}T[\phi(y_1)\dots\phi(y_n)\phi(x_1)\dots\phi(x_m)]\ket{\Omega}.
+\end{multline}
+Nello spazio dei momenti otteniamo:
+\begin{equation}
+    \left[\prod_{i,j=1}^{m,n}\left( q_i^2 - m^2 \right)\left( p_j^2 - m^2 \right)\right]G(q_1\dots q_m p_1\dots p_n)
+\end{equation}
+in cui il primo fattore sono i propagatori amputati tramite il calcolo dei residui, mentre il secondo fattore è la funzione di correlazione (di Green) ad $m + n$ gambe.
+
+Per la precisione, la \textbf{funzione di correlazione (di Green) a $m+n$ gambe} è definita come:
+\begin{multline}
+    G(q_1\dots q_m p_1\dots p_n) = \left[\prod_{i=1}^m \int\dd^4 x_i\, e^{-iq_i x_i} \right]\, \left[\prod_{j=1}^m \int\dd^4 y_j\, e^{ip_j y_j} \right]\cross \\
+    \cross \bra{\Omega}T[\phi(y_1)\dots\phi(y_n)\phi(x_1)\dots\phi(x_m)]\ket{\Omega} \\
+    = (\sqrt{Z})^{n+m}\, \left[ \prod_{i=1}^m \frac{i}{q_i^2 - m^2}\right]\, \left[ \prod_{j=1}^n \frac{i}{p_j^2 - m^2}\right]\ _{out}\braket{p_1,\dots,p_n}{q_1,\dots,q_m}_{in}
+    \label{eqn:1 funz Green con LSZ}
+\end{multline}
+in cui possiamo osservare che ha dei poli legati alla condizione di mass-shell, inoltre, si ha che l'ampiezza di probabilità è legata al residuo della funzione di Green nei poli quando tutti i momenti vanno on-shell. \\
+
+\textcolor{red}{Vedi successivi per dettagli. (si?)} Indichiamo con $\tilde{G}$ la funzuine di correlazione/Green (\ref{eqn:1 funz Green con LSZ}), come facciamo sempre con le grandezze nello spazio dei momenti. La funzione di correlazione/Green amputata si ottiene eliminando i propagatori delle gambe esterne dalla funzione di Green nello spazio dei momenti (\ref{eqn:1 funz Green con LSZ}):
+\begin{equation}
+    \tilde{G}^{(n)} = \tilde{G}^{(n)}_A\prod_{i=1}^n\, \Delta_F(p_i).
+\end{equation}
+Nota che esiste un abuso di notazione anche qui, per cui si chiama $G$ sia la funzione di Green, sia la funzione di Green amputata; ricordiamoci però che le regole di Feynman restituiscono la funzione di Green amputata!
+
+
+\subsection{Esempio sulla funzione di Green}
+
+Studiamo:
+\begin{equation}
+    \Lag_{int} = -\frac{\lambda}{4!}\, \phi^4
+\end{equation}
+e calcoliamo la funzione di correlazione/Green con 2 e con 4 gambe al prim'ordine perturbativo, utilizzando quello che abbiamo imparato da LSZ (\ref{eqn:1 funz Green con LSZ}), dalla formula di GML (\ref{eqn:1 formula GML}) e dal teorema di Wick.
+
+Vediamo la funzione a 2 gambe:
+\begin{align}
+    G^{(2)}(x_1,x_2) &= \bra{\Omega}T[\phi(x_1)\phi(x_2)]\ket{\Omega} \\
+    &\approx -i\frac{\lambda}{4!}\bra{0}T\Big[ \phi_1\phi_2\int\dd^4 z\, \phi^4_z \Big]\ket{0}_C \\
+    &= -i\frac{\lambda}{2}\int\dd^4 z\, \Delta(x_1-z)\, \Delta(x_2-z)\, \Delta(z-z) \\
+    &= -\frac{i\lambda}{2}\int\dd^4 z\, \int\frac{\dd^4 p_1}{(2\pi)^4}\, \int\frac{\dd^4 p_2}{(2\pi)^4} \tilde{\Delta}(p_1)\, e^{-ip_1\, (x_1-z)} \cross \notag \\
+    & \qquad \cross \tilde{\Delta}(p_2)\, e^{-ip_2\, (x_2-z)} \tilde{\Delta}(p)\, e^{-ip\, (z-z)} \\
+    &= -\frac{i\lambda}{2}\int\frac{\dd^4 p_1}{(2\pi)^4}\, \int\frac{\dd^4 p_2}{(2\pi)^4} \exp{-i(p_1x_1 + p_2x_2)} \cross \notag \\
+    & \qquad \cross \tilde{\Delta}(p_1)\, \tilde{\Delta}(p_2)\, (2\pi)^4\, \delta^4(p_1+p_2)\, \int\frac{\dd^4 p}{(2\pi)^4}\, \tilde{\Delta}(p)
+\end{align}
+dunque nello spazio degli impulsi abbiamo:
+\begin{equation}
+    \tilde{G}^{(2)}(p_1,p_2) = -\frac{i\lambda}{2}\tilde{\Delta}(p_1)\, \tilde{\Delta}(p_2)\, (2\pi)^4\, \delta^4(p_1+p_2)\, \int\frac{\dd^4 p}{(2\pi)^4}\, \tilde{\Delta}(p)
+\end{equation}
+la funzione di Green amputata di conseguenza è:
+\begin{equation}
+    \tilde{G}^{(2)}(p_1,p_2) = -\frac{i\lambda}{2}\int\frac{\dd^4 p}{(2\pi)^4}\, \tilde{\Delta}(p)\cdot (2\pi)^4\, \delta^4(p_1+p_2)
+\end{equation}
+e dunque, dalla relazione tra la funzione di Green amputata ed $M$:
+\begin{equation}
+    M = -\frac{i\lambda}{2}\int\frac{\dd^4 p}{(2\pi)^4}\, \tilde{\Delta}(p).
+\end{equation}
+
+Vediamo a 4 gambe:
+\begin{align}
+    G^{(4)}(&x_1,x_2,x_3,x_4) = \bra{\Omega}T[\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)]\ket{\Omega} \\
+    &\approx -i\frac{\lambda}{4!}\bra{0}T\Big[ \phi_1\phi_2\phi_3\phi_4\int\dd^4 z\, \phi^4_z \Big]\ket{0}_C \\
+    &= -i\lambda\int\dd^4 z\, \Delta(x_1-z)\, \Delta(x_2-z) \, \Delta(x_3-z)\, \Delta(x_4-z) \\
+    &= -i\lambda\int\dd^4 z\, \int\frac{\dd^4 p_1}{(2\pi)^4}\, \frac{\dd^4 p_2}{(2\pi)^4}\, \frac{\dd^4 p_3}{(2\pi)^4}\, \frac{\dd^4 p_4}{(2\pi)^4}\, \tilde{\Delta}(p_1)\, e^{-ip_1\, (x_1-z)}\, \tilde{\Delta}(p_2)\, e^{-ip_2\, (x_2-z)}\cross \notag \\
+    &\qquad \cross \tilde{\Delta}(p_3)\, e^{-ip_3\, (x_3-z)}\, \tilde{\Delta}(p_4)\, e^{-ip_4\, (x_4-z)} \\
+    &= -i\lambda\int\frac{\dd^4 p_1}{(2\pi)^4}\, \frac{\dd^4 p_2}{(2\pi)^4}\, \frac{\dd^4 p_3}{(2\pi)^4}\, \frac{\dd^4 p_4}{(2\pi)^4}\, \exp{-i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \cross \notag \\
+    &\qquad \cross \tilde{\Delta}(p_1)\, \tilde{\Delta}(p_2)\, \tilde{\Delta}(p_3)\, \tilde{\Delta}(p_4)\, (2\pi)^4\, \delta^4(p_1+p_2+p_3+p_4)
+\end{align}
+che nello spazio degli impulsi diventa:
+\begin{align}
+    G^{(4)}(p_1,p_2,p_3,p_4) &= \int\dd^4 x_1\, \dd^4 x_2\, \dd^4 x_3\, \dd^4 x_4\, \exp{-i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \cross \notag \\
+    &\qquad \cross \bra{\Omega}T[\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)]\ket{\Omega} \\
+    &\approx -i\lambda\, \tilde{\Delta}(p_1)\, \tilde{\Delta}(p_2)\, \tilde{\Delta}(p_3)\, \tilde{\Delta}(p_4)\, (2\pi)^4\, \delta^4(p_1+p_2+p_3+p_4).
+\end{align}
+La funzione di Green amputata è:
+\begin{equation}
+    \tilde{G}_A^{(4)} = -i\lambda\, (2\pi)^4\, \delta^4(p_1+p_2+p_3+p_4)
+\end{equation}
+dunque, dalla relazione tra la funzione di Green amputata ed $M$, ricaviamo:
+\begin{equation}
+    M = -i\lambda.
+\end{equation}
+
+
+\subsection{Potenziale di Yukawa scalare (scattering tra nucleoni e pioni)}
+
+Consideriamo una teoria con 2 tipi di particelle scalari (spin 0), reali (massa $\mu$, con campo $\sigma$) e complesse (massa $m$, campo $\phi$). Abbiamo la lagrangiana libera che è:
+\begin{equation}
+    \Lag_0 = \frac{1}{2}\partial_\mu \sigma\, \partial\sigma - \frac{1}{2}\mu^2\sigma^2 +  \partial_\mu \phi\, \partial\overline{\phi} - m^2\phi\overline{\phi}.
+\end{equation}
+Le soluzioni per i campi liberi le conosciamo già e sono:
+\begin{align}
+    &\sigma = \int\frac{\dd^3 p}{(2\pi)^3\, 2E_p}\, \Big[ a(p)e^{-ipx} + a^\dagger(p)e^{ipx} \Big] \quad , \quad \kappa = \pdv{\Lag}{\dot{\sigma}} = \dot{\sigma} \\
+    &\phi = \int\frac{\dd^3 p}{(2\pi)^3\, 2E_p}\, \Big[ b(p)e^{-ipx} + c^\dagger(p)e^{ipx} \Big] \quad , \quad \pi = \pdv{\Lag}{\dot{\overline{\phi}}} = \dot{\phi} \\
+    &\overline{\phi} = \int\frac{\dd^3 p}{(2\pi)^3\, 2E_p}\, \Big[ c(p)e^{-ipx} + b^\dagger(p)e^{ipx} \Big] \quad , \quad \overline{\pi}= \pdv{\Lag}{\dot{\phi}} = \dot{\overline{\phi}}.
+\end{align}
+Come nel caso precedente dobbiamo imporre la regola di commutazione, a tempi uguali:
+\begin{equation}
+    \comm{\phi}{\overline{\pi}} = i\delta^3(x-y).
+\end{equation}
+
+Inoltre abbiamo che:
+\begin{equation}
+    \Delta_\phi(x-y) = \bra{0}T[\phi(x)\overline{\phi}(y)]\ket{0}
+\end{equation}
+quando $x^0>y^0$ diventa:
+\begin{equation}
+    \bra{0}b_x\, b_y^\dagger\ket{0}
+\end{equation}
+quindi, abbiamo una particella; mentre quando $x^0<y^0$ diventa:
+\begin{equation}
+    \bra{0}c_y\, c_x^\dagger\ket{0}
+\end{equation}
+e abbiamo un'antiparticella. \\
+
+Se lasciamo il campo $\sigma$ invariato e facciamo una trasformazione di fase su $\phi$, allora otteniamo:
+\begin{equation}
+    \delta\phi = i\alpha\phi
+\end{equation}
+dunque, la corrente sarebbe:
+\begin{align}
+    j^\mu &= i\overline{\phi}\overset{\leftrightarrow}{\partial}^\mu\, \phi \\
+    &= -i\partial^\mu\overline{\phi}\phi + i\partial^\mu\phi\overline{\phi}
+\end{align}
+e la carica:
+\begin{align}
+    Q &= \int\dd^3 x\, j^0 \\
+    &= i\int \dd^3 x\, \big(\overline{\phi}\dot{\phi} - \dot{\overline{\phi}}\phi \big).
+\end{align}
+
+Se consideriamo una teoria interagente con:
+\begin{align}
+    &\Lag_{int} = -g\sigma\overline{\phi}\phi \\
+    &\Ham_{int} = g\sigma\overline{\phi}\phi
+\end{align}
+quindi con 3 gambe in ogni vertice, possiamo identificare $\phi$ con il nucleone (linea continua con freccia) e $\sigma$ con il pione (linea tratteggiata). Ricordiamo che per l'espansione in serie di Gell-Mann-Low, in ogni vertice ho un termine abbiamo un termine $(-ig)$. Scriviamo:
+\begin{align}
+    \exp{-i\int\dd^4 x\, \Ham_{int}} &= \sum\frac{1}{n!}\left(-i\int\dd^4 x\, \Ham_{int}\right)^n \\
+    &= \sum\frac{1}{n!}\left(-ig\int\dd^4 x\, \sigma\overline{\phi}\phi\right)^n
+\end{align}
+da notare poi che il fattore $1/n!$ viene sempre cancellato dai modi equivalenti di scambiare i vertici tra di loro, inoltre, per la teoria di Yukawa non abbiamo fattori di simmetria per i diagrammi, questo perché i campi in gioco non possono essere scambiati tra loro.
+
+Alcuni esempi di interazioni sono:\footnote{I termini di ordine dispari sono nulli perché abbiamo un numero dispari di campi, e la $C$ sta ad indicare il fatto che escludiamo i diagrammi con le bolle di vuoto.}
+\begin{itemize}
+    \item \textit{Primo esempio}, raffigurato in figura \ref{fig:1 primo esempio} è:
+    \begin{multline}
+        \bra{\Omega}T[\overline{\phi}_1\, \phi_2\, \overline{\phi}_3\, \phi_4]\ket{\Omega} = \bra{0}T[\overline{\phi}_1\, \phi_2\, \overline{\phi}_3\, \phi_4]\ket{0}_C + \\
+        + (-ig)^2\int\dd^4 z\, \dd^4 w\, \bra{0}T[\overline{\phi}_1\, \phi_2\, \overline{\phi}_3\, \phi_4\, \sigma(z)\, \phi(z)\, \overline{\phi}(z)\, \sigma(w)\, \phi(w)\, \overline{\phi}(w)]\ket{0}_C + \dots
+    \end{multline}
+    \item \textit{Secondo esempio}, raffigurato in figura \ref{fig:1 secondo esempio} è:
+    \begin{equation}
+        bra{\Omega}T[\overline{\phi}_1\, \phi_2\, \sigma_3\, \sigma_4]\ket{\Omega} = \bra{0}T[\overline{\phi}_1\, \phi_2\, \sigma_3\, \sigma_4]\ket{0}_C + \dots
+    \end{equation}
+\end{itemize}
+
+\begin{figure}[ht!]
+\centering
+\begin{minipage}[ht!]{1.\textwidth}
+    \centering
+    \includegraphics[width=1.\textwidth]{Figure/1-Scalare/esempio1.jpeg}
+    \subcaption{}
+    \label{fig:1 primo esempio}
+\end{minipage}\hfill
+\begin{minipage}[ht!]{1.\textwidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figure/1-Scalare/esempio2.jpeg}
+    \subcaption{}
+    \label{fig:1 secondo esempio}
+\end{minipage}
+\caption{Esempi interazioni teoria $\sigma\overline{\phi}\phi$.}
+\label{fig:1 esempi Yukawa scalare}
+\end{figure}
+
+I diagrammi di Feynman che entrano nella definizione della matrice $S$ (ampiezza di probabilità) sono quelli a cui vengono amputate le gambe esterne, ovvero, quelli a cui stiamo eliminando i poli della funzione di Green, ovvero stiamo trovando l'ampiezza di probabilità (on-shell) come il residuo della funzione di Green.
+
+Da notare che per tutti i diagrammi al tree-level senza gambe esterne, si ha un fattore di simmetria finale $s=1$. \\
+
+Proviamo a studiare l'ampiezza di probabilità per un processo di scambio, raffigurato in figura \ref{fig:1 scambio}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figure/1-Scalare/scambio.jpeg}
+    \caption{Processo di scambio}
+    \label{fig:1 scambio}
+\end{figure}
+
+Scriviamo:
+\begin{align}
+    iT &= (ig)^2 \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i}{k^2 - \mu^2}\, (2\pi)^4\, \delta^4(p_1 + k - p_3)\, (2\pi)^4\, \delta^4(p_2 - k - p_4) \\
+    &= -\frac{ig^2}{t-\mu^2}(2\pi)^4\, \delta^4(p_1 + p_2 - p_3 - p_4) \\
+    &= M_t\cdot (2\pi)^4\, \delta^4(p_1 + p_2 - p_3 - p_4)
+\end{align}
+ovvero:
+\begin{equation}
+    M_t = -\frac{ig^2}{t-\mu^2}.
+\end{equation}
+
+Se scambiamo $p_3$ e $p_4$ abbiamo:
+\begin{equation}
+    iT = -\frac{ig^2}{u-\mu^2}(2\pi)^4\, \delta^4(p_1 + p_2 - p_3 - p_4)
+\end{equation}
+ovvero:
+\begin{equation}
+    M_u = -\frac{ig^2}{u-\mu^2}.
+\end{equation}
+
+Se vogliamo ritrovare la probabilità, prima sommiamo le ampiezze e poi ne facciamo il quadrato (altrimenti perdiamo i termini di interferenza); inoltre per calcolare l'ampiezza di probabilità dobbiamo prendere il residuo considerando particelle on-shell e ignorando le gambe esterne. In sintesi:
+\begin{align}
+    |M_{tot}|^2 &= |M_u + M_t|^2 \\
+    &= |M_u|^2 + |M_t|^2 + 2\Re{M_u\, M_t^\dagger}
+\end{align}
+da notare che in questo caso i diagrammi hanno tutti segno positivo perché abbiamo solo scalari (quando avremo anche i fermioni potremmo avere dei segni relativi).
+
+
+\subsection{Caso non relativistico}
+
+Osserviamo che:
+\begin{equation}
+    (p^\mu - {p'}^\mu)^2 = (p^0 - {p'}^0)^2 - (\vec{p} - \vec{p}')^2
+\end{equation}
+ma nel limite non relativistico abbiamo che $p^0={p'^0}$ e dunque:
+\begin{equation}
+    M = -\frac{ig^2}{(p_1 - p_3)^2 - \mu^2} \approx \frac{ig^2}{|\vec{p}_1 - \vec{p}_3|^2 + \mu^2} = \frac{ig^2}{|\vec{q}|^2 + \mu^2}.
+\end{equation}
+Se siamo nel limite non relativistico vale l'approssimazione di Born:
+\begin{equation}
+    \tilde{V}(q) = |M| = \frac{g^2}{|\vec{q}|^2 + \mu^2}
+\end{equation}
+ovvero che il modulo di $M$ è la trasformata di Fourier del potenziale. Dunque troviamo:
+\begin{align}
+    V(x) &= g^2\int\frac{\dd^3 q}{(2\pi)^3}\, \frac{e^{i\vec{q}\cdot\vec{x}}}{|\vec{q}|^2 + \mu^2} \\
+    &= \frac{g^2}{(2\pi)^2}\int_{-1}^{+1}\dd(\cos\theta)\int_0^\infty\dd q\, q^2\, \frac{e^{-irq\cos\theta}}{q^2 + \mu^2} \\
+    &= \frac{g^2}{(2\pi)^2}\int_0^\infty\dd q\, \frac{q^2}{q^2 + \mu^2}\left(\frac{e^{-irq}}{-irq} - \frac{e^{irq}}{-irq}\right) \\
+    &= \frac{g^2}{ir(2\pi)^2}\int_0^\infty \dd q\, \frac{q}{q^2 + \mu^2}\, \big(e^{irq} - e^{-irq}\big) \\
+    &= \frac{g^2}{ir(2\pi)^2}\int_{-\infty}^{+\infty} \dd q\, \frac{q\, e^{irq}}{q^2 + \mu^2}
+\end{align}
+in cui abbiamo indicato $r=|\vec{x}|$ e $q=|\vec{q}|$, arrivati a questo punto possiamo deformare il cammino ed utilizzare il lemma di Jordan:
+\begin{align}
+    V(x) &= \frac{g^2}{r\, (2\pi)^2}\, \text{Res}\left\{\frac{q\, e^{irq}}{q^2 + \mu^2}\right\}_{q=i\mu} \\
+    &= \frac{g^2}{4\pi\, r}\, e^{-\mu r}
+\end{align}
+che è il potenziale di Yukawa; quindi, $g$ rappresenta per i nucleoni l'equivalente della carica elettrica, inoltre è un potenziale a corto raggio per particelle massive (è una sorta di generalizzazione del potenziale coulombiano).
+
+
+\section{Campo spinoriale}
+
+\subsection{LSZ}
+
+L'equazione del moto per la teoria interagente è:
+\begin{equation}
+    (i\slashed{\partial} - m_0)\psi = j_0
+    \label{eqn:2 eq moto spinoriale 1}
+\end{equation}
+che è leggermente diversa al caso della teoria libera in cui avevamo:
+\begin{equation}
+    \Lag_0 = \overline{\psi}_0(i\slashed{\partial} - m)\psi_0 \quad ;\quad (i\slashed{\partial} - m)\psi_0 = 0.
+\end{equation}
+
+Possiamo porre:
+\begin{equation}
+    j = j_0 + (m-m_0)\psi
+\end{equation}
+in modo da poter riscrivere l'equazione del moto (\ref{eqn:2 eq moto spinoriale 1}) come:
+\begin{equation}
+    (\slashed{\partial} - m)\psi = j
+\end{equation}
+la cui soluzione si trova usando la soluzione dell'omogenea, ossia il campo libero (\ref{eqn:2 sol Dirac}), e la funzione di Green, che è il propagatore:
+\begin{equation}
+    \psi(x) = \sqrt{Z}\, \psi_0 + \int\dd^4 x\, S_{rel}(x-y)\, j(y)
+\end{equation}
+in cui il fattore $\sqrt{Z}$ tiene conto dell'autointerazione.
+
+Quindi, scelti due stati normalizzati, si ha:
+\begin{equation}
+    \lim_{t\to -\infty}\bra{\alpha}\psi\ket{\beta} = \sqrt{Z}\, \bra{\alpha}\psi_{in}\ket{\beta}
+\end{equation}
+e analogamente:
+\begin{equation}
+    \lim_{t\to +\infty}\bra{\alpha}\psi\ket{\beta} = \sqrt{Z}\, \bra{\alpha}\psi_{out}\ket{\beta}
+\end{equation}
+dove abbiamo indicato con $\psi_{in}$ e $\psi_{out}$ i campi liberi iniziali e finali in cui abbiamo solo l'autointerazione; inoltre, le $\psi$ rappresentano pacchetti d'onda. \\
+
+Vogliamo studiare:
+\begin{equation}
+    S_{\alpha\beta} = \braket{\beta}{\alpha}
+    \label{eqn:2 inizio studio formula LSZ}
+\end{equation}
+esplicitiamo la presenza di una particella con momento $p$ ed elicità $s$:
+\begin{equation}
+    \ket{\alpha} \longrightarrow \ket{\alpha,(p,s)}
+\end{equation}
+per far ciò abbiamo bisogno di esprimere gli operatori di creazione e distruzione in funzione dei campi (relazioni di inversione). Ricordo che abbiamo:
+\begin{equation}
+    \psi(x) = \sum_s\int\frac{\dd^3 p}{(2\pi)^3\, 2E_p}\, \Big[ b_s(p)\, u_s(p)\, e^{-ipx} + d_s^\dagger(p)\, v_s(p)\, e^{ipx} \Big]
+\end{equation}
+e che valgono le seguenti relazioni:
+\begin{align}
+    &\overline{u}_s(p)\, \gamma^\mu\, u_r(p) = \overline{v}_s(p)\, \gamma^\mu\, v_r(p) = 2\, p^\mu\, \delta_{sr} \\
+    &\overline{u}_s(p)\, \gamma^0\, v_r(-p) = \overline{v}_s(p)\, \gamma^0\, u_r(-p) = 0.
+\end{align}
+Possiamo svolgere i conti:
+\begin{align}
+    \int\dd^3 &x\, \overline{u}_r(p)\, \gamma^0\, \psi(x)\, e^{ipx} = \\
+    &= \int\dd^3 x\, \overline{u}_r(p)\, \gamma^0\, \Bigg(\sum_s \int\frac{\dd^3 q}{(2\pi)^3\, 2E_q} \Big[ b_s(q)\, u_s(q)\, e^{-iqx} + \notag \\
+    &\qquad \qquad \qquad + d_s^\dagger(q)\, v_s(q)\, e^{iqc} \Big] \Bigg)e^{ipx} \\
+    &= \sum_s\int \frac{\dd^3 q}{(2\pi)^3\, 2E_q}\int\dd^3 x\Big\{ \overline{u}_r(p)\, \gamma^0\, \Big[ b_s(q)\, u_s(q)\, e^{-iqx} + \notag \\
+    &\qquad \qquad \qquad + d_s^\dagger(q)\, v_s(q)\, e^{iqc} \Big] \Big\} \\
+    &= \sum_s\int \frac{\dd^3 q}{2E_q}\, \overline{u}_r(p)\, \gamma^0\, \Big[ u_s(q)\, b_s(q)\, e^{-i(E_q-E_p)t}\, \delta^3(q-p) + \notag \\
+    &\qquad \qquad \qquad + v_s(q)\, d_s^\dagger(q)\, e^{i(E_q + E_p)x}\, \delta^3(q+p) \Big] \\
+    &= \sum_s\frac{1}{2E_p}\, \Big[ \overline{u}_r(p)\, \gamma^0\, u_s(p)\, b_s(p) + \overline{u}_s(p)\, \gamma^0\, v_s(-p)\, d_s^\dagger(-p)\, e^{i(2E_p)x} \Big] \\
+    &= \hat{b}_r(p)
+\end{align}
+analogamente possiamo vedere:
+\begin{align}
+    \int\dd^3 &x\, \overline{\psi}(x)\, \gamma^0\, v_r(p)\, e^{ipx} = \\
+    &= \int\dd^3 x\, \Bigg( \sum_s\int\frac{\dd^3 q}{(2\pi)^3\, 2E_q}\Big[b_s^\dagger(q)\, \overline{u}_s(q)\, e^{iqx} + \notag \\
+    &\qquad \qquad \qquad + d_s(q)\, \overline{v}_s(q)\, e^{-iqx} \Big] \Bigg)\, \gamma^0\, v_r(p)\, e^{ipx} \\
+    &= \sum_s\int\frac{\dd^3 q}{(2\pi)^3\, 2E_q} \int\dd^3 x\, \Big[b_s^\dagger(q)\, \overline{u}_s(q)\, e^{iqx} + d_s(q)\, \overline{v}_s(q)\, e^{-iqx} \Big]\, \gamma^0\, v_r(p) \\
+    &= \sum_s\frac{1}{2E_q}\, \Big[b_s^\dagger(-p)\, \overline{u}_s(-p)\, e^{-i(2E_p)x} + d_s(p)\, \overline{v}_s(p) \Big] \, \gamma^0\, v_r(p) \\
+    &= \hat{d}_r(p).
+\end{align}
+Dunque abbiamo trovato per le particelle:
+\begin{align}
+    &\hat{b}(p,s) = \int\dd^3 x\, \overline{u}_s(p)\, \gamma^0\, \psi_0(x)\, e^{ipx} \\
+    &\hat{b}^\dagger(p,s) = \int\dd^3 x\, \overline{\psi}_0(x)\, \gamma^0\, u_s(p)\, e^{-ipx}
+\end{align}
+e per le anti-particelle:
+\begin{align}
+    &\hat{d}(p,s) = \int\dd^3 x\, \overline{\psi}_0(x)\, \gamma^0\, v_r(p)\, e^{ipx} \\
+    &\hat{d}^\dagger(p,s) = \int\dd^3 x\, \overline{v}_r(p)\, \gamma^0\, \psi_0(x)\, e^{-ipx}.
+\end{align}
+
+Tornando al nostro problema iniziale (\ref{eqn:2 inizio studio formula LSZ}) possiamo considerare una particella nello stato iniziale $\ket{\alpha}$ ed ignorare il forward-scattering, e calcolare:
+\begin{align}
+    \braket{\beta}{\alpha} &= \bra{\beta}b_{in}^\dagger(p,s)\ket{\tilde{\alpha}} \\
+    &= \bra{\beta}b_{in}^\dagger(p,s) - b_{out}^\dagger(p,s)\ket{\tilde{\alpha}} \\
+    &= \bra{\beta}\int\dd^3 x\, \Big[\overline{\psi}_{in}(x) - \overline{\psi}_{out}(x)\Big]\, \gamma^0\, u_s(p)\, e^{-ipx}\ket{\tilde{\alpha}} \\
+    &= \frac{1}{\sqrt{Z}}\left(\lim_{t\to -\infty} - \lim_{t\to +\infty}\right)\int\dd^3 x\, \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, u_s(p)\, e^{-ipx} \\
+    &= -\frac{1}{\sqrt{Z}}\int\dd^4 x\, \partial_t\Big[\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, u_s(p)\, e^{-ipx} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ i\left(\partial_t\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\right)\, \gamma^0\, u_s(p)\, e^{-ipx} +\notag \\
+    &\qquad \qquad \qquad + i\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, u_s(p)\, \partial_t\, e^{-ipx} \Big]
+\end{align}
+possiamo ricordare che valgono (\ref{eqn:2 eq Dirac per u e v}), in particolare la prima, che ci permette di scrivere:
+\begin{align}
+    i\gamma^0\, \partial_0\, e^{-ipx}\, u_s(p) &= \gamma^0\, p_0\, e^{-ipx}\, u_s(p) \\
+    &= -(\gamma^i\, p_i - m)\, e^{-ipx}\, u_s(p) \\
+    &= -(i\gamma^i\, \partial_i - m)\, e^{-ipx}\, u_s(p)
+\end{align}
+e dunqe possiamo riprendere i nostri conti:
+\begin{align}
+    \braket{\beta}{\alpha} &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[i\bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}\, \gamma^0\, \overset{\leftarrow}{\partial}_0\, u_s(p)\, e^{-ipx} -\notag \\
+    &\qquad \qquad \qquad - \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}(i\gamma^i\, \partial_i - m)\, e^{-ipx}\, u_s(p) \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}} \big(i\gamma^0\, \overset{\leftarrow}{\partial}_0 + i\gamma^i\, \overset{\leftarrow}{\partial}_i + m\big)u_s(p)\, e^{-ipx} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}(x)\ket{\tilde{\alpha}}(i\overset{\leftarrow}{\slashed{\partial}} + m)\, u_s(p)\, e^{-ipx} \Big] \label{eqn:2 ris particella LSZ}.
+\end{align}
+
+Possiamo fare il conto analogo per l'antiparticella iniziale:
+\begin{align}
+    \braket{\beta}{\alpha} &= \bra{\tilde{\beta}}d_{in}^\dagger(p,s)\ket{\alpha} \\
+    &= \bra{\tilde{\beta}}d_{in}^\dagger(p,s) - d_{out}^\dagger(p,s)\ket{\alpha} \\
+    &= \frac{1}{\sqrt{Z}}\left(\lim_{t\to -\infty} - \lim_{t\to +\infty}\right)\int\dd^3 x\, \overline{v}_r(p)\, \gamma^0\, \bra{\tilde{\beta}}\psi(x)\, \ket{\alpha}\, e^{-ipx} \\
+    &= -\frac{1}{\sqrt{Z}}\int\dd^4 x\Big[ \overline{v}_r(p)\, \gamma^0\, \partial_t\left(\bra{\tilde{\beta}}\psi(x)\ket{\alpha}\right)\, e^{-ipx} +\notag \\
+    &\qquad \qquad \qquad + \overline{v}_r(p)\, \gamma^0\, \bra{\tilde{\beta}}\psi(x)\ket{\alpha}\, \partial_t\, e^{-ipx} \Big]
+\end{align}
+a questo punto possiamo riusare la relazione (\ref{eqn:2 eq Dirac per u e v}) per scrivere:
+\begin{align}
+    \overline{v}_r(p)\, \gamma^0\, \partial_0\, e^{-ipx} &= -i\overline{v}_r(p)\, \gamma^0\, p_0\, e^{-ipx} \\
+    &= i\overline{v}_r(p)\, (\gamma^i\, p_i + m)\, e^{-ipx} \\
+    &= i\overline{v}_r(p)\, (i\gamma^i\, \partial_i + m)\, e^{-ipx}
+\end{align}
+che ci fa arrivare a:
+\begin{align}
+    \braket{\beta}{\alpha} &= \frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \overline{v}_r(p)\, (i\gamma^0\, \partial_0) \left(\bra{\tilde{\beta}}\psi(x)\ket{\alpha}\right)\, e^{-ipx} -\notag \\
+    &\qquad \qquad \qquad - \left( \overline{v}_r(p)\, (i\gamma^i\, \partial_i + m)\, e^{-ipx} \right)\bra{\tilde{\beta}}\psi(x)\ket{\alpha} \Big] \\
+    &= \frac{i}{\sqrt{Z}}\int\dd^4 x \Big[ e^{-ipx}\, \overline{v}_r(p)\, (i\overset{\rightarrow}{\slashed{\partial}} - m)\, \bra{\tilde{\beta}}\psi(x)\ket{\alpha} \Big]
+\end{align}
+e possiamo vedere che il risultato finale è analogo al caso di particella (\ref{eqn:2 ris particella LSZ}), ma con un segno opposto sul termine di derivata.
+
+Ovviamente dovremmo calcolare anche tutte le altre componenti, ma i conti sono analogi e i risultati complessivi sono:
+\begin{equation}
+    \begin{cases}
+        \bra{\beta}b_{in}^\dagger(p,s)\ket{\alpha} = +\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}\ket{\alpha}\, (i\overset{\leftarrow}{\slashed{\partial}} + m)u_s(p)\, e^{-ipx} \Big] \\
+        \bra{\beta}b_{out}(p,s)\ket{\alpha} = -\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{+ipx}\, \overline{u}_s(p)\, (i\overset{\rightarrow}{\slashed{\partial}} - m)\, \bra{\beta}\psi\ket{\alpha}\Big] \\
+        \bra{\beta}d_{in}^\dagger(p,s)\ket{\alpha} = +\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ e^{-ipx}\, \overline{v}_s(p)\, (i\overset{\leftarrow}{\slashed{\partial}} - m)\, \bra{\beta}\psi\ket{\alpha}\Big] \\
+        \bra{\beta}d_{out}(p,s)\ket{\alpha} = -\frac{i}{\sqrt{Z}}\int\dd^4 x\, \Big[ \bra{\beta}\overline{\psi}\ket{\alpha}\, (i\overset{\leftarrow}{\slashed{\partial}} + m)v_s(p)\, e^{+ipx} \Big].
+    \end{cases}
+    \label{eqn:2 risultati part e antipart}
+\end{equation}
+
+Se estraiamo una particella dopo aver già estratto $n + m$ campi, ignorando come sempre il forward scattering, possiamo inserire un fattore $(-1)^{m+n}$ che si semplifica per gli scambi:
+\begin{align}
+    \bra{\beta}T[\psi_{\alpha_1}&(y_1)\dots\psi_{\alpha_n}\, \overline{\psi}_{\beta_1}(z_1)\dots\overline{\psi}_{\beta_m}(z_m)]b^\dagger_{in}\ket{\alpha} =\\
+    &= \bra{\beta}T[\psi\dots\overline{\psi}]b_{in}^\dagger\ket{\alpha} - (-1)^{m+n}\, \bra{\beta}b_{out}^\dagger\, T[\psi\dots\overline{\psi}]\ket{\alpha} \\
+    &= \bra{\beta}T[\psi\dots\overline{\psi}](b_{in}^\dagger - b_{out}^\dagger)\ket{\alpha}.
+\end{align}
+Infatti, facendo passare $b_{out}^\dagger$ attraverso tutti i campi esso prende un segno $(-1)^{m+n}$, che si compensa con il segno scelto, dopodiché facciamo gli stessi passaggi di prima.
+
+Supponendo di avere $n$ particelle ed $m$ antiparticelle nello stato iniziale $\ket{\alpha}$ e di avere $s$ particelle e $t$ antiparticelle nello stato finale $\bra{\beta}$, si ha che:
+\begin{equation}
+    \braket{\beta_{(s,t)}}{\alpha_{(n,m)}} = \bra{\Omega}\big[(b_1\dots b_s)(d_1\dots d_t)\big]_{out}\, \big[(b_1^\dagger\dots b_n^\dagger)(d_1^\dagger\dots d_m^\dagger)\big]_{in}\ket{\Omega}
+\end{equation}
+che per come abbiamo scritto le (\ref{eqn:2 risultati part e antipart}) possiamo riordinarle come segue:
+\begin{equation}
+    \braket{\beta_{(s,t)}}{\alpha_{(n,m)}} = \bra{\Omega}(d_1^\dagger\dots d_m^\dagger)_{in}\, (b_1^\dagger\dots b_s^\dagger)_{out}\, (b_1^\dagger\dots b_n^\dagger)_{in}\, (d_1^\dagger\dots d_t^\dagger)_{out}\ket{\Omega}.
+\end{equation}
+Osserviamo che se $t$ è pari allora possiamo spostare $(d_1^\dagger\dots d_t^\dagger)_{out}$ a destra senza probelmi, mentre se è dispari verrà fuori un fattore $(-1)^{m+n}$, analogamente per spostare $(d_1^\dagger\dots d_m^\dagger)_{in}$ ottengo un fattore $(-1)^{n+s}$. Ora esplicitiamo i vari pezzetti:
+\begin{multline}
+    \braket{\beta_{(s,t)}}{\alpha_{(n,m)}} = (-1)^{m+s}\, \bra{\Omega}(d_1^\dagger\dots d_m^\dagger)_{in}\, (b_1^\dagger\dots b_s^\dagger)_{out}\, (b_1^\dagger\dots b_n^\dagger)_{in}\, (d_1^\dagger\dots d_t^\dagger)_{out}\ket{\Omega} = \\
+    = (-1)^{m+t}\, \left(\frac{i}{\sqrt{Z}}\right)^{n+m+s+t}\, \left\{ \prod_{j=1}^m \int\dd^4 x_j\, e^{-i\, p_j\, x_j}\, \overline{v}_s(p_j)\, (i\overset{\rightarrow}{\slashed{\partial}}_j - m) \right\}\cross \\
+    \cross \left\{ \prod_{k=1}^s \int\dd^4 x_k\, e^{+i\, p_k\, x_k}\, \overline{u}_s(p_k)\, (i\overset{\rightarrow}{\slashed{\partial}}_k - m) \right\} \cross \bra{\Omega}\psi_j\, \psi_k\, \overline{\psi}_i\, \overline{\psi}_l\ket{\Omega}\cross \\
+    \cross \left\{ \prod_{j=1}^n \int\dd^4 x_i\, (i\overset{\leftarrow}{\slashed{\partial}}_i + m)\, {u}_s(p_i)\, e^{-i\, p_i\, x_i} \right\}\, \left\{ \prod_{l=1}^t \int\dd^4 x_l\, (i\overset{\leftarrow}{\slashed{\partial}}_l + m)\, {v}_s(p_l)\, e^{+i\, p_l\, x_l} \right\}.
+\end{multline}
+
+Notiamo, e teniamo a mente, che non è segnato esplicitamente, ma gli elementi con la stessa sommatoria hanno indici spinoriali legati, nell'ordine in cui i vari elementi sono scritti:
+\begin{multline*}
+    (\cdots)\overline{u}_{\gamma_1}(z_1)(\cdots)(i\overset{\rightarrow}{\slashed{\partial}} - m)_{\gamma_1 c_1}\, (\cdots)\bra{0}T[\psi_{c_1}(z_1)(\cdots)\overline{\psi}_{\alpha_1}(x_1)(\cdots)]\ket{0}\cross \\
+    \cross (i\overset{\leftarrow}{\slashed{\partial}} + m)_{\alpha_1 \alpha_1}\, (\cdots)u_{\alpha_1}(x_1)(\cdots)
+\end{multline*}
+in cui gli indici $(\alpha_1, \gamma_1,\dots)$ rappresentano gli indici del prodotto tra gli spinori. \\
+
+Usando lo stesso abuso di notazione che abbiamo osservato per il caso scalare (ovvero utilizziamo $G$ sia per indicare la funzione di Green, sia la funzione di Green amputata), possiamo scrivere la definizione delle funzioni di Grenn:
+\begin{equation}
+    G = \overline{v}_j\, \overline{u}_k\, \bra{\Omega}T[\psi_j\, \psi_k\, \overline{\psi}_i\, \overline{\psi}_l]\ket{\Omega}\, u_i\, v_l
+\end{equation}
+\begin{align}
+    \tilde{G} &= \left\{ \prod_{j=1}^m \int\dd^4 x_j\, e^{-i\, p_j\, x_j} \right\}\, \left\{ \prod_{k=1}^s \int\dd^4 x_k\, e^{+i\, p_k\, x_k} \right\}\, \left\{ \prod_{i=1}^n \int\dd^4 x_i\, e^{-i\, p_i\, x_i} \right\}\, \cross \notag \\
+    &\qquad \cross \left\{ \prod_{l=1}^t \int\dd^4 x_l\, e^{+i\, p_l\, x_l} \right\}\, G \\
+    &=(-1)^{n+t}\, \left(\sqrt{Z}\right)^{n+m+s+t}\, \left\{\prod_{j=1}^m \frac{i}{\slashed{p}_j - m}\right\}\, \left\{\prod_{k=1}^s \frac{i}{\slashed{p}_k + m}\right\}\, \cross \notag \\
+    &\qquad \cross \left\{\prod_{i=1}^n \frac{i}{\slashed{p}_i + m}\right\}\, \left\{\prod_{l=1}^t \frac{i}{\slashed{p}_l - m}\right\}\, \braket{\beta_{(s,t)}}{\alpha_{(n,m)}}
+\end{align}
+che troviamo grazie alla formula LSZ. La funzione di correlazione/Green amputata si ottiene eliminando i propagatori delle gambe esterne dalla funzione di Green nello spazio dei momenti:
+\begin{equation}
+    \tilde{G}^{(n)} = \tilde{G}_A^{(n)}\, \prod_{i=1}^n \Delta_F(p_i).
+\end{equation}
+
+
+\section{Campo vettoriale}
+
+\subsection{Esempio annichilazione di fermioni}
+
+I riferimenti sono p. 131-136 del Peskin e Schroeder \cite{Peskin}. \\
+
+Consideriamo la QED, dunque una lagrangiana:
+\begin{equation}
+    \Lag = -e\, \overline{\psi}\, \gamma_\mu\, \psi\, A^\mu
+\end{equation}
+e studiamo il processo:
+\begin{equation*}
+    e^- + e^+ \ \longrightarrow \ \mu^- + \mu^+
+\end{equation*}
+in cui abbiamo solo il canale $s$ e siccome $m_\mu\approx 200\, m_e$ trascuriamo solo la massa dell'elettrone. Il processo lo possiamo vedere in figura \ref{fig:3 annic fermioni}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figure/3-Vettoriale/annich fermioni.png}
+    \caption{Raffigurazione canale $s$ processo $e^- + e^+ \to \mu^- + \mu^+$.}
+    \label{fig:3 annic fermioni}
+\end{figure}
+
+Utilizziamo le regole di Feynman per la QED per scrivere l'elemento di matrice $S$ ridotta:
+\begin{align}
+    M\, (2\pi)^4\, &\delta(p_1 + p_2 - p_3 - p_4) =\\
+    &= \Big[ \overline{v}(p_2)\, (-ie\, \gamma_\mu)\, u(p_1) \Big]\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i\eta^{\mu\nu}}{k^4}\, \Big[ \overline{u}(p_3)\, (-ie\, \gamma_\nu)\, v(p_4) \Big]\, \cross \notag \\
+    &\qquad \cross (2\pi)^4\, \delta(k-p_3-p_4)\, (2\pi)^4\, \delta(p_1+p_2-k) \\
+    &= \frac{-i\, e^2}{(p_1+p_2)^2}\, (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (2\pi)^4\, \delta(p_1+p_2-p_3-p_4).
+\end{align}
+Dunque abbiamo:
+\begin{equation}
+    M = M_s = \frac{-i\, e^2}{s}\, (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)
+\end{equation}
+e possiamo procedere con il calcolo della sezione d'urto non polarizzata mediando sulle polarizzazioni iniziali e sommando su quelle finali:
+\begin{align}
+    |\mathcal{M}_s|^2 &= \frac{1}{4}\sum_{spin}|M_s|^2 \\
+    &= \frac{e^4}{4\, s^2}\sum_{spin} (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (\overline{v}_4\cdot\gamma^\nu\cdot u_3)\, (\overline{u}_1\cdot\gamma_\nu\cdot v_2) \\
+    &= \frac{e^4}{4\, s^2}\, \Tr{ \gamma_\mu\, (\slashed{p}_1 + m_e)\, \gamma_\nu\, (\slashed{p}_2 - m_e) }\, \cross \notag \\
+    &\qquad \cross \Tr{ \gamma^\mu\, (\slashed{p}_3 + m_\mu)\, \gamma^\nu\, (\slashed{p}_4 - m_\mu) } \\
+    &\text{\textcolor{grey}{ad alte energie $m_e\approx 0$}} \notag \\
+    &\approx \frac{e^4}{4\, s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \cross \notag \\
+    &\qquad \cross \Tr{\gamma_\mu\gamma_\alpha\gamma_\nu\gamma_\beta}\, \Tr{\gamma^\mu\gamma^\rho\gamma^\nu\gamma^\sigma - m_\mu^2\, \gamma^\mu\gamma^\nu} \\
+    &= \frac{4\, e^4}{s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \left[\eta_{\mu\alpha}\, \eta_{\nu\beta} + \eta_{\mu\beta}\, \eta_{\nu\alpha} - \eta_{\mu\nu}\, \eta_{\alpha\beta} \right]\, \cross \notag \\
+    &\qquad \cross \left[ \eta^{\mu\rho}\, \eta^{\nu\sigma} + \eta^{\mu\sigma}\, \eta^{\nu\rho} - \eta^{\mu\nu}\, \eta^{\rho\sigma} - m_\mu^2\, \eta^{\mu\nu} \right] \\
+    &= \frac{8\, e^4}{s^2}\, \left[ (p_1\cdot p_3)\, (p_2\cdot p_4) 
+    + (p_1\cdot p_4)\, (p_2\cdot p_3) + m_\mu^2\, (p_1\cdot p_2) \right]
+\end{align}
+ora, notando che nel sistema di riferimento del centro di massa, con $m_e\approx 0$, abbiamo:
+\begin{equation}
+    \begin{cases}
+        p_1 = (E,E\hat{z}) \quad ; \quad p_2 = (E,-E\hat{z}) \\
+        p_3 = (E,\vec{k}) \quad ; \quad p_4 = (E,-\vec{k})
+    \end{cases}
+\end{equation}
+in cui:
+\begin{equation}
+    \vec{k}\cdot\hat{z} = |\vec{k}|\, \cos\theta = \sqrt{E^2 - m_\mu^2}\, \cos\theta
+\end{equation}
+allora continuando i conti:
+\begin{align}
+    |\mathcal{M}_s|^2 &= \frac{8\, e^4}{(2E)^4}\, \Bigg[ \left( E^2 - E\, \sqrt{E^2 - m_\mu^2}\, \cos\theta \right)^2 + \notag \\
+    &\qquad + \left( E^2 + E\, \sqrt{E^2 - m_\mu^2}\, \cos\theta \right)^2 + 2\, E^2\, m_\mu^2 \Bigg] \\
+    &= \frac{e^4}{2}\, \left[ \left( 1 - \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \cos\theta \right)^2 + \left( 1 + \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \cos\theta \right)^2 + 2\frac{m_\mu^2}{E^2} \right] \\
+    &= e^4\, \left[ 1 + \frac{m_\mu^2}{E^2} + \left(1 - \frac{m_\mu^2}{E^2}\right)\, \cos^2\theta \right].
+\end{align}
+Calcoliamo anche la sezione d'urto:
+\begin{equation}
+    \dv{\sigma}{\Omega}\Bigg|_{cm} = \frac{|\vec{p}_3|\, E_{cm}}{E_1\, E_2\, |\vec{v}_1 - \vec{v}_2|}\, \frac{|\mathcal{M}|^2}{64\, \pi^2\, E_{cm}^2}
+\end{equation}
+osserviamo che:
+\begin{equation}
+    |\vec{v}_1 - \vec{v}_2| = \left|\frac{\vec{p}_1}{E_1} - \frac{\vec{p}_2}{E_2}\right| = 2
+\end{equation}
+dunque:
+\begin{align}
+    \frac{|\vec{p}_3|\, E_{cm}}{E_1\, E_2\, |\vec{v}_1 - \vec{v}_2|} = \frac{\sqrt{E^2 - m_\mu^2}\cdot 2\, E}{2\cdot E^2} = \sqrt{1 - \frac{m_\mu^2}{E^2}}
+\end{align}
+per semplicità possiamo porre $a=m_\mu^2/E^2$, $x=\cos\theta$ e calcolare la sezione d'urto totale:
+\begin{align}
+    \sigma_{cm} &= \frac{e^4}{64\, \pi^2\, E_{cm}^2}\int\dd\Omega\, \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \left[ 1 + \frac{m_\mu^2}{E^2} + \left( 1 - \frac{m_\mu^2}{E^2}\right)\, \cos^2\theta \right] \\
+    &= \frac{e^4}{32\, \pi\, E_{cm}^2}\int_{-1}^{+1}\dd x\, \sqrt{1 - a}\, \Big[ 1 + a + (1-a)\, x^2 \Big] \\
+    &= \frac{e^4}{32\, \pi\, E_{cm}^2}\, \sqrt{1-a}\, \left[ 2(1+a) + \frac{2}{3}\, (1-a) \right] \\
+    &= \frac{e^4}{12\, \pi\, E_{cm}^2}\, \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \left(1 + \frac{1}{2}\, \frac{m_\mu^2}{E^2}\right) \\
+    &= \frac{4\pi\, \alpha^2}{3\, E_{cm}^2}\, \sqrt{1 - \frac{m_\mu^2}{E^2}}\, \left( 1 + \frac{1}{2}\, \frac{m_\mu^2}{E^2} \right).
+\end{align}
+Se avessimo trascurato tutte le masse avremmo ottenuto:
+\begin{equation}
+    |\mathcal{M}_s|^2 = \frac{2\, e^4}{s^2}\, (t^2 + u^2)
+\end{equation}
+tramite la simmetria di crossing possiamo studiare:
+\begin{equation*}
+    e^- + \mu^- \ \longrightarrow \ e^- + \mu^-
+\end{equation*}
+da cui otteniamo:
+\begin{equation}
+    |\mathcal{M}_t|^2 = \frac{2\, e^4}{t^2}\, (s^2 + u^2).
+\end{equation}
+
+Se avessimo studiato:
+\begin{equation*}
+    e^- + e^- \ \longrightarrow \ e^- + e^-
+\end{equation*}
+allora avremmo avuro anche il canale $u$, oltre il canale $t$, questo perché le particelle finali sono identiche, per cui possiamo scambiarne gli impulsi e dobbiamo studiare:
+\begin{align}
+    |\mathcal{M}|^2 &= \frac{1}{4}\, \sum_{spin}|M_t + M_u|^2 \\
+    &= |\mathcal{M}_t|^2 + |\mathcal{M}_u|^2 + \frac{1}{4}\sum_{spin}2\, \Re{M_t\, M_u^\dagger}.
+\end{align}
+
+
+\subsection{Esempio del Bhabha scattering}
+
+I riferimenti sono p. 355 es. 59.2 dello Srednicki \cite{Srednicki} e p. 192 es. 5.2 del Peskin e Schroeder \cite{Peskin}. \\
+
+\noindent Consideriamo la QED con la lagrangiana:
+\begin{equation}
+    \Lag = -e\, \overline{\psi}\, \gamma_\mu\, \psi\, A^\mu
+\end{equation}
+e studiamo il processo:
+\begin{equation*}
+    e^- + e^+ \ \longrightarrow \ e^- + e^+
+\end{equation*}
+in cui abbiamo sia il canale $s$ (di annichilazione) che il canale $t$ (di scambio), raffigurati in figura \ref{fig:3 Bhabha}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.\textwidth]{Figure/3-Vettoriale/Bhabha.png}
+    \caption{Raffigurazione canale $s$ e $t$ processo $e^- + e^+ \to e^- + e^+$.}
+    \label{fig:3 Bhabha}
+\end{figure}
+
+A noi interessa riordinare gli elementi che troviamo nella matrice $S$ come $\psi\overline{\psi}$, formando il propagatore $S_F(x-y) = \wick{\c{\psi(x)} \c{\overline{\psi}}}$, ma per fare questo dobbiamo ricordarci:
+\begin{align}
+    &\acomm{\psi}{\psi} = \acomm{\overline{\psi}}{\overline{\psi}} = 0 \\
+    &\acomm{\psi(t,\vec{x})}{\overline{\psi}(t,\vec{y})} = \delta(\vec{x} - \vec{y}).
+\end{align}
+Contraendo troviamo un segno relativo e l'elemento di matrice $S$ ridotta complessivo è dato da $M=M_s - M_t$:
+\begin{align}
+    M_s &= \Big[ \overline{v}(p_2)\, (-ie\, \gamma_\mu)\, u(p_1) \Big]\, \frac{i\, \eta^{\mu\nu}}{k^2}\, \Big[ \overline{u}(p_3)\, (-ie\, \gamma_\nu)\, v(p_4) \Big] \\
+    &= \frac{-ie^2}{s}\, (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4) \\
+    M_t &= \Big[ \overline{u}(p_3)\, (-ie\, \gamma_\mu)\, u(p_1) \Big]\, \frac{i\, \eta^{\mu\nu}}{k^2}\, \Big[ \overline{v}(p_2)\, (-ie\, \gamma_\nu)\, v(p_4) \Big] \\
+    &= \frac{-ie^2}{t}\, (\overline{u}_3\cdot\gamma_\mu\cdot u_1)\, (\overline{v}_2\cdot\gamma^\mu\cdot v_4).
+\end{align}
+Mediamo sulle polarizzazioni iniziali e sommiamo su quelle finali:
+\begin{align}
+    |\mathcal{M}_s|^2 &= \frac{1}{4}\sum_{spin}|M_s|^2 \\
+    &= \frac{e^4}{4s^2}\sum_{spin} (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (\overline{v}_4\cdot\gamma^\nu\cdot u_3)\, (\overline{u}_1\cdot\gamma_\nu\cdot v_2) \\
+    &= \frac{e^4}{4s^2}\sum_{spin} \Big[ (\overline{v}_2)_\alpha\, (\gamma_\mu)_{\alpha\beta}\, (u_1)_{\beta}\cdot (\overline{u}_1)_\gamma\, (\gamma_\nu)_{\gamma\delta}\, (v_2)_{\delta} \Big]\cross \notag \\
+    &\qquad \cross \Big[ (\overline{u}_3)_\rho\, (\gamma^\mu)_{\rho\sigma}\, (v_4)_{\sigma}\cdot (\overline{v}_4)_\tau\, (\gamma^\nu)_{\tau\epsilon}\, (u_3)_{\epsilon} \Big] \\
+    &= \frac{e^4}{4s^2}\sum_{spin} \Big[ (\gamma_\mu)_{\alpha\beta}\, (\slashed{p}_1 + m_e)_{\beta\gamma}\, (\gamma_\nu)_{\gamma\delta}\, (\slashed{p}_2 - m_e)_{\delta\alpha} \Big] \cross \notag \\
+    &\qquad \cross \Big[ (\gamma^\mu)_{\rho\sigma}\, (\slashed{p}_4 - m_e)_{\sigma\tau}\, (\gamma^\nu)_{\tau\epsilon}\, (\slashed{p}_3 + m_e)_{\epsilon\rho} \Big] \\
+    &= \frac{e^4}{4s^2}\, \Tr{ \gamma_\mu(\slashed{p}_1 + m_e)\, \gamma_\nu\, (\slashed{p}_2 - m_e) }\, \Tr{ \gamma^\mu(\slashed{p}_3 + m_e)\, \gamma^\nu\, (\slashed{p}_4 - m_e) } \\
+    &\text{\textcolor{grey}{alle alte energie $m_e\approx 0$}} \notag \\
+    &\approx \frac{e^4}{4s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \Tr{\gamma_\mu\gamma_\alpha\gamma_\nu\gamma_\beta}\, \Tr{\gamma^\mu\gamma^\rho\gamma^\nu\gamma^\sigma} \\
+    &= \frac{4e^2}{s^2}\, p_1^\alpha\, p_2^\beta\, p_{3,\rho}\, p_{4,\sigma}\, \Big[ \eta_{\mu\alpha}\, \eta_{\nu\beta} + \eta_{\mu\beta}\, \eta_{\nu\alpha} - \eta_{\mu\nu}\, \eta_{\alpha\beta} \Big]\cross \notag \\
+    &\qquad \cross \Big[ \eta^{\mu\rho}\, \eta^{\nu\sigma} + \eta^{\mu\sigma}\, \eta^{\nu\rho} - \eta^{\mu\nu}\, \eta^{\rho\sigma} \Big] \\
+    &= \frac{8e^4}{s^2}\, \Big[ (p_1\cdot p_3)\, (p_2\cdot p_4) + (p_1\cdot p_4)\, (p_2\cdot p_3) \Big] \\
+    &= \frac{2e^4}{s^2}\, (t^2 + u^2).
+\end{align}
+Possiamo ricavare il canale $t$ usando la simmetria di crossing:
+\begin{equation}
+    |\mathcal{M}_t|^2 = \frac{2e^4}{t^2}\, (s^2 + u^2).
+\end{equation}
+Studiamo ora il termine misto:
+\begin{align}
+    |\mathcal{M}_{st}| &= \frac{1}{4}\sum_{spin}\Re{M_s\, M_t^\dagger} \\
+    &= \frac{e^4}{4\, s\, t}\sum_{spin} (\overline{v}_2\cdot\gamma_\mu\cdot u_1)\, (\overline{u}_3\cdot\gamma^\mu\cdot v_4)\, (\overline{v}_4\cdot\gamma^\nu\cdot v_2)\, (\overline{u}_1\cdot\gamma_\nu\cdot u_3) \\
+    &= \frac{e^4}{4\, s\, t}\, \Tr{ \gamma_\mu(\slashed{p}_1 + m_e)\, \gamma_\nu\, (\slashed{p}_3 + m_e)\, \gamma^\mu(\slashed{p}_4 - m_\mu)\, \gamma^\nu\, (\slashed{p}_2 - m_\mu) } \\
+    &\text{\textcolor{grey}{alle alte energie $m_e\approx 0$}} \notag \\
+    &= \frac{e^4}{4\, s\, t}\, p_{1,\alpha}\, p_{3,\beta}\, p_{4,\rho}\, p_{2,\sigma}\, \Tr{\gamma_\mu\gamma^\alpha\gamma_\nu\gamma^\beta\gamma^\mu\gamma^\rho\gamma^\nu\gamma^\sigma}
+\end{align}
+dobbiamo a questo punto ricordarci delle relazioni per le matrici $\gamma$, che puoi non solo vedere nell'Appendice \ref{cap:matrici gamma}, ma soprattutto nelle note del corso di \textit{Introduzione alla Teoria Quantistica dei Campi}. Vediamo infatti:
+\begin{equation}
+    \gamma^\mu\gamma^\alpha\gamma^\beta\gamma_\mu = 4\, \eta^{\alpha\beta} \quad , \quad \gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma_\mu = -2\gamma^\sigma\gamma^\rho\gamma^\nu
+\end{equation}
+per cui abbiamo:
+\begin{align}
+    \Tr{ \gamma_\mu\gamma^\alpha(\gamma_\nu\gamma^\beta\gamma^\mu\gamma^\rho\gamma^\nu)\gamma^\sigma } &= -2\Tr{ \gamma_\mu\gamma^\alpha(\gamma^\rho\gamma^\mu\gamma^\beta)\gamma^\sigma } \\
+    &= -8\, \eta^{\alpha\rho}\, \Tr{\gamma^\beta\gamma^\sigma} \\
+    &= -32\, \eta^{\alpha\rho}\, \eta^{\beta\sigma}.
+\end{align}
+Tornando ai nostri conti:
+\begin{align}
+    |\mathcal{M}_{st}| &= -\frac{8e^4}{s\, t}\, (p_1\cdot p_4)\, (p_2\cdot p_3) \\
+    &= -\frac{2e^4}{s\, t}\, u^2.
+\end{align}
+Complessivamente abbiamo:
+\begin{align}
+    |\mathcal{M}_{tot}|^2 &= |\mathcal{M}_{s}|^2 + |\mathcal{M}_{t}|^2 - 2|\mathcal{M}_{st}|^2 \\
+    &= 2\, e^4\, \left[\frac{t^2}{s^2} + \frac{s^2}{t^2} + u^2\, \left(\frac{1}{s} + \frac{1}{t}\right)^2 \right].
+\end{align}
+Se avessimo studiato il processo:
+\begin{equation*}
+    e^- + e^- \ \longrightarrow \ e^- + e^-
+\end{equation*}
+avremmo avuto due diagrammi di scambio (canale $t$ e canale $u$) in quanto le particelle degli stati finali sono identiche e quindi possiamo scambiarne gli impulsi.
+
+
+\subsection{Esempio sul segno di un loop di fermioni}
+
+Guardando la fugura \ref{fig:3 loop di ferm} scriviamo:
+\begin{align}
+    \bra{0}T[A_\mu(x_1)\, A_\nu(x_2)]\ket{0} &= (-ie)^2\int\dd^4 x\, \dd^4 y\, \bra{0}\, A_\mu(x_1)\, A_\nu(x_2)\, \overline{\psi}(x)\, \cross \notag\\
+    &\qquad \cross\, \slashed{A}(x)\, \psi(x)\, \overline{\psi}(y)\, \slashed{A}(y)\, \psi(y)\ket{0} \\
+    &= -\Delta_{\mu\rho}\, \Delta_{\nu\sigma}\, \Delta_1\, \Delta_2.
+\end{align}
+In generale troviamo che un loop con $n$ fotoni esterni che abbia solo fermioni interni ha segno negativo:
+\begin{multline}
+    \bra{0}T[A_{\mu_2}(x_1)\, \dots\, A_{\mu_1}(x_n)]\ket{0} = (-ie)^2\, \int \dd^4 y_1\, \dots\, \dd^4 y_n \, \cross \\
+    \cross\, \bra{0} A_{\mu_1}(x_1)\, \dots\, A_{\mu_n}(x_n)\, \overline{\psi}(y_1)\, \slashed{A}(y_1)\, \psi(y_1)\, \overline{\psi}(y_2)\, \cross \\
+    \cross \slashed{A}(y_2)\, \psi(y_2)\, \dots\, \overline{\psi}(y_n)\, \slashed{A}(y_n)\, \psi(y_n)\ket{0}
+\end{multline}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figure/3-Vettoriale/loop fermioni.jpeg}
+    \caption{Raffigurazione loop di fermioni.}
+    \label{fig:3 loop di ferm}
+\end{figure}
+
+
+\subsection{Osservazione sulla teoria di Yang-Mills}
+
+Riprendiamo l'esempio del campo spinoriale ad $N$ componenti, in aggiunta al campo vettoriale, la lagrangiana completa è:
+\begin{equation}
+    \Lag = -\frac{1}{4}\, F_a^{\mu\nu}\, F_{\mu\nu}^a + \overline{\Psi}\, (i\slashed{D} - m)\, \Psi
+\end{equation}
+in cui ricordiamo (\ref{eqn:3 der cov in rapp aggiunta}), inoltre per avere invarianza locale il campo $A$ deve trasformare come:
+\begin{equation}
+    gA_\mu \quad \longrightarrow\quad gA_\mu^\prime = -iU\, (\partial_\mu U^\dagger) + gUA_\mu U^\dagger.
+\end{equation}
+Se riscriviamo esplicitando i generatori abbiamo in una trasformazione infinitesima e:
+\begin{align}
+    gA_\mu^\prime &= gA_\mu - \partial_\mu\omega^a\, T^a + ig\omega^a\, \comm{T^a}{A_\mu} \\
+    &= gA_\mu - D_\mu\, (\omega^a\, T^a) \\
+    &= gA_\mu + iD_\mu\, U
+\end{align}
+dove abbiamo utilizzato la derivata covariante in rappresentazione aggiunta (\ref{eqn:3 der cov in rapp aggiunta}). Esplicitando la lagrangiana notiamo che il termine di interazione dato da:
+\begin{equation}
+    \Lag_{int} = -g\, \overline{\Psi}\, (\gamma_\mu A^\mu)\, \Psi
+\end{equation}
+come in Maxwell.
+
+Se invece consideriamo un campo scalare complesso:
+\begin{equation}
+    \Lag = \big( \partial_\mu\phi \big)\, \big( \partial^\mu\phi \big)^\dagger + m^2\, \phi\, \phi^\dagger
+\end{equation}
+quando richiediamo l'invarianza di fase locale tramite la derivata covariante:
+\begin{equation}
+    D_\mu = \partial_\mu + iA_\mu
+\end{equation}
+otteniamo:
+\begin{equation}
+    \Lag = -\frac{1}{4}F_{\mu\nu}\, F^{\mu\nu} - \big( \partial_\mu\phi + iA_\mu\phi \big)\, \big( \partial_\mu\phi + iA^\mu\phi^\dagger \big) + m^2\, \phi\, \phi^\dagger.
+\end{equation}
+Dunque, abbiamo dei termini di interazioni di tipo derivativo, in cui un campo ($A$) interagisce con la derivata di un altro campo ($\phi$).
+
+Le interazioni derivative non sono rare, ma si trattano meglio usando i path integrals (vedi il capitolo \S\ref{cap:path integral}).
+
+
+\section{Path integral}
+
+\subsection{Legame tra path integral e prodotto T-ordinato nel vuoto}
+
+L'ampiezza di transizione generica è data da:
+\begin{align}
+    \braket{\psi}{\phi} &= \int\dd q_0\, \dd q_f\, \braket{\psi}{q_f}\braket{q_f}{q_0}\braket{q_0}{\phi} \\
+    &= \int\dd q_0\, \dd q_f\, \psi^*(q_f)\, \phi(q_0)\, \braket{q_f}{q_0}
+\end{align}
+ma a noi interessa studiare il ground state:
+\begin{equation}
+    \braket{0}{0}_{f,g} = \lim_{ {\begin{matrix}
+    t_0\to -\infty \\
+    t_f\to +\infty
+    \end{matrix}} } \int\dd q_0\, \dd q_f\, \psi^*(q_f)\, \phi(q_0)\, \braket{q_f\, t_f}{q_0\, t_0}.
+\end{equation}
+Sapendo che $\psi_n(q) = \braket{q}{n}$ e supponendo $E_0=0$, allora il ground state dello stato finale ed iniziale sono:
+\begin{align}
+    \ket{q_0\, t_0} &= e^{+\frac{i}{\hbar}\, H\, t_0}\ket{q_0} \\
+    &= e^{+\frac{i}{\hbar}\, H\, t_0} \sum_{n\geq 0}\ket{n}\braket{n}{q_0} \\
+    &= \sum_{n\geq 0} e^{+\frac{i}{\hbar}\, E_n\, t_0}\, \psi_n^*(q_0)\, \ket{n}\quad \underset{t\to -\infty(1-i\epsilon)}{\longrightarrow} \quad \psi_0^*(q_0)\, \ket{0}
+\end{align}
+\begin{align}
+    \bra{q_f\, t_f} &= \bra{q_f}\, e^{-\frac{i}{\hbar}\, H\, t_f} \\
+    &= e^{-\frac{i}{\hbar}\, H\, t_f} \sum_{n\geq 0}\braket{q_f}{n}\bra{n} \\
+    &= \sum_{n\geq 0} \bra{n}\, e^{-\frac{i}{\hbar}\, E_n\, t_f}\, \phi_n(q_f)\quad \underset{t\to +\infty(1-i\epsilon)}{\longrightarrow} \quad \bra{0}\, \phi_0(q_f)
+\end{align}
+possiamo moltiplicare per una funzione d'onda arbitraria $\chi(q_0)$, per cui richiediamo $\braket{\chi}{0} \neq 0$, ed integriamo:
+\begin{equation}
+    \int\dd q_0\, \chi(q_0)\, \ket{q_0\, t_0}\quad \underset{t\to -\infty(1-i\epsilon)}{\longrightarrow} \quad \int\dd q_0\, \chi(q_0)\, \psi_0^*(q_0)\, \ket{0} = \braket{\chi}{0}\bra{0}
+\end{equation}
+se facciamo la stessa cosa per gli stati finali con una funzione d'onda $\xi(q_f)$, allora possiamo scrivere il ground state come (riassorbendo $\chi(q_0)$ e $\xi(q_f)$ nella costante di normalizzazione):
+\begin{align}
+    \braket{0}{0} &= \lim_{\begin{matrix}
+    t_0\to -\infty \\
+    t_f\to +\infty
+    \end{matrix}} \frac{\text{cost}}{\braket{\xi}{0}\, \braket{0}{\chi}}\, \int\dd q_0\, \dots\, \dd q_{N+1}\int\dd p_0\, \dots\, \dd p_N\, \cross \notag \\
+    &\qquad \cross \chi(q_0)\, \xi^*(q_f)\, \exp{i\int_{t_0}^{t_f}\dd t\, \Big( p\dot{q} - H(q,p) \Big)} \\
+    &= \frac{1}{\mathcal{N}}\int\mathcal{D}_q\int\mathcal{D}_p\, \exp{i\int_{-\infty}^{+\infty}\dd t\, \Big( p\dot{q} - H(q,p) \Big)}
+\end{align}
+pertanto, aggiungendo i termini di sorgente, abbiamo:
+\begin{equation}
+    \braket{0}{0}_{f,g} = \frac{1}{\mathcal{N}}\int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H(q,p) + fq + gp \Big)}.
+\end{equation}
+Possiamo supporre:
+\begin{equation}
+    H = H_0 + H_{int}
+\end{equation}
+e per cui:
+\begin{equation}
+    \braket{0}{0}_{f,g} = \int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H_0 - H_{int} + fq + gp \Big)}
+\end{equation}
+sviluppando il termine di interazione in serie di potenze:
+\begin{equation}
+    \exp{\frac{i}{\hbar}\, \int\dd t\, H_{int}} = \sum c_{nm}\, q^n\, p^m
+\end{equation}
+dunque abbiamo:
+\begin{align}
+    \braket{0}{0}_{f,h} &= \sum c_{nm}\, (-i\hbar)^{n+m}\, \frac{\delta^n}{\delta f^n}\, \frac{\delta^m}{\delta g^m}\, \cdot \\
+    &\qquad \cdot \int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H_0 + fq + gp \Big)} \\
+    &= \exp{\frac{i}{\hbar}\, \int\dd t\, H_{int}\left( \frac{i\delta}{\hbar\, \delta f}\, ,\, \frac{i\delta}{\hbar\, \delta g} \right)}\, \cross \notag \\
+    &\qquad \cross \int\mathcal{D}_q\, \mathcal{D}_p\, \exp{\frac{i}{\hbar}\, \int\dd t\, \Big( p\dot{q} - H_0 + fq + gp \Big)}
+\end{align}
+se ponessimo $H_{int}\to \lambda H_{int}$ con $\lambda$ piccolo, allora potremmo sviluppare perturbativamente il primo termine.
+
+
+\subsection{Spazio delle coordinate}
+
+Questo conto lo possiamo fare anche nello spazio delle coordinate, integriamo il primo termine della lagrangiana per parti:
+\begin{equation}
+    \Lag_J = \Lag_0 + J\phi = -\frac{1}{2}\phi\, \left( \Box + m^2 \right)\, \phi + J\phi
+\end{equation}
+e poi completiamo il quadrato:
+\begin{multline}
+    \Lag_J = -\frac{1}{2}\, \Big[ \phi - J\, \left( \Box + m^2 \right)^{-1} \Big]\, \left( \Box + m^2 \right)\, \Big[ \phi - J\, \left( \Box + m^2 \right)^{-1} \Big] + \\
+    + \frac{1}{2}\, J\, \left( \Box + m^2 \right)^{-1}\, J
+\end{multline}
+però possiamo ricordarci che l'inverso di un operatore è la sua funzione di Green:
+\begin{equation}
+    \left( \Box + m^2 \right)\, \Delta(x-y) = -i\, \delta^4(x-y)
+\end{equation}
+che abbiamo già calcolato ed è uguale al propagatore (\ref{eqn:1 propagatore spazio impulsi}) e quindi:
+\begin{align}
+    Z[J] &= \frac{1}{N}\, \int\mathcal{D}_\phi\, \exp{ i\langle \Lag_0 + J\phi\rangle } \\
+    &= \exp{-\frac{1}{2}\, \langle J_x\, \Delta(x-y)\, J_y\rangle_{x,y}}.
+\end{align}
+
+
+\subsection{Rotazione di Wick}
+
+Facendo la \textit{rotazione di Wick}:
+\begin{equation}
+    x_0 = - i\overline{x}_0
+\end{equation}
+ovviamente tutte le quantità si modificano, ma si può vedere l'Appendice \ref{cap:rotazione di Wick} per le relazioni. Notiamo che abbiamo una trasformazione analoga anche per l'impulso:
+\begin{equation}
+    k_0 = -i\, k_0^E
+\end{equation}
+che implica:
+\begin{equation}
+    k^2 = -k^2_E
+\end{equation}
+e che:
+\begin{align}
+    x^\mu\, p_\mu &= Et - \vec{k}\cdot\vec{x} \\
+    &= (-iE_E)\, (-i\tau) - \vec{k}\cdot\vec{x} \\
+    &= -x_\mu^E\, p_\mu^E
+\end{align}
+in cui possiamo mettere entrambi gli indici bassi poiché nello spazio euclideo non cambia nulla la posizione degli indici.
+
+Continuiamo i nostri conti:
+\begin{align}
+    I &= iS + i\langle \phi J\rangle \\
+    &= -S_E + \langle \phi J\rangle_E \\
+    &= \frac{1}{2}\int\dd^4 x_E\, \Big[ -\partial_\mu\phi\, \partial_\mu\phi - m^2\phi^2 + 2J\phi \Big] \\
+    &= \frac{1}{2}\int\dd^4 x_E\int\frac{\dd^4 p_E}{(2\pi)^4}\, \frac{\dd^4 p_E^\prime}{(2\pi)^4}\, \Big[ \left( p_\mu p_\mu^\prime - m^2 \right)\, \tilde{\phi}(p)\, \phi(p^\prime) +\notag \\
+    &\qquad + \tilde{\phi}(p)\, \tilde{J}(p^\prime) + \tilde{\phi}(p^\prime)\, \tilde{J}(p) \Big]\, e^{-ix\, (p+p^\prime)} \\
+    &= \frac{1}{2}\int\frac{\dd^4 p_E}{(2\pi)^4}\, \Big[ -\left( p_\mu p_\mu + m^2 \right)\, \tilde{\phi}(p)\, \phi(-p) + \tilde{\phi}(p)\, \tilde{J}(-p) + \tilde{\phi}(-p)\, \tilde{J}(p) \Big]
+\end{align}
+possiamo porre per brevità $\phi(\pm p) = \phi_\pm$, ma anche:
+\begin{equation}
+    K = -\left( p^2 + m^2\right)
+\end{equation}
+e cambiamo variabile:
+\begin{equation}
+    \tilde{\phi}(p)\quad \longrightarrow \quad \tilde{\phi}(p) - K^{-1}\, \tilde{J}(p)
+\end{equation}
+continuando i conti:
+\begin{align}
+    &= \frac{1}{2}\int\frac{\dd^4 p_E}{(2\pi)^4}\, \Bigg\{ K\, \Big[ \tilde{\phi}_+ - K^{-1}\, \tilde{J}_+ \Big]\, \Big[ \tilde{\phi}_- - K^{-1}\, \tilde{J}_- \Big] +\notag \\
+    &\qquad + \Big[ \tilde{\phi}_+ - K^{-1}\, \tilde{J}_+ \Big]\, \tilde{J}_- + \Big[ \tilde{\phi}_- - K^{-1}\, \tilde{J}_- \Big]\, \tilde{J}_+ \Bigg\} \\
+    &= \frac{1}{2}\int\frac{\dd^4 p_E}{(2\pi)^4}\, \Big[ K\, \tilde{\phi}(p)\, \tilde{\phi}(-p) - K^{-1}\, \tilde{J}(p)\, \tilde{J}(-p) \Big] \\
+    &= -S_E - \frac{1}{2}\int\dd^4 x_E\, \dd^4 y_E\int\frac{\dd^4 p_E}{(2\pi)^4}\, \left[J(x)\, J(y)\, \frac{e^{ip(x-y)}}{-(p^2 + m^2)} \right] \\
+    &= -S_E + \frac{1}{2}\int\dd^4 x_E\, \dd^4 y_E\, J(x)\, J(y)\, \int\frac{\dd^4 p_E}{(2\pi)^4}\, \frac{e^{ip(x-y)}}{p^2 + m^2}
+\end{align}
+da cui concludiamo:
+\begin{equation}
+    Z_0^E[J] = e^{-W_0[J]} = \exp{\frac{1}{2}\, \langle J(x)\, J(y)\, \Delta(x-y)\rangle_{x,y} }.
+\end{equation}
+Se torniamo nello spazio di Minkowski, richiedendo $m^2\to m^2-i\epsilon$ per la convergenza, otteniamo:
+\begin{equation}
+    I = iS + \frac{1}{2}\int\dd^4 x\, \dd^4 y\int\frac{\dd^4 p}{(2\pi)^4}\, \left[ J(x)\, J(y)\, \frac{i\, e^{-ip(x-y)}}{p^2 - m^2 + i\epsilon} \right].
+\end{equation}
+\textcolor{red}{Nota di E. Chiarotto (tra l'altro il 9 febbraio 2023): Non mi torna il segno, dovrebbe essere $-1/2$, ma il passaggio prima è uguale a quello che ha scritto il professore.}
+
+
+\subsection{Esempio \texorpdfstring{$\lambda\phi^4$}{lambda phi4}}
+
+Dopo la rinormalizzazione, l'energia libera $W$ ha solo diagrammi in cui tutte le particelle interagiscono tra di loro e collegate alle $n$ gambe esterne:
+\begin{equation}
+    W[J] = \sum_{n=1}^\infty \frac{(-1)^n}{n!}\, \langle J_1\, \dots\, J_n\, G^{(n)}_c\rangle_{x_1\, \dots\, x_n}
+\end{equation}
+invertendo troviamo:
+\begin{equation}
+    G_c^{(n)} = (-1)^n\, \frac{\delta^n}{\delta J_1\, \dots\, \delta J_n} W[J]\Bigg|_{J=0}.
+\end{equation}
+Puoi vedere i vari termini delle funzioni di Green nella figura \ref{fig:4 funz green int}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figure/4-Path integral/funz green.jpeg}
+    \caption{}
+    \label{fig:4 funz green int}
+\end{figure}
+
+\textcolor{red}{Ciascuno è un esempio di tanti processi equivalenti. Ad esempio quelli in figura \ref{fig:4 funz green equiv}.}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figure/4-Path integral/diag equivalenti.jpeg}
+    \caption{}
+    \label{fig:4 funz green equiv}
+\end{figure}
+
+Quindi ogni vertice è associato a $-\lambda$ (siamo nell'euclideo), inoltre per ogni vertice (che non abbia solo gambe esterne) dobbiamo fare degli integrali perché le derivate:
+\begin{equation}
+    \frac{\delta\, J_1}{\delta\, J_2} = \delta(x_1-x_2)
+\end{equation}
+ci permettono di semplificare soltanto gli integrali delle gambe esterne. \\
+
+Consideriamo il termine di ordine $\lambda$ in $G^{(2)}$ e lo chiamiamo (A), mentre quello in ordine $\lambda^2$ lo chiamiamo (B):
+\begin{align}
+    &(A) = -\frac{\lambda}{2}\int\dd^4 x\, \Delta(x_1-x)\, \Delta(x-x_2)\, \Delta(x-x) \\
+    &(B) = -\frac{\lambda^2}{3}\int\dd^4 x\, \dd^4 y\, \Delta(x_1-x)\, \Delta^3(x-y)\, \Delta(y-x_2).
+\end{align}
+In $\delta_2$ avevamo un termine:
+\begin{equation}
+    \frac{1}{12}\, \langle J_x\, \Delta_{ax}\, \Delta_{xy}^3\, \Delta_{yb}\, J_y\rangle_{xy}
+\end{equation}
+che se derivato diventa:
+\begin{equation}
+    \lambda^2\, \frac{2}{12}\, \langle \Delta_{ax}\, \Delta^3_{xy}\, \Delta_{yb}\rangle_{xy}.
+\end{equation}
+
+Ovviamente possiamo rifare il conto nello spazio degli impulsi:
+\begin{align}
+    (A) &= -\frac{\lambda}{2}\int\dd^4 x\int\frac{\dd^4 p_1}{(2\pi)^4}\, \int\frac{\dd^4 p_2}{(2\pi)^4}\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i\, e^{ip_1\, (x_1 - x)}}{p_1^2 + m^2}\, \frac{i\, e^{ip_2\, (x - x_2)}}{p_2^2 + m^2}\, \frac{i}{k^2 + m^2} \\
+    &\text{\textcolor{grey}{integriamo in $x$ e usiamo le $\delta$}} \notag \\
+    &= \frac{\lambda}{2}\int\frac{\dd^4 p_1}{(2\pi)^4}\, e^{ip_1\, x_1}\, \int\frac{\dd^4 p_2}{(2\pi)^4}\, e^{-ip_2\, x_2}\, (2\pi)^4\, \delta^4(p_1 - p_2)\, \cross \notag \\
+    &\qquad \cross \frac{i}{p_1^2 + m^2}\, \frac{i}{p_2^2 + m^2}\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i}{k^2 + m^2}
+\end{align}
+vedendo così:
+\begin{equation}
+    \tilde{G}(p_1,p_2) = -\frac{\lambda}{2}\, \delta^4(p_1 - p_2)\, \frac{i}{p_1^2 + m^2}\, \frac{i}{p_2^2 + m^2}\, \int\frac{\dd^4 k}{(2\pi)^4}\, \frac{i}{k^2 + m^2}.
+\end{equation}
+
+
+\section{Modello Standard}
+
+\subsection{Rottura spontanea di simmetria (Wigner e Nambu-Goto)}
+
+In \mq\ una simmetria è una mappa:
+\begin{equation}
+    \ket{\alpha} \quad \longrightarrow \quad \ket{\alpha^\prime} = U\, \ket{\alpha}
+\end{equation}
+tale per cui:
+\begin{equation}
+    \braket{\alpha}{\beta} = \braket{\alpha^\prime}{\beta^\prime}
+\end{equation}
+quindi $U$ dev'essere un operatore unitario. Inoltre ricordiamo che per il teorema di Noether ogni simmetria corrisponde una corrente conservata:
+\begin{equation}
+    \delta S \sim \int\dd^4 x\, \left(\partial_\mu j^\mu \right) = 0
+\end{equation}
+da cui ricaviamo la carica conservata:
+\begin{equation}
+    Q^a = \int\dd^4 x\, j^{0a}
+\end{equation}
+inoltre abbiamo che:
+\begin{equation}
+    \comm{H,Q^a} = 0
+\end{equation}
+e per questo possiamo esprimere:
+\begin{equation}
+    U = e^{i\, a^a\, Q^a}.
+\end{equation}
+Una simmetria può agire su una teoria in due modi diversi in base a come agisce sul vuoto: \textit{realizzazione alla Wigner} o \textit{realizzazione di Nambu-Goto}. Per Wigner abbiamo:
+\begin{equation}
+    U\, \ket{0} = \ket{0} \quad , \quad Q_0\, \ket{0} = 0
+\end{equation}
+pertanto tutto lo spettro è caratterizzato da multipletti del gruppo di simmetria ovvero di $Q_a$, quindi per esempio se abbiamo due stati degeneri allora:
+\begin{equation}
+    \ket{\alpha} = Q_a\, \ket{\alpha}.
+\end{equation}
+Per Nambu-Goto invece abbiamo:
+\begin{equation}
+    U\, \ket{0}\neq \ket{0}
+\end{equation}
+cioè il vuoto non è invariante, e con un abuso di notazione si dice che la \textit{simmetria è spontaneamente rotta} ($U$ continua a commutare con $H$).
+
+
+\subsection{Rottura della simmetria e spettro di massa}
+
+Consideriamo un campo reale scalare $\phi^a$ con $a=\{1,2\}$ e:
+\begin{equation}
+    \Lag = \frac{1}{2}\, \partial_\mu\phi^a\, \partial^\mu\phi^a - V(\phi^a)
+\end{equation}
+dunque per cui abbiamo:
+\begin{equation}
+    \Ham = \frac{1}{2}\left(\dot{\phi}^a\right)^2 + \frac{1}{2}\left(\nabla_i\phi^a\right)^2 + V(\phi^a)
+\end{equation}
+tuttavia la teoria dev'essere invariante di Poincarè (Lorentz e traslazioni nello spazio-tempo), quindi il vuoto della teoria è dato dalla condizione che estremizza del potenziale, cioè dobbiamo avere:
+\begin{equation}
+    \pdv{V}{\phi^a} = 0.
+\end{equation}
+Studiamo le conseguenze di queste due realizzazioni per lo spettro di massa della teoria. Nella lagrangiana non abbiamo scritto un termine di massa esplicito ma lo ritroviamo quando espandiamo in un intorno del vuoto:
+\begin{equation}
+    V(\phi^a) = V(\langle\phi^a\rangle) + \pdv{V}{\phi^a}\, (\phi^a - \langle\phi^a\rangle) + \frac{1}{2}\pdv[2]{V}{\phi^a}{\phi^b}\Bigg|_{\langle\phi\rangle}\, \left( \phi^a - \langle\phi^a\rangle \right)\, \left( \phi^b - \langle\phi^b\rangle \right)
+\end{equation}
+la derivata prima è nulla nel vuoto, il termine costante è l'energia di punto zero che può essere ignorata e dunque rimane solamente:
+\begin{equation}
+    M_{ab}^2 = \pdv[2]{V}{\phi^a}{\phi^b}\Bigg|_{\phi^a=\langle\phi^a\rangle}.
+\end{equation}
+
+Consideriamo una trasformazione:
+\begin{equation}
+    \delta\phi^a = R^a_b\, \phi^b
+\end{equation}
+di $SO(2)$, per la quale il potenziale trasforma con:
+\begin{equation}
+    \delta V = \pdv{V}{\phi^a}\, \delta\phi^a = \pdv{V}{\phi^a}\, R^a_b\, \phi^b.
+\end{equation}
+Tuttavia se ipotizziamo che $\Lag$ sia invariante di $SO(2)$, abbiamo che:
+\begin{equation}
+    \delta V = \left(\pdv{V}{\phi^a}\, R^a_b\, \phi_b\right)_{\langle\phi^b\rangle} = 0
+\end{equation}
+quindi:
+\begin{align}
+    \pdv{\phi^c}\left( \pdv{V}{\phi^a}\, R_b^a\, \phi^b \right)_{\langle\phi^b\rangle} &= \left( \pdv[2]{V}{\phi^a}{\phi^c}\, R_b^a\, \langle\phi^b\rangle + \pdv{V}{\phi^a}\, R_b^a\, \delta_c^b \right)_{\langle\phi^b\rangle} \\
+    &= M_{ac}^2\, R^a_b\, \langle\phi_b\rangle \\
+    &= 0.
+\end{align}
+Dunque, ricordando che la variazione del vuoto è:
+\begin{equation}
+    \delta\langle\phi^a\rangle = \alpha\, R_b^a\, \langle\phi^b\rangle
+\end{equation}
+possiamo avere:
+\begin{itemize}
+    \item La realizzazione alla Wigner se:
+    \begin{equation}
+        \delta\langle\phi^a\rangle R_a^b\, \langle\phi_b\rangle = 0
+    \end{equation}
+    che implica la \textit{preservazione del vuoto}:
+    \begin{equation}
+        U\, \ket{0} = \ket{0}
+    \end{equation}
+    che non dà informazioni aggiuntive sulle particelle.
+    \item La realizzazione alla Nambu-Goto se:
+    \begin{equation}
+        \delta\langle\phi^a\rangle R_a^b\, \langle\phi_b\rangle \neq 0
+    \end{equation}
+    che implica la \textit{"rottura" del vuoto}:
+    \begin{equation}
+        U\, \ket{0} = \ket{0}
+    \end{equation}
+    in questo caso la matrice di massa $M^2_{ab}$ ha un autovalore nullo, dunque esiste sempre una particella a massa nulla, che prende il nome di \textbf{bosone di Goldstone}.
+\end{itemize}
+
+
+\subsection{Esempio di rottura della simmetria}
+
+I riferimenti sono p. 348 del Peskin \cite{Peskin}. \\
+
+Studiamo la lagrangiana:
+\begin{equation}
+    \Lag = \frac{1}{2}\sum_{b=1,2}\left(\partial_\mu\phi^b\right)\, \left(\partial^\mu\phi^b\right) - V(\phi^b) 
+\end{equation}
+in cui scegliamo:
+\begin{equation}
+    V(\phi^a) = \frac{\lambda}{4!}\left( \sum_{b=1,2}\frac{1}{2}\, \phi^b\, \phi^b - a^2 \right)^2.
+\end{equation}
+Passiamo ad un campo complesso:
+\begin{equation}
+    \phi = \frac{\phi^1 + i\, \phi^2}{\sqrt{2}}
+\end{equation}
+ed otteniamo:
+\begin{equation}
+    \Lag = \partial_\mu\phi\partial^\mu\phi^\dagger - \frac{\lambda}{4!}\, \left( \phi\phi^\dagger - a^2 \right)^2
+    \label{eqn:5 lag con esempio rottura simm}
+\end{equation}
+e possiamo osservare che abbiamo un'invarianza di fase globale. Se vogliamo calcolare il vuoto della teoria dobbiamo studiare:
+\begin{equation}
+    \pdv{V}{\phi} = 0 \quad , \quad \pdv{V}{\phi^\dagger} = 0
+\end{equation}
+da cui otteniamo:
+\begin{equation}
+    \langle \phi \rangle = \langle \phi^\dagger \rangle = a
+\end{equation}
+oppure:
+\begin{equation}
+    \langle \phi \rangle = \langle \phi^\dagger \rangle = 0.
+\end{equation}
+Se abbiamo $a^2\leq 0$ abbiamo un'uncia soluzione:
+\begin{equation}
+    \langle \phi \rangle = 0
+\end{equation}
+dunque:
+\begin{equation}
+    M^2 = \begin{pmatrix}
+        0 & -a^2 \\
+        -a^2 & 0
+    \end{pmatrix} \quad , \quad \text{det}M^2 \neq 0.
+\end{equation}
+Se $a^2>0$ abbiamo un massimo in $\langle \phi \rangle = 0$ ed un minimo in $\langle \phi \rangle = a$, infatti se andiamo a studiare la matrice di massa abbiamo:
+\begin{align}
+    &\partial_\phi^2 V = \overline{\phi}^2 \quad \longrightarrow \quad a^2 \\
+    &\partial_{\overline{\phi}}^2 V = \phi^2 \quad \longrightarrow \quad a^2 \\
+    &\partial_{\phi,\overline{\phi}}^2 V = 2\, \phi\, \overline{\phi} = 2\, \phi\, \overline{\phi} - a^2 \quad \longrightarrow\quad a^2
+\end{align}
+dunque abbiamo:
+\begin{equation}
+    M^2 = \begin{pmatrix}
+        a^2 & a^2 \\
+        a^2 & a^2
+    \end{pmatrix} \quad , \quad \text{det}M^2 = 0
+\end{equation}
+quindi uno degli autovalori è nullo, dunque il vuoto rompe spontaneamente la simmetria, infatti in questo caso il vuoto realizza la simmetria alla Nambu-Goto.
+
+
+\subsection{Sostituzione 1}
+
+Prendendo (\ref{eqn:5 lag con esempio rottura simm}) studiamo:
+\begin{equation}
+    \phi = \rho\, e^{i\theta}
+\end{equation}
+per cui abbiamo:
+\begin{align}
+    &\partial_\mu\phi = \left( \partial_\mu\rho + i\rho\, \partial_\mu\theta \right)\, e^{i\theta} \\
+    &\partial_\mu\phi^\dagger = \left( \partial_\mu\rho - i\rho\, \partial_\mu\theta \right)\, e^{-i\theta}
+\end{align}
+da cui:
+\begin{equation}
+    \Lag = \partial_\mu\rho\partial^\mu\rho + \rho^2\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{4!}\, (\rho^2 - a^2)^2
+\end{equation}
+il potenziale non dipende più da $\theta$ (che può essere il bosone di Goldstone) e per cui:
+\begin{equation}
+    \pdv{V}{\rho} = \frac{\lambda}{6}\, (\rho^2 - a^2)\, \rho = 0
+\end{equation}
+che implica:
+\begin{align}
+    &\langle\rho\rangle = 0 \qquad &&\text{(massimo)} \\
+    &\langle\rho\rangle = \rho_0 = \pm a \qquad &&\text{(minimo)}.
+\end{align}
+Espandendo il potenziale intorno al vuoto, ignorando l'energia di punto zero, abbiamo:
+\begin{align}
+    V(\rho) &\approx \frac{1}{2}\, \pdv[2]{V}{\rho}\, (\rho - \rho_0)^2 \\
+    &= \frac{\lambda}{6}\, a^2\, (\rho - \rho_0)^2.
+\end{align}
+Se poniamo $\xi = \rho - \rho_0$ otteniamo:
+\begin{equation}
+    \Lag = \partial_\mu\xi\partial^\mu\xi + (\xi + \rho_0)^2\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{6}\, a^2\, \xi^2 + \dots
+\end{equation}
+se trascuriamo anche i termini di accoppiamento (infatti per determinare lo spettro di massa ci bastano i termini quadratici) abbiamo che:
+\begin{equation}
+    \Lag = \partial_\mu\xi\partial^\mu\xi + \rho_0^2\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{6}\, a^2\, \xi^2 + \dots
+\end{equation}
+quindi $\theta$ è il bosone di Goldstone, mentre $\xi$ è un campo massivo. Infine, dobbiamo rinormalizzare i due campi:
+\begin{equation}
+    \xi \ \longrightarrow \ \frac{1}{\sqrt{2}}\, \xi \quad , \quad \rho_0\, \theta \ \longrightarrow\ \frac{1}{\sqrt{2}}\, \theta
+\end{equation}
+in questo modo otteniamo:
+\begin{equation}
+    \Lag = \frac{1}{2}\, \partial_\mu\xi\partial^\mu\xi + \frac{1}{2}\, \partial_\mu\theta\partial^\mu\theta - \frac{\lambda}{12}\, a^2\, \xi^2 + \dots
+\end{equation}
+
+
+\subsection{Sostituzione 2}
+
+Ripartendo da (\ref{eqn:5 lag con esempio rottura simm}), ma trasliamo rispetto al vuoto:
+\begin{equation}
+    \phi = \frac{\xi + i\theta}{\sqrt{2}} + \langle\phi\rangle \quad , \quad \langle\phi\rangle = a
+\end{equation}
+in questo modo otteniamo:
+\begin{align}
+    \Lag &= \frac{1}{2}\, \partial_\mu\xi\, \partial^\mu\xi + \frac{1}{2}\, \partial_\mu\theta\, \partial^\mu\theta - \frac{\lambda}{4\cdot 4!}\, \left( \xi^2 + \theta^2 + 2\sqrt{2}\, a\xi \right)^2 \\
+    &= \frac{1}{2}\, \partial_\mu\xi\, \partial^\mu\xi + \frac{1}{2}\, \partial_\mu\theta\, \partial^\mu\theta - \frac{\lambda}{4\cdot 4!}\, \left( \xi^4 + \theta^4 + 8\, a^2\, \xi^2 + 2\, \xi^2\, \theta^2 + 4\sqrt{2}\, a\, \xi^3 + 4\sqrt{2}\, a\, \xi\, \theta^2 \right)^2
+\end{align}
+dunque $\xi$ ha massa:
+\begin{equation}
+    m_\xi^2 = \frac{\lambda}{6}\, a^2
+\end{equation}
+mentre $\theta$ resta massless e rappresenta il bosone di Goldstone.
+
+\paragraph{Osservazione}Dopo aver fatto una traslazione rispetto al vuoto, se volessimo fare una traslazione di fase infinitesima per mantenere la lagrangiana invariante dovremmo studiare una trasformazione non lineare. \textcolor{red}{forse a lezione (21) si fa un esempio.}
+
+
+\subsection{Fotone massivo tramite Goldstone}
+
+Consideriamo la simmetria $U(1)$ (di fase) locale:
+\begin{equation}
+    \Lag = -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \left(D_\mu\phi\right)^\dagger\, \left(D^\mu\phi\right) - V(\phi\, \phi^\dagger)
+\end{equation}
+in cui abbiamo:
+\begin{equation}
+    D_\mu\phi = \left( \partial_\mu + ie\, A_\mu \right)\, \phi
+\end{equation}
+e studiamo:
+\begin{equation}
+    V(\phi\, \phi^\dagger) = \frac{\lambda}{4!}\, \left( \phi\, \phi^\dagger - a^2 \right)^2
+\end{equation}
+con $\langle\phi\rangle = \langle\phi^\dagger\rangle = a$ e $a^2>0$. Osserviamo che i gradi di libertà totali sono 4 (due dallo scalare complesso $\phi$ e due dal fotone $A$).
+
+
+\subsection{Sostituzione}
+
+Consideriamo $\phi = \rho\, e^{i\theta}$, per cui:
+\begin{align}
+    D_\mu\phi &= \Big( \partial_\mu\rho + i\rho\, \partial_\mu\theta + ie\, A_\mu\, \rho \Big)\, e^{i\theta} \\
+    &= \Big( \partial_\mu\rho + i\rho(\partial_\mu\theta + e\, A_\mu) \Big)\, e^{i\theta}
+\end{align}
+e conseguentemente:
+\begin{align}
+    \Lag &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\rho\partial^\mu\rho + \rho^2\, \left(\partial_\mu\theta + e\, A_\mu\right)^2 - \frac{\lambda}{4!}\, (\rho^2 - a^2)^2 \\
+    &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\rho\partial^\mu\rho + \rho^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, (\rho^2 - a^2)^2
+\end{align}
+in cui nell'ultimo passaggio abbiamo fatto la trasformazione di gauge:
+\begin{equation}
+    A_\mu^\prime = A_\mu + \frac{1}{e}\, \partial_\mu\theta
+\end{equation}
+in questo modo il bosone di Goldestone è stato riassorbito nel fotone che ha acquistato massa:
+\begin{equation}
+    m_A^2 = 2\, a^2\, e^2.
+\end{equation}
+Espandendo intorno al vuoto ponendo:
+\begin{equation}
+    \xi = \rho - \rho_0
+\end{equation}
+in cui:
+\begin{equation}
+    \langle\rho\rangle = \rho_0 = \pm a
+\end{equation}
+otteniamo:
+\begin{align}
+    \Lag &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\xi\partial^\mu\xi + (\xi + \rho_0)^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, \Big( (\xi + \rho_0)^2 - \rho_0^2 \Big)^2 \\
+    &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\xi\partial^\mu\xi + (\xi^2 + 2\, \rho_0\, \xi + \rho_o^2)\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, \Big[ \xi^2 + 2\, \rho_0\, \xi \Big]^2 \\
+    &= -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \partial_\mu\xi\partial^\mu\xi + \rho_0^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{6}\, \rho_0^2\, \xi^2 + \Lag_{int}
+\end{align}
+in cui poniamo:
+\begin{equation}
+    \Lag_{int} = \Big( \xi^2 + 2\rho_0\, \xi \Big)\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{4!}\, \Big[ \xi^4 + 4\rho_0\, \xi^3 \Big].
+\end{equation}
+Infine, dobbiamo rinormalizzare:
+\begin{equation}
+    \xi \quad \longrightarrow \quad \frac{1}{\sqrt{2}}\, \xi
+\end{equation}
+e sostituiamo $\rho_0^2 = a^2$, così otteniamo:
+\begin{equation}
+    \Lag = -\frac{1}{4}\, F_{\mu\nu}\, F^{\mu\nu} + \frac{1}{2}\, \partial_\mu\xi\partial^\mu\xi + a^2\, e^2\, A_\mu\, A^\mu - \frac{\lambda}{12}\, a^2\, \xi^2 + \Lag_{int}
+\end{equation}
+dunque, che sta descrivendo un campo $\xi$ reale con la stessa massa vista in precedenza:
+\begin{equation}
+    m_\xi^2 = \frac{\lambda}{6}\, a^2
+\end{equation}
+ed un campo vettoriale massivo con:
+\begin{equation}
+    M_A^2 = 2\, a^2\, e^2.
+\end{equation}
+
+\paragraph{Osservazione.}Il risultato assomiglia alla lagrangiana di Proca (i termini quadratici sono uguali, ma i termini di interazione sono diversi) ma sta volta è rinormalizzabile; la rottura spontanea della simmetria preserva i gradi di libertà e li riorganizza: un grado di libertà appartiene a $\xi$ (particella di Higgs) e 3 appartengono al bosone massivo $A$, in più la trasformazione di gauge equivale a inglobare il bosone di Goldstone dentro $A$ e in particolare la polarizzazione longitudinale di $A$ coincide con il bosone di Goldstone.
+
+\textbf{Nota.} Non si può fare un discorso analogo con il campo spinoriale perché dovremmo fissare l'invarianza per rotazione e quindi l'invarianza di Lorentz/Poincaré!
