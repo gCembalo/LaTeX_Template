@@ -77,6 +77,12 @@
 \usepackage{empheq} % To modify the equation
 \numberwithin{equation}{section} % Enumerate the equation for the section
 
+\usepackage{slashed}  % For slash operator
+\usepackage{simpler-wick} % For Wick contraction
+    % Redefinition of \wick command to make default the offset
+    \let\oldwick\wick
+    \renewcommand{\wick}[1]{\oldwick[offset=1.2em]{#1}}
+
 %---------------------------------FORMATTING---------------------------------%
 
 % You nedd "enumitem" package to use the following 3 command
