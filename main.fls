@@ -1,8 +1,8 @@
-PWD /Users/gabriele/GitHub/LaTeX_Projects/MSc_Notes/LaTeX_Template/Template
+PWD /Users/gabriele/GitHub/LaTeX_Projects/MSc_Notes/CompFQFT
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/gabriele/GitHub/LaTeX_Projects/MSc_Notes/LaTeX_Template/Template/main.tex
+INPUT /Users/gabriele/GitHub/LaTeX_Projects/MSc_Notes/CompFQFT/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/book.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/book.cls
@@ -668,6 +668,25 @@ OUTPUT Chapter/5-SM.aux
 INPUT ./Chapter/5-SM.tex
 INPUT ./Chapter/5-SM.tex
 INPUT Chapter/5-SM.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold6.tfm
+INPUT ./Figure/5-SM/validità Fermi.png
+INPUT ./Figure/5-SM/validità Fermi.png
+INPUT ./Figure/5-SM/validità Fermi.png
+INPUT ./Figure/5-SM/validità Fermi.png
+INPUT ./Figure/5-SM/validità Fermi.png
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold5.tfm
+INPUT ./Figure/5-SM/decadimento muone.png
+INPUT ./Figure/5-SM/decadimento muone.png
+INPUT ./Figure/5-SM/decadimento muone.png
+INPUT ./Figure/5-SM/decadimento muone.png
+INPUT ./Figure/5-SM/decadimento muone.png
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bbold/bbold9.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm
 INPUT main.aux
 INPUT ./Chapter/Title page/Title page.aux
 INPUT ./Chapter/Title page/Title page.aux
@@ -694,6 +713,7 @@ INPUT ./main.out
 INPUT ./main.out
 INPUT main.run.xml
 OUTPUT main.run.xml
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -709,6 +729,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb

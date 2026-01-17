@@ -29,4 +29,29 @@
 \contentsline {section}{\numberline {5.4}Fotone massivo tramite Goldstone}{46}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}Sostituzione}{47}{subsection.5.4.1}%
 \contentsline {paragraph}{Osservazione.}{48}{section*.11}%
-\contentsline {chapter}{Bibliography}{49}{section*.12}%
+\contentsline {section}{\numberline {5.5}La lagrangiana di Fermi}{48}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Validità della teoria di Fermi}{50}{subsection.5.5.1}%
+\contentsline {section}{\numberline {5.6}Termini cinetici di Yang-Mills rispetto ad generatori}{53}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Trasformazione di carica e di parità}{54}{section.5.7}%
+\contentsline {paragraph}{Spinore chiriale.}{55}{section*.13}%
+\contentsline {paragraph}{Scalare complesso.}{55}{section*.14}%
+\contentsline {paragraph}{Bosone vettore neutro.}{55}{section*.15}%
+\contentsline {paragraph}{Bosone vettore carico}{55}{section*.16}%
+\contentsline {paragraph}{Invarianza della parte leptonica sotto CP.}{56}{section*.17}%
+\contentsline {subsection}{\numberline {5.7.1}Decadimento del muone}{58}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Bosoni fisici e costanti di accoppiamento}{59}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Numeri quantici e campi}{62}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}Lagrangiana massless dei leptoni}{63}{subsection.5.7.4}%
+\contentsline {paragraph}{Annotazioni.}{64}{section*.20}%
+\contentsline {section}{\numberline {5.8}Settore di Higgs}{65}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Rottura della simmetria tramite Higgs}{66}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Calcolo del potenziale}{68}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Calcolo della derivata covariante}{68}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}Lagrangiana di Higgs e masse dei bosoni vettori}{70}{subsection.5.8.4}%
+\contentsline {section}{\numberline {5.9}Lagrangiana di Yang-Mills-Higgs}{70}{section.5.9}%
+\contentsline {paragraph}{Osservazione.}{71}{section*.21}%
+\contentsline {section}{\numberline {5.10}Masse dei leptoni tramite Higgs}{72}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Adroni e quark}{72}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Nota sulle costanti di accoppiamento}{74}{subsection.5.11.1}%
+\contentsline {section}{\numberline {5.12}Mixing dei quark}{75}{section.5.12}%
+\contentsline {chapter}{Bibliography}{81}{section*.22}%
