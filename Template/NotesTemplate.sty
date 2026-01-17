@@ -76,12 +76,6 @@
 \usepackage{bm} % For bold math
 \usepackage{empheq} % To modify the equation
 \numberwithin{equation}{section} % Enumerate the equation for the section
-\usepackage{slashed}  % For slash operator
-
-\usepackage{simpler-wick} %contrazioni di Wick
-%ridefinisco il comando di \wick , in modo da rendere di default l'offset
-\let\oldwick\wick
-\renewcommand{\wick}[1]{\oldwick[offset=1.2em]{#1}}
 
 \usepackage{slashed}  % For slash operator
 \usepackage{simpler-wick} % For Wick contraction
@@ -213,8 +207,8 @@
 \newcommand{\ms}{Meccanica Statistica}
 \newcommand{\su}{\uparrow} % spin up
 \newcommand{\sd}{\downarrow} % spin down
-%\newcommand{\Lag}{$\mathcal{L}$} % Lagrangian density
-%\newcommand{\Ham}{$\mathcal{H}$} % Hamiltonian density
+\newcommand{\Lag}{$\mathcal{L}$} % Lagrangian density
+\newcommand{\Ham}{$\mathcal{H}$} % Hamiltonian density
 
 \newcommand\mbf[1]{\mathbf{#1}} % mathbf shorts'
 
@@ -222,8 +216,6 @@
 \newtheorem{teorema}{Teorema}
 %\theoremstyle{definition}
 \newtheorem{definition}{Definizione}
-
-\newcommand{\VEV}[3]{\bra{#1}#2\ket{#3}}
 
 %----------------------------SOME PROBLEM FIXED----------------------------%
 
