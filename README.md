@@ -14,6 +14,6 @@ In the template you'll find:
 - `Bibliography.bib`
   
 ## Usage
-1. Open the `main.typ` file
+1. Open the `main.tex` file
 2. Customize the configuration following all the instruction.
 3. Write your own `.tex` file and compile.
