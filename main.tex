@@ -10,17 +10,27 @@
 % inside the "Figure" folder you should obviously place all the figures used 
 % in the document. If the document is particularly long,
 % I recommend organizing the figures into subfolders named after the 
-% corresponding .tex file. The file "Bibliography.bib" is clearly the 
-% bibliography of the document (I use biblatex), and the last important 
-% file is "NotesTemplate.sty", which can be seen as the complete list of 
+% corresponding .tex file; in the "Diagram" folder there are the code for
+% figure created with the package tikzpicture, i.e. Feynman diagrams. 
+% See the command \diagram in "NotesTemplate.sty" to see how it works.
+% It's covenient separate the figure from tikzpicture from the document
+% because they are preatty heavy, and it can be affect the compilation
+% time. The file "Bibliography.bib" is clearly the bibliography of the
+% document (I use biblatex). The last important file is 
+% "NotesTemplate.sty", which can be seen as the complete list of 
 % packages (organized by theme) and commands that I usually use, or that are
 % generally useful for writing a scientific document.
 
+% In 0-Preface.tex file there is, obviously, the document's preface. You
+% don't need to modify it, it containg just the essential information
+% and it's automatically filled by the standard setting that you give
+% in this document (main).
+
 % Note that inside the "Chapter" folder there is also "Title page", which
-% of course contains the code for the title page. This folder also contains 
-% an image. The file "00-Legal Info.tex" is used to store (and print) the 
-% legal protection information regarding the distribution of the notes.
-% An Italian version is also available.
+% of course contains the code for the title page. I organized the main.tex
+% in a way that you can never fell the necessity to open that file.
+% Anyway, this folder also contains an image, so you need to upload yours
+% in the folder, and put its path in the following command \poster. 
 
 % The template is organized so that you write the various chapters separately 
 % and then include them in the main file using the command \input{...}, 
@@ -30,12 +40,9 @@
 % When you decide to use this template, you need to know which parts to
 % modify before starting to write your text:
 % 
-% main.tex : \title{} , \author{} , \date{} , \epigraph{quotation}
+% main.tex : all the information in "SETTING" section
 % Bibliography.bib : your reference texts
-% Title page.tex : Figure
-% 00-Legal Info.tex : Course , Professor
-% 0-Preface.tex : Course , Professor , academic year , write the 
-% appropriate description , "last update"
+% Title page folder : Figure
 
 %-------------------------------------------------------------------------%
 
@@ -43,23 +50,46 @@
 
 \usepackage{NotesTemplate} % Import my template
 
+%---------------------------------SETTINGS--------------------------------%
+
+% Personal information
+\author{\large{Gabriele Cembalo}}
+\newcommand{\mymail}{gabiele.cembalo02@gmail.com}
+\newcommand{\personalpage}{\href{https://gCembalo.github.io}{gCembalo.github.io}}
+
+% Course information
+\newcommand{\course}{COURSE}
+\newcommand{\professor}{Name Surname}
+\newcommand{\academicyear}{2025-2026}
+
+% Academic information
+\newcommand{\university}{University of Turin}
+\newcommand{\department}{Physics department}
+\newcommand{\departmentaddress}{Via Giuria, 1, Torino (TO)}
+
+% Formatting information
+\newcommand{\poster}{Chapter/Title page/Dirac.JPG} % For title page
+\renewcommand{\cite}{It is more important to have beauty in one's equations than to have them fit experiment.}
+\renewcommand{\citeauthor}{P. A. M. Dirac}
+
+% You don't need to modify this command
+\newcommand{\lastupdate}{\twodigits{\day}/\twodigits{\month}/\number\year}
+
+
 %---------------------------------DOCUMENT--------------------------------%
 
-%\title{\Large Appunti del corso di: \\ \vspace{5pt} \huge \textbf{CORSO}}
-\title{\Large Notes from the course on: \\ \vspace{5pt} \huge \textbf{COURSE}}
-\author{\large{Gabriele Cembalo}}
-\date{A.A. 2025-2026}
+%\title{\Large Appunti del corso di: \\ \vspace{5pt} \huge \textbf{\Course}}
+\title{\Large Notes from the course on: \\ \vspace{5pt} \huge \textbf{\course}}
+\date{A.A. \academicyear}
 
 \begin{document}
 
 \pagenumbering{gobble}
 \include{Chapter/Title page/Title page}
-\newpage
+\whitepage
+
 \nostyle
-\input{Chapter/00-Legal Info.tex} %% LEGAL PART
-                                  %% DO NOT DELETE, IT CONTAINS COPYRIGHT
-\nostyle
-\epigraph{It is more important to have beauty in one's equations than to have them fit experiment.}{P. A. M. Dirac}
+\epigraph{\cite}{\citeauthor}
 \whitepage % White page (you don't need it if you write oneside document)
 
 \pagenumbering{roman}
@@ -67,15 +97,12 @@
 \include{Chapter/0-Preface}
 
 \tableofcontents
-%\listoffigures
-\newpage
-
-\whitepage % White page (you don't need it if you write oneside document)
 
 \pagenumbering{arabic}
 
 \include{Chapter/1-Introduction}
 
+% Uncomment these command to add the Appendix
 %\addcontentsline{toc}{part}{\hspace*{\fill}Appendici\hspace*{\fill}}
 %\part*{Appendici}
 

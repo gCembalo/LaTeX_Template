@@ -57,12 +57,17 @@
                  left=6pt, right=6pt, top=6pt, bottom=6pt, fontupper=\itshape,
                }
 }
-%You have to write:
+% You have to write:
 %
 %\begin{tcolorbox}[mybox, breakable]
 %\end{tcolorbox}
 %
 %%%%%%%%%%%
+
+% To mofify the date format
+\makeatletter
+\newcommand{\twodigits}[1]{\ifnum#1<10 0\fi\the#1}
+\makeatother
 
 %------------------------------------MATH------------------------------------%
 
@@ -200,11 +205,16 @@
 \DeclareSIUnit{\barn}{b}
 
 % Some short command for physics
-\newcommand{\qft}{Teoria Quantistica dei Campi}
-\newcommand{\rs}{Relatività Speciale}
-\newcommand{\rg}{Relatività Generale}
-\newcommand{\mq}{Meccanica Quantistica}
-\newcommand{\ms}{Meccanica Statistica}
+%\newcommand{\qft}{Teoria Quantistica dei Campi}
+%\newcommand{\rs}{Relatività Speciale}
+%\newcommand{\rg}{Relatività Generale}
+%\newcommand{\mq}{Meccanica Quantistica}
+%\newcommand{\ms}{Meccanica Statistica}
+\newcommand{\qft}{Quantum Field Theory}
+\newcommand{\sr}{Special Relativity}
+\newcommand{\gr}{General Relativity}
+\newcommand{\qm}{Quantum Mechanics}
+\newcommand{\sm}{Statistical Mechanics}
 \newcommand{\su}{\uparrow} % spin up
 \newcommand{\sd}{\downarrow} % spin down
 \newcommand{\Lag}{$\mathcal{L}$} % Lagrangian density
@@ -216,6 +226,9 @@
 \newtheorem{teorema}{Teorema}
 %\theoremstyle{definition}
 \newtheorem{definition}{Definizione}
+
+% Diagram to draw
+\newcommand\diagr[1]{\vcenter{\hbox{\includegraphics{Diagrams/#1/#1}}}}
 
 %----------------------------SOME PROBLEM FIXED----------------------------%
 
